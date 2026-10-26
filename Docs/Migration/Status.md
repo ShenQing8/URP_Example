@@ -5,17 +5,28 @@
 ## 当前摘要
 
 - **当前阶段**：实施 B／阶段 2、3、4 完成（Windows Editor／Direct3D 12 联合验收）。详细实现、真实证据、失败纠正与限制见 [Phase234.md](Phase234.md)。不等于整体迁移完成。
-- **当前授权**：2026-10-27 用户批准阶段 2～4 联合实现、修复、验证和本地提交；本轮到此结束，不推送、不自动进入阶段 5。
+- **当前授权**：本轮仅复核阶段 2～4 交接并编写中文 README，不包含阶段 5 实施或新增 Git 提交；阶段 2～4 的历史实现／验证授权已执行完毕。阶段 5 仍待单独授权。
 - **目标／源**：`E:\GithubRepositories\URP_Example`；只读源 `E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res`。源 88 文件、master／HEAD 及四项既有改动均保留；33 个迁入原 meta 保留。
 - **实际版本**：Unity 6000.6.3f1 (45d8eee7de74)，URP／Core／Shader Graph 17.6.0；ProjectVersion、manifest、lock 与已安装包相符。
 - **分支／接手 HEAD**：`codex/urp6-migration`；`8d23a576e5274bd6563036c1d82b82c2cf0aff24`，已核实阶段 1 交接提交；接手工作区干净。阶段 0 提交为 `8350698ed22734ede4ddf59533479e60796241bd`。
 - **结果**：CPU Cell→Compute Append→CopyCount→RenderMeshIndirect 真实数据链通过；边界、合批、ID 参考集、10M 容量、两管线光照／风／SH／雾／纹理、构建资源实际加载、R8 四轨迹／5.204 秒恢复、深度法线／SSAO、8 相机位／Overlay／层掩码均有实际证据。
 - **构建边界**：阶段 3 的窄 Shader／Compute 资源包已按 Windows DX12／DX11 实际编译并在 DX12 加载验证；未执行阶段 6 的 Player 构建。DX11 未切设备运行，Android／Vulkan／Metal／XR 未验证。
-- **编辑器**：复用 PID 46016／NVIDIA RTX 4060 Laptop GPU；已退出 Play 并恢复 SampleScene，未新增并发编辑器，源项目未打开。
+- **编辑器历史交接**：阶段 2～4 复用 PID 46016／NVIDIA RTX 4060 Laptop GPU，结束时已退出 Play 并恢复 SampleScene，未新增并发编辑器，源项目未打开。本轮未操作编辑器，后续实施时重新核对实际会话与项目锁。
 - **保护与范围**：最初目标 70 文件中 68 个原字节不变，仅两个现代 Renderer 接线／序列化升级；Packages／ProjectSettings 保持。新增验证辅助仅在 Editor 执行；原 FPS／字体、Lit 升级外观与 GI 问题未删除或绕过。
 - **证据**：小体积输出、GPU、编译与图摘要见 [Phase234.md](Phase234.md)；完整日志／截图／资源包在 `Logs/MigrationPhase234-20261027`，不提交大产物。
-- **提交／工作区**：本轮仅本任务文件本地提交；包含本文的提交可用 `git log -1 -- Docs/Migration/Status.md` 定位。实际 SHA 与提交后状态在最终答复给出，下一阶段接手时补记，避免自引用哈希。
+- **核心迁移提交／本轮工作区**：已核验 `b22b027790e627a80a02e48a110feed605842448` 为阶段 2～4 交接提交。本轮仅 README.md 与 Status.md 文档改动，保留未提交；不推送，下一阶段接手时保留这些改动。
 - **下一步**：等待阶段 5 单独授权，处理 FPS／字体、两个 Lit 材质自动升级差异和 GI／烘焙；完整 Player、Profiler、设备与长期稳定性仍为阶段 6。
+
+### 阶段 2～4 交接复核与中文 README（2026-10-27）
+
+- 本轮用户授权为复核阶段 2～4 的交接和相关文档，通过后编写中文 README；不包含阶段 5 实施。本轮没有启动 Unity 或重跑核心验证，也不把历史测试当作本轮新测试。
+- 已核验核心迁移提交 `b22b027790e627a80a02e48a110feed605842448`，分支为 codex/urp6-migration，接手工作区干净。与阶段 1 比较为 40 个文件改动；检查阶段报告、关键 C#／Compute／Shader／RenderGraph 接线及后续阶段边界，未发现阻挡进入阶段 5 的交接问题。
+- 独立读取并重算 Checks 中 13 份本地原始测试输出的 SHA-256，全部匹配；PC／Mobile 两份最终 Main Camera 图原始 JSON 的摘要均匹配；82,750 字节 Shader 资源包的 SHA-256 与交接一致。图中弯曲、补充深度／法线、SSAO、Opaque 顺序及消费者依赖与报告相符，Mobile 没有新增法线预通道。
+- 源 88 文件清单摘要仍为阶段 0 基线；33 个原迁入 meta 哈希不变。核对目标最初 70 文件相对初始提交的逻辑内容，变化仅为已记录的 PC／Mobile Renderer；版本、Packages 和 ProjectSettings 保持。28 处既有迁移文档本地链接均有效。
+- 根目录原无 README.md；本轮新建中文项目说明，覆盖环境、启动场景、IMGUI 操作、渲染数据链、代码入口、实际验证范围、阶段 5／6 待办及原示例许可。保留第三方 SourceREADME.md 和 LICENSE.txt，不用新说明覆盖上游归档。
+- 文档校验通过：README／Status 共 27 处本地链接可解析，代码围栏与行尾空白检查通过，git diff --check 通过；实际写入范围仅 README 新文件和 Status 修改。未新增运行测试结果。
+- 本轮文档改动为 README.md 与本 Status.md；未修改功能代码、Assets、Packages 或 ProjectSettings，不新增 Git 提交或推送。接手提交仍为 b22b027，下一阶段需识别并保留这两份文档的未提交改动，在获准的提交范围内处理。
+- 当前复核结论是“可按计划进入阶段 5”，不是整体迁移完成；FPS／字体、Lit 外观和 GI／烘焙仍未恢复或验收，完整 Player／设备与长期性能测试仍为阶段 6。下一对话继续使用下方阶段 5 入口，核对实际 HEAD，并在阶段 5 完成后同步 README 的状态与限制。
 
 ## 阶段总表
 
