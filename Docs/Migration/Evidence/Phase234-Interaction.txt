@@ -1,0 +1,30 @@
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\80-interaction-final.txt ===
+2026-10-27T02:39:56.5090074+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+80-interaction-final-empty: red min=1.00000 max=1.00000 nonwhite=0
+80-interaction-final-actor0: red min=0.00000 max=1.00000 nonwhite=798
+Actor 0 newest world=(38.46, -0.30, -5.77) expected texel=(288,222) local red min=0.0000 lifetime=5 points=281
+80-interaction-final-actor1: red min=0.00000 max=1.00000 nonwhite=798
+Actor 1 newest world=(37.94, -0.30, 42.27) expected texel=(288,271) local red min=0.0000 lifetime=5 points=281
+80-interaction-final-actor2: red min=0.00000 max=1.00000 nonwhite=792
+Actor 2 newest world=(22.97, -0.30, 2.43) expected texel=(273,230) local red min=0.0000 lifetime=5 points=281
+80-interaction-final-actor3: red min=0.00000 max=1.00000 nonwhite=796
+Actor 3 newest world=(17.75, -0.30, 3.41) expected texel=(267,231) local red min=0.0000 lifetime=5 points=281
+80-interaction-final-all: red min=0.00000 max=1.00000 nonwhite=2667
+80-interaction-final-offscreen-second-camera: red min=0.00000 max=1.00000 nonwhite=2667
+Opposite-view camera produces same track pixels; visible/args buffer identities are isolated PASS
+Overlap and 5-second lifetime recovery scheduled after a real engine frame; separate reports follow.
+COMMAND PASS
+
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\80-interaction-final-overlap.txt ===
+80-interaction-final-overlap-single: red min=0.49804 max=1.00000 nonwhite=576
+80-interaction-final-overlap-double: red min=0.24706 max=1.00000 nonwhite=576
+Overlap single=0.49804 double=0.24706 expected product=0.24804; real elapsed=0.333s
+OVERLAP PASS
+80-interaction-final-above-interaction-slab: red min=1.00000 max=1.00000 nonwhite=0
+Original vertical interaction slab exclusion PASS
+Original four trails stopped emitting; real lifetime recovery begins now.
+
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\80-interaction-final-recovery.txt ===
+2026-10-27T02:40:02.0291658+08:00 actual Play elapsed=5.204s
+80-interaction-final-recovered: red min=1.00000 max=1.00000 nonwhite=0
+RECOVERY PASS

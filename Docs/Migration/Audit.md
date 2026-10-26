@@ -103,12 +103,14 @@ LightingData.asset 为 v21 二进制序列化文件，文件头记录 2019.4.3f1
 | --- | --- | --- |
 | Color Space | Linear | Linear |
 | Renderer | 旧 Forward，含弯曲 Feature | PC m_RenderingMode=2 为 Forward+，含 SSAO；Mobile=0 为 Forward |
-| HDR／Render Scale | 关闭／0.8 | 开启／1 |
+| HDR／Render Scale | 关闭／0.8 | 开启；PC=1、Mobile=0.8 |
 | 阴影距离 | 200 | PC、Mobile 均为 50 |
 | Depth／Opaque Texture | 关闭 | PC 开启，Mobile 关闭 |
 | 默认场景 | 草地 scene | 模板 SampleScene |
 
 目标 GraphicsSettings 的默认管线为空，但 QualitySettings 的 PC／Mobile 覆盖分别指向现代 RPAsset。迁移时检查有效链路与 fallback，不因默认字段为空就误判项目没有 URP。保留 PC Forward+、Mobile Forward 和目标模板功能，显式记录需要调整的画质参数；不通过关闭 SSAO、附加光或阴影掩盖适配缺失。
+
+2026-10-27 阶段 2～4 核对修正：目标原始 Mobile Render Scale 为 0.8（阶段 1 交接 HEAD 的 `Assets/Settings/Mobile_RPAsset.asset`），PC 为 1；两者 HDR 均开启、MSAA 均为 1。此前表格将目标 Render Scale 统一写成 1 不准确。当前迁移保持这两个原始比例；实际叠加相机缩放对照见 Phase234.md。
 
 ## 6. API 迁移与官方依据
 

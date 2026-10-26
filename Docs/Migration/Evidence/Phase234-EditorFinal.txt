@@ -1,0 +1,11 @@
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\95-restore-editor.txt ===
+2026-10-27T03:01:31.8561097+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Restored Assets/Scenes/SampleScene.unity
+COMMAND PASS
+
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\96-final-shaders.txt ===
+2026-10-27T03:02:28.0301705+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Shader MobileDrawMeshInstancedIndirect/SingleGrass supported=True
+Shader URPMobileGrassInstancedIndirectDemo/GrassBendingRTPrePassPS supported=True
+Shader URPMobileGrassInstancedIndirectDemo/SkyBox supported=True
+COMMAND PASS

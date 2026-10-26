@@ -1,0 +1,98 @@
+{
+  "checked_at": "2026-10-27T03:06:27.406998+08:00",
+  "root": "E:\\GithubRepositories\\URP_Example",
+  "branch": "codex/urp6-migration",
+  "phase1_head": "8d23a576e5274bd6563036c1d82b82c2cf0aff24",
+  "source_head": "cd9f9be6296e21ec7c49b678c3d4cce8c7bc64cd",
+  "source_branch": "master",
+  "source_status": "M Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrass.mat\n M Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/GrassGround.mat\n M Packages/packages-lock.json\n M ProjectSettings/QualitySettings.asset",
+  "source_files_unchanged": 88,
+  "protected_target_total": 70,
+  "protected_target_changed_expected": [
+    "Assets/Settings/Mobile_Renderer.asset",
+    "Assets/Settings/PC_Renderer.asset"
+  ],
+  "packages_projectsettings_unchanged": true,
+  "versions": {
+    "com.unity.render-pipelines.universal": {
+      "lock": "17.6.0",
+      "installed": "17.6.0",
+      "package": "Library\\PackageCache\\com.unity.render-pipelines.universal@327d93d1cbc8\\package.json"
+    },
+    "com.unity.render-pipelines.core": {
+      "lock": "17.6.0",
+      "installed": "17.6.0",
+      "package": "Library\\PackageCache\\com.unity.render-pipelines.core@02d75770e4b3\\package.json"
+    },
+    "com.unity.shadergraph": {
+      "lock": "17.6.0",
+      "installed": "17.6.0",
+      "package": "Library\\PackageCache\\com.unity.shadergraph@1dd0fd24b57e\\package.json"
+    }
+  },
+  "asset_guid_count": 64,
+  "missing_meta": [],
+  "duplicate_guids": [],
+  "package_guid_collisions": [],
+  "original_migrated_meta_unchanged": 33,
+  "custom_grass_saved_shader_values_unchanged": true,
+  "unity_assemblies": {
+    "Assembly-CSharp-Editor.dll": "2026-10-27T03:01:25.116397+08:00",
+    "Assembly-CSharp.dll": "2026-10-27T02:37:22.503364+08:00"
+  },
+  "tests": {
+    "10-gpu-oracle": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\10-gpu-oracle.txt",
+      "sha256": "b58aa6ba53a59679811db2a7b965ba8e24d2877697c04512961944a11dfa8c9f"
+    },
+    "11-capacity": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\11-capacity.txt",
+      "sha256": "2d4cf4fd74e3e714e84593237002ad279cbb4a937ba7a37218476c9ca2a6d10c"
+    },
+    "80-interaction-final": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\80-interaction-final.txt",
+      "sha256": "380a3b1cf60d40573415dd5c4c2c29af57c75aa665d90e6750dc3d7a4ae974b4"
+    },
+    "80-interaction-final-overlap": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\80-interaction-final-overlap.txt",
+      "sha256": "cdd0db2638deaa82a3cc6ec10e064b577fc08fc049ad29d98fc756478f786f88"
+    },
+    "80-interaction-final-recovery": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\80-interaction-final-recovery.txt",
+      "sha256": "fd039249ac8a112bcaed5189023cfbf1618e5e25a27bab7643eca2498c48a71d"
+    },
+    "69-Mobile-cameras": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\69-Mobile-cameras.txt",
+      "sha256": "5f9d86384aaae872e002dc709538cef5ee1ac6f92ae60df4ccfd496c700963cd"
+    },
+    "74-PC-cameras-final": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\74-PC-cameras-final.txt",
+      "sha256": "8ace0a5de92c4af0ba1e768efb380596007fbbc5e435dc8dc7d60639b8be1e00"
+    },
+    "70-Mobile-appearance": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\70-Mobile-appearance.txt",
+      "sha256": "0377feeaa13678c3b0e967cd6612ea68c8fef08cee59d835a29eb6c4c11d4846"
+    },
+    "89-Mobile-render-final": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\89-Mobile-render-final.txt",
+      "sha256": "663eaab709b04634507d8ae37ee0bd56c0dab68b02e3700e5d46b44b536e14a8"
+    },
+    "86-PC-bundle-final": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\86-PC-bundle-final.txt",
+      "sha256": "a7d47f709e6e3eea4e0642e5fa14e6f2c00dae140e481ba48db51e893c8f2050"
+    },
+    "48-shaderbundle": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\48-shaderbundle.txt",
+      "sha256": "30efc606e737d835cadead77cfaf6366d514415b0b22546eff1c868693e362ec"
+    },
+    "95-restore-editor": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\95-restore-editor.txt",
+      "sha256": "f6cefffdf799fddfe29ca8ab57127f3364cfd24f47bb49dadd2cbc3e05233f42"
+    },
+    "96-final-shaders": {
+      "path": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\96-final-shaders.txt",
+      "sha256": "65b0555c2cd63e53806acea3b2d16d703039ec8695c0bdb16f79096fb88ae3ce"
+    }
+  },
+  "bundle_sha256": "3bb69e29212776f598b195da7bf2cf19077acf27d231fb9016ef8b1e33384b26"
+}

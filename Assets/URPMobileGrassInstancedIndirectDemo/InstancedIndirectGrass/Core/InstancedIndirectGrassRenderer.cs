@@ -1,314 +1,212 @@
-﻿//see this for ref: https://docs.unity3d.com/ScriptReference/Graphics.DrawMeshInstancedIndirect.html
-
 using System;
 using System.Collections.Generic;
-using Unity.Collections;
-using Unity.Jobs;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Profiling;
+using UnityEngine.Rendering;
 
 [ExecuteAlways]
 public class InstancedIndirectGrassRenderer : MonoBehaviour
 {
-    [Header("Settings")]
-    public float drawDistance = 125;//this setting will affect performance a lot!
+    public float drawDistance = 125;
     public Material instanceMaterial;
-
-    [Header("Internal")]
     public ComputeShader cullingComputeShader;
-
-    [NonSerialized]
-    public List<Vector3> allGrassPos = new List<Vector3>();//user should update this list using C#
-    //=====================================================
-    [HideInInspector]   
-    public static InstancedIndirectGrassRenderer instance;// global ref to this script
-
-    private int cellCountX = -1;
-    private int cellCountZ = -1;
-    private int dispatchCount = -1;
-
-    //smaller the number, CPU needs more time, but GPU is faster
-    private float cellSizeX = 10; //unity unit (m)
-    private float cellSizeZ = 10; //unity unit (m)
-
-    private int instanceCountCache = -1;
-    private Mesh cachedGrassMesh;
-
-    private ComputeBuffer allInstancesPosWSBuffer;
-    private ComputeBuffer visibleInstancesOnlyPosWSIDBuffer;
-    private ComputeBuffer argsBuffer;
-
-    private List<Vector3>[] cellPosWSsList; //for binning: binning will put each posWS into correct cell
-    private float minX, minZ, maxX, maxZ;
-    private List<int> visibleCellIDList = new List<int>();
-    private Plane[] cameraFrustumPlanes = new Plane[6];
-
-    bool shouldBatchDispatch = true;
-    //=====================================================
-
-    private void OnEnable()
+    [NonSerialized] public List<Vector3> allGrassPos = new List<Vector3>();
+    public static InstancedIndirectGrassRenderer instance;
+    public bool shouldBatchDispatch = true;
+    // Positions are world space. In-place edits require MarkPositionsDirty, including same-count edits.
+    public void SetPositions(List<Vector3> positions) { allGrassPos = positions ?? new List<Vector3>(); MarkPositionsDirty(); }
+    public void MarkPositionsDirty() { dirty = true; }
+    public sealed class CameraBuffers : IDisposable
     {
-        instance = this; // assign global ref using this script
+        public GraphicsBuffer visible, args;
+        public readonly MaterialPropertyBlock properties = new MaterialPropertyBlock();
+        public int visibleCells, dispatches;
+        public void Dispose() { visible?.Dispose(); args?.Dispose(); visible = args = null; }
     }
-
-    void LateUpdate()
+    readonly Dictionary<Camera, CameraBuffers> cameras = new Dictionary<Camera, CameraBuffers>();
+    readonly List<Camera> deadCameras = new List<Camera>();
+    readonly List<int> visibleCells = new List<int>();
+    readonly Plane[] planes = new Plane[6];
+    readonly Vector4[] planeVectors = new Vector4[6];
+    GraphicsBuffer positionsBuffer;
+    List<Vector3> uploadedList;
+    int uploadedCount = -1;
+    bool dirty = true;
+    int[] offsets = Array.Empty<int>();
+    Bounds[] cells = Array.Empty<Bounds>();
+    Bounds positionBounds;
+    Mesh mesh;
+    int lastVisibleCells, lastDispatches;
+    static readonly int InstanceCountOffset = FindInstanceCountOffset();
+    static int FindInstanceCountOffset()
     {
-        // recreate all buffers if needed
-        UpdateAllInstanceTransformBufferIfNeeded();
-
-        //=====================================================================================================
-        // rough quick big cell frustum culling in CPU first
-        //=====================================================================================================
-        visibleCellIDList.Clear();//fill in this cell ID list using CPU frustum culling first
-        Camera cam = Camera.main;
-
-        //Do frustum culling using per cell bound
-        //https://docs.unity3d.com/ScriptReference/GeometryUtility.CalculateFrustumPlanes.html
-        //https://docs.unity3d.com/ScriptReference/GeometryUtility.TestPlanesAABB.html
-        float cameraOriginalFarPlane = cam.farClipPlane;
-        cam.farClipPlane = drawDistance;//allow drawDistance control    
-        GeometryUtility.CalculateFrustumPlanes(cam, cameraFrustumPlanes);//Ordering: [0] = Left, [1] = Right, [2] = Down, [3] = Up, [4] = Near, [5] = Far
-        cam.farClipPlane = cameraOriginalFarPlane;//revert far plane edit
-
-        //slow loop
-        //TODO: (A)replace this forloop by a quadtree test?
-        //TODO: (B)convert this forloop to job+burst? (UnityException: TestPlanesAABB can only be called from the main thread.)
-        Profiler.BeginSample("CPU cell frustum culling (heavy)");
-        
-        for (int i = 0; i < cellPosWSsList.Length; i++)
+        // In 6000.6 the public members are properties, not marshalable fields. Probe the official
+        // structure layout rather than assume a five-uint layout on every supported backend.
+        int size = Marshal.SizeOf<GraphicsBuffer.IndirectDrawIndexedArgs>();
+        if (size != GraphicsBuffer.IndirectDrawIndexedArgs.size) throw new NotSupportedException("Unexpected indirect argument layout");
+        var memory = Marshal.AllocHGlobal(size);
+        try {
+            const uint marker = 0x12345678;
+            Marshal.StructureToPtr(new GraphicsBuffer.IndirectDrawIndexedArgs { instanceCount = marker }, memory, false);
+            for (int offset = 0; offset < size; offset += sizeof(uint))
+                if (Marshal.ReadInt32(memory, offset) == marker) return offset;
+            throw new NotSupportedException("Cannot locate indirect instanceCount");
+        } finally { Marshal.FreeHGlobal(memory); }
+    }
+    public GraphicsBuffer PositionsBuffer => positionsBuffer;
+    public bool TryGetCameraBuffers(Camera camera, out CameraBuffers buffers)
+    {
+        buffers = null;
+        return isActiveAndEnabled && camera && instanceMaterial && cullingComputeShader && positionsBuffer != null &&
+            (camera.cullingMask & (1 << gameObject.layer)) != 0 && cameras.TryGetValue(camera, out buffers);
+    }
+    public Mesh GrassMesh => mesh;
+    public Bounds PositionBounds => positionBounds;
+    public Vector4 BendingArea => new Vector4(positionBounds.center.x, positionBounds.center.z, Mathf.Max(positionBounds.size.x, 1), Mathf.Max(positionBounds.size.z, 1));
+    void OnEnable()
+    {
+        instance = this;
+        dirty = true;
+        RenderPipelineManager.beginCameraRendering += BeginCamera;
+    }
+    void BeginCamera(ScriptableRenderContext context, Camera camera)
+    {
+        Shader.SetGlobalFloat("_GrassBendingEnabled", 0);
+        if (camera.cameraType == CameraType.Preview || (camera.cullingMask & (1 << gameObject.layer)) == 0) return;
+        if (camera.TryGetComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>(out var data) && data.renderType == UnityEngine.Rendering.Universal.CameraRenderType.Overlay) return;
+        if (!Prepare(camera, out var buffers)) return;
+        var bounds = positionBounds;
+        bounds.Expand(DeformationRadius(camera) * 2);
+        var rp = new RenderParams(instanceMaterial) { camera = camera, layer = gameObject.layer, worldBounds = bounds, matProps = buffers.properties, shadowCastingMode = ShadowCastingMode.Off, receiveShadows = true, lightProbeUsage = LightProbeUsage.BlendProbes };
+        Graphics.RenderMeshIndirect(in rp, mesh, buffers.args);
+    }
+    // Shared with the graph depth consumer and Editor validation. Only GPU CopyCount writes instanceCount.
+    public bool Prepare(Camera camera, out CameraBuffers buffers)
+    {
+        buffers = null;
+        if (!isActiveAndEnabled || !camera || !instanceMaterial || !cullingComputeShader || !SystemInfo.supportsComputeShaders || !SystemInfo.supportsInstancing) return false;
+        EnsurePositions();
+        if (positionsBuffer == null) return false;
+        if (!cameras.TryGetValue(camera, out buffers))
         {
-            //create cell bound
-            Vector3 centerPosWS = new Vector3 (i % cellCountX + 0.5f, 0, i / cellCountX + 0.5f);
-            centerPosWS.x = Mathf.Lerp(minX, maxX, centerPosWS.x / cellCountX);
-            centerPosWS.z = Mathf.Lerp(minZ, maxZ, centerPosWS.z / cellCountZ);
-            Vector3 sizeWS = new Vector3(Mathf.Abs(maxX - minX) / cellCountX,0,Mathf.Abs(maxX - minX) / cellCountX);
-            Bounds cellBound = new Bounds(centerPosWS, sizeWS);
-
-            if (GeometryUtility.TestPlanesAABB(cameraFrustumPlanes, cellBound))
-            {
-                visibleCellIDList.Add(i);
-            }
+            buffers = new CameraBuffers {
+                visible = new GraphicsBuffer(GraphicsBuffer.Target.Append, uploadedCount, sizeof(uint)),
+                args = new GraphicsBuffer(GraphicsBuffer.Target.IndirectArguments, 1, GraphicsBuffer.IndirectDrawIndexedArgs.size)
+            };
+            buffers.args.SetData(new[] { new GraphicsBuffer.IndirectDrawIndexedArgs { indexCountPerInstance = mesh.GetIndexCount(0), instanceCount = 0, startIndex = mesh.GetIndexStart(0), baseVertexIndex = mesh.GetBaseVertex(0), startInstance = 0 } });
+            cameras.Add(camera, buffers);
+        }
+        deadCameras.Clear();
+        foreach (var pair in cameras) if (!pair.Key) { pair.Value.Dispose(); deadCameras.Add(pair.Key); }
+        foreach (var key in deadCameras) cameras.Remove(key);
+        float radius = DeformationRadius(camera);
+        GeometryUtility.CalculateFrustumPlanes(camera.cullingMatrix, planes);
+        for (int i = 0; i < planes.Length; i++) planeVectors[i] = new Vector4(planes[i].normal.x, planes[i].normal.y, planes[i].normal.z, planes[i].distance);
+        visibleCells.Clear();
+        Profiler.BeginSample("Grass CPU Cell Culling");
+        for (int i = 0; i < cells.Length; i++)
+        {
+            if (offsets[i + 1] == offsets[i]) continue;
+            var bounds = cells[i]; bounds.Expand(radius * 2);
+            if (GeometryUtility.TestPlanesAABB(planes, bounds) && bounds.SqrDistance(camera.transform.position) <= drawDistance * drawDistance) visibleCells.Add(i);
         }
         Profiler.EndSample();
-
-        //=====================================================================================================
-        // then loop though only visible cells, each visible cell dispatch GPU culling job once
-        // at the end compute shader will fill all visible instance into visibleInstancesOnlyPosWSIDBuffer
-        //=====================================================================================================
-        Matrix4x4 v = cam.worldToCameraMatrix;
-        Matrix4x4 p = cam.projectionMatrix;
-        Matrix4x4 vp = p * v;
-
-        visibleInstancesOnlyPosWSIDBuffer.SetCounterValue(0);
-
-        //set once only
-        cullingComputeShader.SetMatrix("_VPMatrix", vp);
-        cullingComputeShader.SetFloat("_MaxDrawDistance", drawDistance);
-
-        //dispatch per visible cell
-        dispatchCount = 0;
-        for (int i = 0; i < visibleCellIDList.Count; i++)
+        buffers.visible.SetCounterValue(0);
+        int kernel = cullingComputeShader.FindKernel("CSMain");
+        cullingComputeShader.SetBuffer(kernel, "_AllInstancesPosWSBuffer", positionsBuffer);
+        cullingComputeShader.SetBuffer(kernel, "_VisibleInstancesOnlyPosWSIDBuffer", buffers.visible);
+        cullingComputeShader.SetVectorArray("_FrustumPlanes", planeVectors);
+        cullingComputeShader.SetVector("_CameraPositionWS", camera.transform.position);
+        cullingComputeShader.SetFloat("_MaxDrawDistance", Mathf.Max(0, drawDistance));
+        cullingComputeShader.SetFloat("_DeformationRadius", radius);
+        cullingComputeShader.SetInt("_TotalCount", uploadedCount);
+        buffers.dispatches = 0;
+        for (int i = 0; i < visibleCells.Count; i++)
         {
-            int targetCellFlattenID = visibleCellIDList[i];
-            int memoryOffset = 0;
-            for (int j = 0; j < targetCellFlattenID; j++)
+            int start = offsets[visibleCells[i]], end = offsets[visibleCells[i] + 1];
+            if (shouldBatchDispatch) while (i + 1 < visibleCells.Count && visibleCells[i + 1] == visibleCells[i] + 1) end = offsets[visibleCells[++i] + 1];
+            while (start < end)
             {
-                memoryOffset += cellPosWSsList[j].Count;
+                int length = Mathf.Min(end - start, 65535 * 64);
+                cullingComputeShader.SetInt("_StartOffset", start);
+                cullingComputeShader.SetInt("_JobLength", length);
+                cullingComputeShader.Dispatch(kernel, (length + 63) / 64, 1, 1);
+                buffers.dispatches++; start += length;
             }
-            cullingComputeShader.SetInt("_StartOffset", memoryOffset); //culling read data started at offseted pos, will start from cell's total offset in memory
-            int jobLength = cellPosWSsList[targetCellFlattenID].Count;
-
-            //============================================================================================
-            //batch n dispatchs into 1 dispatch, if memory is continuous in allInstancesPosWSBuffer
-            if(shouldBatchDispatch)
-            {
-                while ((i < visibleCellIDList.Count - 1) && //test this first to avoid out of bound access to visibleCellIDList
-                        (visibleCellIDList[i + 1] == visibleCellIDList[i] + 1))
-                {
-                    //if memory is continuous, append them together into the same dispatch call
-                    jobLength += cellPosWSsList[visibleCellIDList[i + 1]].Count;
-                    i++;
-                }
-            }
-            //============================================================================================
-
-            cullingComputeShader.Dispatch(0, Mathf.CeilToInt(jobLength / 64f), 1, 1); //disaptch.X division number must match numthreads.x in compute shader (e.g. 64)
-            dispatchCount++;
         }
-
-        //====================================================================================
-        // Final 1 big DrawMeshInstancedIndirect draw call 
-        //====================================================================================
-        // GPU per instance culling finished, copy visible count to argsBuffer, to setup DrawMeshInstancedIndirect's draw amount 
-        ComputeBuffer.CopyCount(visibleInstancesOnlyPosWSIDBuffer, argsBuffer, 4);
-
-        // Render 1 big drawcall using DrawMeshInstancedIndirect    
-        Bounds renderBound = new Bounds();
-        renderBound.SetMinMax(new Vector3(minX, 0, minZ), new Vector3(maxX, 0, maxZ));//if camera frustum is not overlapping this bound, DrawMeshInstancedIndirect will not even render
-        Graphics.DrawMeshInstancedIndirect(GetGrassMeshCache(), 0, instanceMaterial, renderBound, argsBuffer);
+        GraphicsBuffer.CopyCount(buffers.visible, buffers.args, InstanceCountOffset);
+        buffers.visibleCells = visibleCells.Count;
+        lastVisibleCells = buffers.visibleCells; lastDispatches = buffers.dispatches;
+        buffers.properties.SetBuffer("_AllInstancesTransformBuffer", positionsBuffer);
+        buffers.properties.SetBuffer("_VisibleInstanceOnlyTransformIDBuffer", buffers.visible);
+        buffers.properties.SetVector("_GrassBendingArea", BendingArea);
+        buffers.properties.SetBuffer("unity_IndirectDrawArgs", buffers.args);
+        buffers.properties.SetInt("unity_BaseCommandID", 0);
+        return true;
     }
-
-    private void OnGUI()
+    float DeformationRadius(Camera camera)
+    {
+        float width = Mathf.Abs(instanceMaterial.GetFloat("_GrassWidth"));
+        float height = Mathf.Abs(instanceMaterial.GetFloat("_GrassHeight"));
+        float wind = 0;
+        foreach (string group in new[] { "A", "B", "C" })
+        {
+            var wrap = instanceMaterial.GetVector("_Wind" + group + "Wrap");
+            wind += Mathf.Abs(instanceMaterial.GetFloat("_Wind" + group + "Intensity")) * (Mathf.Abs(wrap.x) + Mathf.Abs(wrap.y));
+        }
+        float farthest = Vector3.Distance(camera.transform.position, positionBounds.center) + positionBounds.extents.magnitude;
+        return 2 + width * .5f + 5 * height * (1 + width * .25f) + wind + farthest * .005625f;
+    }
+    void EnsurePositions()
+    {
+        int count = allGrassPos?.Count ?? 0;
+        if (!dirty && uploadedList == allGrassPos && uploadedCount == count) return;
+        ReleaseBuffers(); dirty = false; uploadedList = allGrassPos; uploadedCount = count;
+        if (count == 0) { cells = Array.Empty<Bounds>(); offsets = Array.Empty<int>(); return; }
+        positionBounds = new Bounds(allGrassPos[0], Vector3.zero);
+        foreach (var p in allGrassPos) positionBounds.Encapsulate(p);
+        int nx = Mathf.Max(1, Mathf.CeilToInt(positionBounds.size.x / 10));
+        int nz = Mathf.Max(1, Mathf.CeilToInt(positionBounds.size.z / 10));
+        int cellCount = checked(nx * nz);
+        var counts = new int[cellCount];
+        int Cell(Vector3 p) {
+            int x = Mathf.Clamp(Mathf.FloorToInt(Mathf.InverseLerp(positionBounds.min.x, positionBounds.max.x, p.x) * nx), 0, nx - 1);
+            int z = Mathf.Clamp(Mathf.FloorToInt(Mathf.InverseLerp(positionBounds.min.z, positionBounds.max.z, p.z) * nz), 0, nz - 1);
+            return x + z * nx;
+        }
+        foreach (var p in allGrassPos) counts[Cell(p)]++;
+        offsets = new int[cellCount + 1];
+        for (int i = 0; i < cellCount; i++) offsets[i + 1] = offsets[i] + counts[i];
+        var cursors = (int[])offsets.Clone();
+        var sorted = new Vector3[count]; cells = new Bounds[cellCount];
+        foreach (var p in allGrassPos) {
+            int cell = Cell(p);
+            if (cursors[cell] == offsets[cell]) cells[cell] = new Bounds(p, Vector3.zero); else cells[cell].Encapsulate(p);
+            sorted[cursors[cell]++] = p;
+        }
+        positionsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, count, 12);
+        positionsBuffer.SetData(sorted);
+        if (!mesh) {
+            mesh = new Mesh { name = "Procedural Grass Blade", hideFlags = HideFlags.HideAndDontSave };
+            mesh.vertices = new[] { new Vector3(-.25f, 0), new Vector3(.25f, 0), new Vector3(0, 1) };
+            mesh.triangles = new[] { 2, 1, 0 };
+        }
+    }
+    void OnGUI()
     {
         GUI.contentColor = Color.black;
-        GUI.Label(new Rect(200, 0, 400, 60), 
-            $"After CPU cell frustum culling,\n" +
-            $"-Visible cell count = {visibleCellIDList.Count}/{cellCountX * cellCountZ}\n" +
-            $"-Real compute dispatch count = {dispatchCount} (saved by batching = {visibleCellIDList.Count - dispatchCount})");
-
+        GUI.Label(new Rect(200, 0, 450, 60), $"After CPU cell frustum culling,\n-Visible cell count = {lastVisibleCells}/{cells.Length}\n-Real compute dispatch count = {lastDispatches}");
         shouldBatchDispatch = GUI.Toggle(new Rect(400, 400, 200, 100), shouldBatchDispatch, "shouldBatchDispatch");
     }
-
-    void OnDisable()
-    {
-        //release all compute buffers
-        if (allInstancesPosWSBuffer != null)
-            allInstancesPosWSBuffer.Release();
-        allInstancesPosWSBuffer = null;
-
-        if (visibleInstancesOnlyPosWSIDBuffer != null)
-            visibleInstancesOnlyPosWSIDBuffer.Release();
-        visibleInstancesOnlyPosWSIDBuffer = null;
-
-        if (argsBuffer != null)
-            argsBuffer.Release();
-        argsBuffer = null;
-
-        instance = null;
+    void ReleaseBuffers() {
+        foreach (var buffer in cameras.Values) buffer.Dispose(); cameras.Clear();
+        positionsBuffer?.Dispose(); positionsBuffer = null;
     }
-
-    Mesh GetGrassMeshCache()
-    {
-        if (!cachedGrassMesh)
-        {
-            //if not exist, create a 3 vertices hardcode triangle grass mesh
-            cachedGrassMesh = new Mesh();
-
-            //single grass (vertices)
-            Vector3[] verts = new Vector3[3];
-            verts[0] = new Vector3(-0.25f, 0);
-            verts[1] = new Vector3(+0.25f, 0);
-            verts[2] = new Vector3(-0.0f, 1);
-            //single grass (Triangle index)
-            int[] trinagles = new int[3] { 2, 1, 0, }; //order to fit Cull Back in grass shader
-
-            cachedGrassMesh.SetVertices(verts);
-            cachedGrassMesh.SetTriangles(trinagles, 0);
-        }
-
-        return cachedGrassMesh;
-    }
-
-    void UpdateAllInstanceTransformBufferIfNeeded()
-    {
-        //always update
-        instanceMaterial.SetVector("_PivotPosWS", transform.position);
-        instanceMaterial.SetVector("_BoundSize", new Vector2(transform.localScale.x, transform.localScale.z));
-
-        //early exit if no need to update buffer
-        if (instanceCountCache == allGrassPos.Count &&
-            argsBuffer != null &&
-            allInstancesPosWSBuffer != null &&
-            visibleInstancesOnlyPosWSIDBuffer != null)
-            {
-                return;
-            }
-
-        /////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        Debug.Log("UpdateAllInstanceTransformBuffer (Slow)");
-
-        ///////////////////////////
-        // allInstancesPosWSBuffer buffer
-        ///////////////////////////
-        if (allInstancesPosWSBuffer != null)
-            allInstancesPosWSBuffer.Release();
-        allInstancesPosWSBuffer = new ComputeBuffer(allGrassPos.Count, sizeof(float)*3); //float3 posWS only, per grass
-
-        if (visibleInstancesOnlyPosWSIDBuffer != null)
-            visibleInstancesOnlyPosWSIDBuffer.Release();
-        visibleInstancesOnlyPosWSIDBuffer = new ComputeBuffer(allGrassPos.Count, sizeof(uint), ComputeBufferType.Append); //uint only, per visible grass
-
-        //find all instances's posWS XZ bound min max
-        minX = float.MaxValue;
-        minZ = float.MaxValue;
-        maxX = float.MinValue;
-        maxZ = float.MinValue;
-        for (int i = 0; i < allGrassPos.Count; i++)
-        {
-            Vector3 target = allGrassPos[i];
-            minX = Mathf.Min(target.x, minX);
-            minZ = Mathf.Min(target.z, minZ);
-            maxX = Mathf.Max(target.x, maxX);
-            maxZ = Mathf.Max(target.z, maxZ);
-        }
-
-        //decide cellCountX,Z here using min max
-        //each cell is cellSizeX x cellSizeZ
-        cellCountX = Mathf.CeilToInt((maxX - minX) / cellSizeX); 
-        cellCountZ = Mathf.CeilToInt((maxZ - minZ) / cellSizeZ);
-
-        //init per cell posWS list memory
-        cellPosWSsList = new List<Vector3>[cellCountX * cellCountZ]; //flatten 2D array
-        for (int i = 0; i < cellPosWSsList.Length; i++)
-        {
-            cellPosWSsList[i] = new List<Vector3>();
-        }
-
-        //binning, put each posWS into the correct cell
-        for (int i = 0; i < allGrassPos.Count; i++)
-        {
-            Vector3 pos = allGrassPos[i];
-
-            //find cellID
-            int xID = Mathf.Min(cellCountX-1,Mathf.FloorToInt(Mathf.InverseLerp(minX, maxX, pos.x) * cellCountX)); //use min to force within 0~[cellCountX-1]  
-            int zID = Mathf.Min(cellCountZ-1,Mathf.FloorToInt(Mathf.InverseLerp(minZ, maxZ, pos.z) * cellCountZ)); //use min to force within 0~[cellCountZ-1]
-
-            cellPosWSsList[xID + zID * cellCountX].Add(pos);
-        }
-
-        //combine to a flatten array for compute buffer
-        int offset = 0;
-        Vector3[] allGrassPosWSSortedByCell = new Vector3[allGrassPos.Count];
-        for (int i = 0; i < cellPosWSsList.Length; i++)
-        {
-            for (int j = 0; j < cellPosWSsList[i].Count; j++)
-            {
-                allGrassPosWSSortedByCell[offset] = cellPosWSsList[i][j];
-                offset++;
-            }
-        }
-
-        allInstancesPosWSBuffer.SetData(allGrassPosWSSortedByCell);
-        instanceMaterial.SetBuffer("_AllInstancesTransformBuffer", allInstancesPosWSBuffer);
-        instanceMaterial.SetBuffer("_VisibleInstanceOnlyTransformIDBuffer", visibleInstancesOnlyPosWSIDBuffer);
-
-        ///////////////////////////
-        // Indirect args buffer
-        ///////////////////////////
-        if (argsBuffer != null)
-            argsBuffer.Release();
-        uint[] args = new uint[5] { 0, 0, 0, 0, 0 };
-        argsBuffer = new ComputeBuffer(1, args.Length * sizeof(uint), ComputeBufferType.IndirectArguments);
-
-        args[0] = (uint)GetGrassMeshCache().GetIndexCount(0);
-        args[1] = (uint)allGrassPos.Count;
-        args[2] = (uint)GetGrassMeshCache().GetIndexStart(0);
-        args[3] = (uint)GetGrassMeshCache().GetBaseVertex(0);
-        args[4] = 0;
-
-        argsBuffer.SetData(args);
-
-        ///////////////////////////
-        // Update Cache
-        ///////////////////////////
-        //update cache to prevent future no-op buffer update, which waste performance
-        instanceCountCache = allGrassPos.Count;
-
-
-        //set buffer
-        cullingComputeShader.SetBuffer(0, "_AllInstancesPosWSBuffer", allInstancesPosWSBuffer);
-        cullingComputeShader.SetBuffer(0, "_VisibleInstancesOnlyPosWSIDBuffer", visibleInstancesOnlyPosWSIDBuffer);
+    void OnDisable() {
+        RenderPipelineManager.beginCameraRendering -= BeginCamera; ReleaseBuffers();
+        if (mesh) { if (Application.isPlaying) Destroy(mesh); else DestroyImmediate(mesh); } mesh = null;
+        if (instance == this) instance = null;
+        dirty = true; Shader.SetGlobalFloat("_GrassBendingEnabled", 0);
     }
 }

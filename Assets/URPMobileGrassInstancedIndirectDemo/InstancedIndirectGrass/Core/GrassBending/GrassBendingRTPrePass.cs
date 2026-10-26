@@ -1,96 +1,113 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.Rendering.Universal;
 
 public class GrassBendingRTPrePass : ScriptableRendererFeature
 {
-    class CustomRenderPass : ScriptableRenderPass
-    {
-        static readonly int _GrassBendingRT_pid = Shader.PropertyToID("_GrassBendingRT");
-        static readonly RenderTargetIdentifier _GrassBendingRT_rti = new RenderTargetIdentifier(_GrassBendingRT_pid);
-        ShaderTagId GrassBending_stid = new ShaderTagId("GrassBending");
-
-        // This method is called before executing the render pass.
-        // It can be used to configure render targets and their clear state. Also to create temporary render target textures.
-        // When empty this render pass will render to the active camera render target.
-        // You should never call CommandBuffer.SetRenderTarget. Instead call <c>ConfigureTarget</c> and <c>ConfigureClear</c>.
-        // The render pipeline will ensure target setup and clearing happens in an performance manner.
-        public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
-        {
-            //512*512 is big enough for this demo's max grass count, can use a much smaller RT in regular use case
-            //TODO: make RT render pos follow main camera view frustrum, allow using a much smaller size RT
-            cmd.GetTemporaryRT(_GrassBendingRT_pid, new RenderTextureDescriptor(512, 512, RenderTextureFormat.R8,0));
-            ConfigureTarget(_GrassBendingRT_rti);
-            ConfigureClear(ClearFlag.All, Color.white);
-        }
-
-        // Here you can implement the rendering logic.
-        // Use <c>ScriptableRenderContext</c> to issue drawing commands or execute command buffers
-        // https://docs.unity3d.com/ScriptReference/Rendering.ScriptableRenderContext.html
-        // You don't have to call ScriptableRenderContext.submit, the render pipeline will call it at specific points in the pipeline.
-        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
-        {
-            if (!InstancedIndirectGrassRenderer.instance)
-            {
-                Debug.LogWarning("InstancedIndirectGrassRenderer not found, abort GrassBendingRTPrePass's Execute");
-                return;
-            }
-
-            CommandBuffer cmd = CommandBufferPool.Get("GrassBendingRT");
-
-            //make a new view matrix that is the same as an imaginary camera above grass center 1 units and looking at grass(bird view)
-            //scale.z is -1 because view space will look into -Z while world space will look into +Z
-            //camera transform's local to world's inverse means camera's world to view = world to local
-            Matrix4x4 viewMatrix = Matrix4x4.TRS(InstancedIndirectGrassRenderer.instance.transform.position + new Vector3(0, 1, 0),Quaternion.LookRotation(-Vector3.up), new Vector3(1,1,-1)).inverse;
-
-            //ortho camera with 1:1 aspect, size = 50
-            float sizeX = InstancedIndirectGrassRenderer.instance.transform.localScale.x;
-            float sizeZ = InstancedIndirectGrassRenderer.instance.transform.localScale.z;
-            Matrix4x4 projectionMatrix = Matrix4x4.Ortho(-sizeX,sizeX, -sizeZ, sizeZ, 0.5f, 1.5f);
-
-            //override view & Projection matrix
-            cmd.SetViewProjectionMatrices(viewMatrix, projectionMatrix);
-            context.ExecuteCommandBuffer(cmd);
-            
-            //draw all trail renderer using SRP batching
-            var drawSetting = CreateDrawingSettings(GrassBending_stid, ref renderingData, SortingCriteria.CommonTransparent);
-            var filterSetting = new FilteringSettings(RenderQueueRange.all);
-            context.DrawRenderers(renderingData.cullResults, ref drawSetting, ref filterSetting);
-
-            //restore camera matrix
-            cmd.Clear();
-            cmd.SetViewProjectionMatrices(renderingData.cameraData.camera.worldToCameraMatrix, renderingData.cameraData.camera.projectionMatrix);
-
-            //set global RT
-            cmd.SetGlobalTexture(_GrassBendingRT_pid, new RenderTargetIdentifier(_GrassBendingRT_pid));
-
-            context.ExecuteCommandBuffer(cmd);
-            CommandBufferPool.Release(cmd);
-        }
-
-        /// Cleanup any allocated resources that were created during the execution of this render pass.
-        public override void FrameCleanup(CommandBuffer cmd)
-        {
-            cmd.ReleaseTemporaryRT(_GrassBendingRT_pid);
-        }
-    }
-
-    CustomRenderPass m_ScriptablePass;
-
+#if UNITY_EDITOR
+    // Opt-in graph copies for GPU inspection. No readback or persistent RT in player builds.
+    public static System.Action<RenderGraph, TextureHandle, Camera, string> ValidationRecord;
+#endif
+    BendingPass bending;
+    GrassDepthPass depth;
     public override void Create()
     {
-        m_ScriptablePass = new CustomRenderPass();
-
-        // Configures where the render pass should be injected.
-        m_ScriptablePass.renderPassEvent = RenderPassEvent.AfterRenderingPrePasses; //don't do RT switch when rendering _CameraColorTexture, so use AfterRenderingPrePasses
+        bending = new BendingPass { renderPassEvent = RenderPassEvent.BeforeRenderingPrePasses };
+        depth = new GrassDepthPass { renderPassEvent = RenderPassEvent.AfterRenderingPrePasses };
+        // Supplement the prepass requested by the active renderer (PC SSAO). Do not force
+        // an otherwise unused depth/normal prepass on the Mobile renderer.
     }
-
-    // Here you can inject one or multiple render passes in the renderer.
-    // This method is called when setting up the renderer once per-camera.
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
-        renderer.EnqueuePass(m_ScriptablePass);
+        if (renderingData.cameraData.cameraType == CameraType.Preview || renderingData.cameraData.renderType == CameraRenderType.Overlay) return;
+        renderer.EnqueuePass(bending);
+        renderer.EnqueuePass(depth);
+    }
+    protected override void Dispose(bool disposing) { Shader.SetGlobalFloat("_GrassBendingEnabled", 0); }
+    class BendingPass : ScriptableRenderPass
+    {
+        static readonly int TextureID = Shader.PropertyToID("_GrassBendingRT");
+        class PassData { public RendererListHandle list; public Matrix4x4 vp; }
+        public override void RecordRenderGraph(RenderGraph graph, ContextContainer frameData)
+        {
+            var grass = InstancedIndirectGrassRenderer.instance;
+            if (!grass || !grass.isActiveAndEnabled || grass.PositionsBuffer == null) return;
+            var camera = frameData.Get<UniversalCameraData>().camera;
+            if (!grass.TryGetCameraBuffers(camera, out _)) return;
+            if (!camera.TryGetCullingParameters(out var parameters)) return;
+            var area = grass.BendingArea;
+            var bounds = grass.PositionBounds;
+            // Preserve the source's root +/- 0.5m interaction slab, extended over actual root Y.
+            float top = bounds.max.y + 1;
+            var origin = new Vector3(area.x, top, area.y);
+            // Camera right = +X, camera up = +Z. Use a dedicated shader matrix, never mutate camera state.
+            var view = Matrix4x4.Scale(new Vector3(1, 1, -1)) * Matrix4x4.TRS(origin, Quaternion.LookRotation(Vector3.down, Vector3.forward), Vector3.one).inverse;
+            var projection = Matrix4x4.Ortho(-area.z / 2, area.z / 2, -area.w / 2, area.w / 2, .5f, bounds.size.y + 1.5f);
+            var logicalVP = projection * view;
+            parameters.cullingMatrix = logicalVP;
+            parameters.origin = origin;
+            parameters.isOrthographic = true;
+            parameters.cullingOptions = CullingOptions.None; // No main-view occlusion, lighting or shadow filtering.
+            parameters.cullingPlaneCount = 6;
+            var planes = GeometryUtility.CalculateFrustumPlanes(logicalVP);
+            for (int i = 0; i < 6; i++) parameters.SetCullingPlane(i, planes[i]);
+            var cull = frameData.Get<CullContextData>().Cull(ref parameters);
+            var drawing = new DrawingSettings(new ShaderTagId("GrassBending"), new SortingSettings(camera) { criteria = SortingCriteria.CommonTransparent }) { perObjectData = PerObjectData.None };
+            var list = graph.CreateRendererList(new RendererListParams(cull, drawing, new FilteringSettings(RenderQueueRange.all, camera.cullingMask)));
+            var format = GraphicsFormat.R8_UNorm;
+            if (!SystemInfo.IsFormatSupported(format, GraphicsFormatUsage.Render) || !SystemInfo.IsFormatSupported(format, GraphicsFormatUsage.Blend)) format = GraphicsFormat.R8G8B8A8_UNorm;
+            var texture = graph.CreateTexture(new TextureDesc(512, 512) { name = "Grass Bending (linear white)", colorFormat = format, clearBuffer = true, clearColor = Color.white, filterMode = FilterMode.Bilinear, wrapMode = TextureWrapMode.Clamp });
+            using (var builder = graph.AddRasterRenderPass<PassData>("Grass Bending Trails", out var data))
+            {
+                data.list = list;
+                // Convert to the RT's GPU projection (including platform Y and reversed Z).
+                data.vp = GL.GetGPUProjectionMatrix(projection, true) * view;
+                builder.UseRendererList(list);
+                builder.SetRenderAttachment(texture, 0, AccessFlags.Write);
+                builder.SetGlobalTextureAfterPass(texture, TextureID);
+                builder.AllowGlobalStateModification(true);
+                builder.AllowPassCulling(false); // White must also be published for an empty RendererList.
+                builder.SetRenderFunc(static (PassData pass, RasterGraphContext context) => {
+                    context.cmd.SetGlobalMatrix("_GrassBendingVP", pass.vp);
+                    context.cmd.SetGlobalFloat("_GrassBendingEnabled", 1);
+                    context.cmd.DrawRendererList(pass.list);
+                });
+            }
+#if UNITY_EDITOR
+            ValidationRecord?.Invoke(graph, texture, camera, "bending");
+#endif
+        }
+    }
+    class GrassDepthPass : ScriptableRenderPass
+    {
+        class PassData { public Mesh mesh; public Material material; public GraphicsBuffer args; public MaterialPropertyBlock properties; public int pass; }
+        public override void RecordRenderGraph(RenderGraph graph, ContextContainer frameData)
+        {
+            var grass = InstancedIndirectGrassRenderer.instance;
+            var camera = frameData.Get<UniversalCameraData>().camera;
+            if (!grass || !grass.TryGetCameraBuffers(camera, out var buffers)) return;
+            var resources = frameData.Get<UniversalResourceData>();
+            if (!resources.cameraDepthTexture.IsValid() || graph.GetTextureDesc(resources.cameraDepthTexture).depthBufferBits == DepthBits.None) return;
+            bool hasNormals = resources.cameraNormalsTexture.IsValid();
+            using (var builder = graph.AddRasterRenderPass<PassData>("Grass Depth Normals (bent)", out var data))
+            {
+                data.mesh = grass.GrassMesh; data.material = grass.instanceMaterial; data.args = buffers.args; data.properties = buffers.properties;
+                data.pass = data.material.FindPass(hasNormals ? "GrassDepthNormals" : "GrassDepthOnly");
+                data.properties.SetMatrix("_GrassDepthVP", GL.GetGPUProjectionMatrix(camera.projectionMatrix, true) * camera.worldToCameraMatrix);
+                builder.UseGlobalTexture(Shader.PropertyToID("_GrassBendingRT"), AccessFlags.Read);
+                builder.UseBuffer(graph.ImportBuffer(grass.PositionsBuffer), AccessFlags.Read);
+                builder.UseBuffer(graph.ImportBuffer(buffers.visible), AccessFlags.Read);
+                builder.UseBuffer(graph.ImportBuffer(buffers.args), AccessFlags.Read);
+                if (hasNormals) builder.SetRenderAttachment(resources.cameraNormalsTexture, 0, AccessFlags.ReadWrite);
+                builder.SetRenderAttachmentDepth(resources.cameraDepthTexture, AccessFlags.ReadWrite);
+                builder.SetRenderFunc(static (PassData pass, RasterGraphContext context) =>
+                    context.cmd.DrawMeshInstancedIndirect(pass.mesh, 0, pass.material, pass.pass, pass.args, 0, pass.properties));
+            }
+#if UNITY_EDITOR
+            if (hasNormals) ValidationRecord?.Invoke(graph, resources.cameraNormalsTexture, camera, "normals");
+#endif
+        }
     }
 }
-
-

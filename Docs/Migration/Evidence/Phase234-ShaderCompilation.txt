@@ -1,0 +1,201 @@
+Compiling shader "URPMobileGrassInstancedIndirectDemo/GrassBendingRTPrePassPS"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader URPMobileGrassInstancedIndirectDemo/GrassBendingRTPrePassPS in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling compute shader "CullingCompute"
+    starting stripping...
+    finished in 0.01 seconds. 2 of 2 variants left
+    2 variants, starting compilation...
+    finished in 0.00 seconds. Local cache hits 2, remote cache hits 0, compiled 0 variants
+Compiling shader "MobileDrawMeshInstancedIndirect/SingleGrass"
+  Pass "GrassForward" (vp)
+    Target graphics API: dx11
+    Full variant space:         192
+    After settings filtering:   16
+    After built-in stripping:   8
+    After scriptable stripping: 8
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         192
+    After settings filtering:   16
+    After built-in stripping:   8
+    After scriptable stripping: 8
+    Processed in 0.00 seconds
+  Pass "GrassForward" (fp)
+    Target graphics API: dx11
+    Full variant space:         3.840
+    After settings filtering:   32
+    After built-in stripping:   16
+    After scriptable stripping: 16
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         3.840
+    After settings filtering:   32
+    After built-in stripping:   16
+    After scriptable stripping: 16
+    Processed in 0.00 seconds
+  Pass "GrassDepthNormals" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "GrassDepthNormals" (fp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "GrassDepthOnly" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "GrassDepthOnly" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass GrassForward (vp, dx11) finished in 0.58 seconds. Local cache hits 3 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 5 variants (1.93s CPU time), skipped 0 variants.
+  Pass GrassForward (vp, dx12) finished in 0.58 seconds. Local cache hits 3 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 5 variants (1.65s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass GrassForward (fp, dx11) finished in 18.85 seconds. Local cache hits 4 (0.01s CPU time), remote cache hits 0 (0.00s CPU time), compiled 12 variants (110.01s CPU time), skipped 0 variants.
+  Pass GrassForward (fp, dx12) finished in 18.96 seconds. Local cache hits 5 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 11 variants (96.50s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass GrassDepthNormals (vp, dx11) finished in 9.51 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 1 variants (0.24s CPU time), skipped 0 variants.
+  Pass GrassDepthNormals (vp, dx12) finished in 2.55 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass GrassDepthNormals (fp, dx11) finished in 9.49 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 1 variants (0.19s CPU time), skipped 0 variants.
+  Pass GrassDepthNormals (fp, dx12) finished in 2.55 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass GrassDepthOnly (vp, dx11) finished in 9.39 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 1 variants (0.30s CPU time), skipped 0 variants.
+  Pass GrassDepthOnly (vp, dx12) finished in 2.55 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass GrassDepthOnly (fp, dx11) finished in 9.30 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 1 variants (0.17s CPU time), skipped 0 variants.
+  Pass GrassDepthOnly (fp, dx12) finished in 2.55 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader MobileDrawMeshInstancedIndirect/SingleGrass in 0.00s
+    dx11 (total internal programs: 32, unique: 28)
+    dx12 (total internal programs: 32, unique: 28)
+
+***Player size statistics***
+Total compressed size 80.8 KB. Total uncompressed size 217.5 KB.
+SpriteAtlasDatabase::Cleanup
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 44 unused Assets / (0.9 MB). Loaded Objects now: 7196.
+Memory consumption went from 0.73 GB to 0.73 GB.
+Total: 16.817300 ms (FindLiveObjects: 0.998400 ms CreateObjectMapping: 0.194800 ms MarkObjects: 14.400600 ms  DeleteObjects: 0.941500 ms)
+
+
+***Player size statistics***
+Total compressed size 1.0 KB. Total uncompressed size 4.2 KB.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (0 B). Loaded Objects now: 7198.
+Memory consumption went from 0.73 GB to 0.73 GB.
+Total: 16.577800 ms (FindLiveObjects: 0.598800 ms CreateObjectMapping: 0.134700 ms MarkObjects: 15.583700 ms  DeleteObjects: 0.017600 ms)
+
+
+-------------------------------------------------------------------------------
+Bundle Name: grass-shader-validation
+Compressed Size:80.8 kb
+Uncompressed usage by category (Percentages based on user generated assets only):
+Textures               64.2 kb	 29.5%
+Meshes                 0.0 kb	 0.0%
+Animations             0.0 kb	 0.0%
+Sounds                 0.0 kb	 0.0%
+Shaders                52.8 kb	 24.3%
+Other Assets           6.3 kb	 2.9%
+Levels                 0.0 kb	 0.0%
+File headers           94.2 kb	 43.3%
+Total User Assets      217.5 kb	 100.0%
+Complete build size    217.5 kb
+Used Assets and files from the Resources folder, sorted by uncompressed size:
+ 64.2 kb	 29.5% Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrassVertexColor.jpg
+ 43.1 kb	 19.8% Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrass.shader
+ 4.9 kb	 2.3% Assets/URPMobileGrassInstancedIndirectDemo/SkyBox/SkyBox.shader
+ 4.8 kb	 2.2% Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/GrassBending/GrassBendingRTPrePassTrailShader.shader
+ 4.0 kb	 1.9% Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/CullingCompute.compute
+ 1.5 kb	 0.7% Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrass.mat
+ 0.6 kb	 0.3% AssetBundle Object
+ 0.1 kb	 0.1% Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/GrassBending/GrassBendingRTPrePassPS.mat
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Bundle Name: ShaderBundle
+Compressed Size:1.0 kb
+Uncompressed usage by category (Percentages based on user generated assets only):
+Textures               0.0 kb	 0.0%
+Meshes                 0.0 kb	 0.0%
+Animations             0.0 kb	 0.0%
+Sounds                 0.0 kb	 0.0%
+Shaders                0.0 kb	 0.0%
+Other Assets           0.2 kb	 4.6%
+Levels                 0.0 kb	 0.0%
+File headers           4.0 kb	 95.4%
+Total User Assets      4.2 kb	 100.0%
+Complete build size    4.2 kb
+Used Assets and files from the Resources folder, sorted by uncompressed size:
+ 0.1 kb	 2.4% AssetBundle Object
+ 0.1 kb	 2.1% Built-in AssetBundleManifest: AssetBundleManifest
+-------------------------------------------------------------------------------

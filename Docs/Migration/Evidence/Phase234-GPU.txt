@@ -1,0 +1,80 @@
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\10-gpu-oracle.txt ===
+2026-10-27T01:34:36.5758097+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+positions=0 no GPU allocation or draw PASS
+positions=0 no GPU allocation or draw PASS
+positions=1 append=1 args=1 cells=1 dispatches=1 unique/range=PASS idsSHA256=DF3F619804A92FDB4057192DC43DD748EA778ADC52BC498CE80524C014B81119
+positions=1 append=1 args=1 cells=1 dispatches=1 unique/range=PASS idsSHA256=DF3F619804A92FDB4057192DC43DD748EA778ADC52BC498CE80524C014B81119
+positions=63 append=63 args=63 cells=1 dispatches=1 unique/range=PASS idsSHA256=413D7CFD3A071C33AF1045719D2D0224258FD3F637479C63F87EFDEA3FA4EC06
+positions=63 append=63 args=63 cells=1 dispatches=1 unique/range=PASS idsSHA256=413D7CFD3A071C33AF1045719D2D0224258FD3F637479C63F87EFDEA3FA4EC06
+positions=64 append=64 args=64 cells=1 dispatches=1 unique/range=PASS idsSHA256=FEA7B32778ECBDD7ADEE1941E98C89CF96BBC762F5F1BEB0BE24E36A456FBBC5
+positions=64 append=64 args=64 cells=1 dispatches=1 unique/range=PASS idsSHA256=FEA7B32778ECBDD7ADEE1941E98C89CF96BBC762F5F1BEB0BE24E36A456FBBC5
+positions=65 append=65 args=65 cells=1 dispatches=1 unique/range=PASS idsSHA256=FEE16EC542015EFDEEC7654EA06333EB655815DA008A8A349EFAD6D02E86ED35
+positions=65 append=65 args=65 cells=1 dispatches=1 unique/range=PASS idsSHA256=FEE16EC542015EFDEEC7654EA06333EB655815DA008A8A349EFAD6D02E86ED35
+positions=127 append=127 args=127 cells=1 dispatches=1 unique/range=PASS idsSHA256=DA26E0923513682A0CFBD2B102423654C37C19BF2474C2256945B1C3BE79E161
+positions=127 append=127 args=127 cells=1 dispatches=1 unique/range=PASS idsSHA256=DA26E0923513682A0CFBD2B102423654C37C19BF2474C2256945B1C3BE79E161
+positions=128 append=128 args=128 cells=1 dispatches=1 unique/range=PASS idsSHA256=1ABB49EEC50723C018C1197161B8CC46C61CAB2DBFDD96287A7E3E20BBCDCC99
+positions=128 append=128 args=128 cells=1 dispatches=1 unique/range=PASS idsSHA256=1ABB49EEC50723C018C1197161B8CC46C61CAB2DBFDD96287A7E3E20BBCDCC99
+positions=129 append=129 args=129 cells=1 dispatches=1 unique/range=PASS idsSHA256=D0F29E3C65CC44E8A60DF9CCEF3DC96C10EE5DA1B0783D0A6DAA8B540BE4EA16
+positions=129 append=129 args=129 cells=1 dispatches=1 unique/range=PASS idsSHA256=D0F29E3C65CC44E8A60DF9CCEF3DC96C10EE5DA1B0783D0A6DAA8B540BE4EA16
+positions=5003 append=5003 args=5003 cells=1 dispatches=1 unique/range=PASS idsSHA256=5F4E65DC3B1B4938568E395C018916A48D0DF240E840B17F86CA61F98C9B5BD0
+positions=5003 append=5003 args=5003 cells=1 dispatches=1 unique/range=PASS idsSHA256=5F4E65DC3B1B4938568E395C018916A48D0DF240E840B17F86CA61F98C9B5BD0
+positions=5003 append=856 args=856 cells=85 dispatches=10 unique/range=PASS idsSHA256=BA0957A229D2BC1E1EA6CF18A724CD3DB6B705CB10FB34CB29A5107CC084068E
+positions=5003 append=856 args=856 cells=85 dispatches=85 unique/range=PASS idsSHA256=BA0957A229D2BC1E1EA6CF18A724CD3DB6B705CB10FB34CB29A5107CC084068E
+orthographic=False camera yaw=0
+positions=5003 append=858 args=858 cells=85 dispatches=85 unique/range=PASS idsSHA256=0C5AEB7175ED4DCE43770EE59B46A1BD9420746F2EC026EED8BFD8110CADF5B5
+orthographic=False camera yaw=45
+positions=5003 append=843 args=843 cells=78 dispatches=78 unique/range=PASS idsSHA256=9932FF231D55CC1C67D1D0334E0623E5FC2D43252A5D7C770A77C48896A579E9
+orthographic=False camera yaw=90
+positions=5003 append=748 args=748 cells=73 dispatches=73 unique/range=PASS idsSHA256=9DFA825AFBF5FE3D4378E03CD07086C15FBD63E34CAEA26BF13123590A73E970
+orthographic=False camera yaw=135
+positions=5003 append=494 args=494 cells=45 dispatches=45 unique/range=PASS idsSHA256=82F7B11633B909E7EBCAD45FFA8CB13453C8255A10D21C44E8FD9D934E6DB809
+orthographic=False camera yaw=180
+positions=5003 append=314 args=314 cells=34 dispatches=34 unique/range=PASS idsSHA256=C1ACB02F8FDB49AE6066F609A8250641FB8FAE681087C67C6FB9F252B9824AAB
+orthographic=False camera yaw=225
+positions=5003 append=459 args=459 cells=45 dispatches=45 unique/range=PASS idsSHA256=469B2F45F5E4393CBF2B36497395FCBF262E1366E61A94CF78DC1272DDE7E0DB
+orthographic=False camera yaw=270
+positions=5003 append=712 args=712 cells=73 dispatches=73 unique/range=PASS idsSHA256=032E6298EE06C6C984AD2DA36011ACBD4F0BD8BA5C61AA452E78B7208AF61DD7
+orthographic=False camera yaw=315
+positions=5003 append=842 args=842 cells=80 dispatches=80 unique/range=PASS idsSHA256=364F5A3F930CBCBAB6D0D7166240336467BDF1E1447166E7C74EB9808616DF31
+positions=5003 append=1117 args=1117 cells=95 dispatches=10 unique/range=PASS idsSHA256=97F6FD8AE48E031749001E08F217D783423FFE8FA2E12061642EA18695F3DFAD
+positions=5003 append=1117 args=1117 cells=95 dispatches=95 unique/range=PASS idsSHA256=97F6FD8AE48E031749001E08F217D783423FFE8FA2E12061642EA18695F3DFAD
+orthographic=True camera yaw=0
+positions=5003 append=1121 args=1121 cells=95 dispatches=95 unique/range=PASS idsSHA256=0A32636D3D394BB54F56EE55A5CE0252B82B5E6AE198FE86565D430B7FEA0CB7
+orthographic=True camera yaw=45
+positions=5003 append=1154 args=1154 cells=104 dispatches=104 unique/range=PASS idsSHA256=3C361E8E941DCA34D1954C7C7A4740DC258164DEA57C35504EE1E6F57E84BC30
+orthographic=True camera yaw=90
+positions=5003 append=964 args=964 cells=78 dispatches=78 unique/range=PASS idsSHA256=C3E3E88444D7B9016F1F98C588C21E4D62E9ACFF9715A2F32A741684A88A663D
+orthographic=True camera yaw=135
+positions=5003 append=741 args=741 cells=72 dispatches=72 unique/range=PASS idsSHA256=260BDE814884B181797C8B3D77AEA91AA5BA22526FCE90A7EE322481A828D398
+orthographic=True camera yaw=180
+positions=5003 append=602 args=602 cells=50 dispatches=50 unique/range=PASS idsSHA256=FA4001FCCAFD40BB4B1A47FF18518E64BB9450A7C1488B8DCB6129C8663E621C
+orthographic=True camera yaw=225
+positions=5003 append=728 args=728 cells=70 dispatches=70 unique/range=PASS idsSHA256=709E34FD896B5912A07ED05DCDEF89B7FAF9E304BF3E72677C9D99164C9FC5AC
+orthographic=True camera yaw=270
+positions=5003 append=933 args=933 cells=77 dispatches=77 unique/range=PASS idsSHA256=5E2158204D5DE8280F068DC41C0DB85B596F1ECCB137FC291156DB4BE29E582D
+orthographic=True camera yaw=315
+positions=5003 append=1120 args=1120 cells=104 dispatches=104 unique/range=PASS idsSHA256=F2A11C33010EDB21B44B47E1E85122ED1E5C461F3D01180ABB4D79F77F04444B
+shape=point
+positions=65 append=65 args=65 cells=1 dispatches=1 unique/range=PASS idsSHA256=FEE16EC542015EFDEEC7654EA06333EB655815DA008A8A349EFAD6D02E86ED35
+shape=x
+positions=65 append=65 args=65 cells=2 dispatches=2 unique/range=PASS idsSHA256=FEE16EC542015EFDEEC7654EA06333EB655815DA008A8A349EFAD6D02E86ED35
+shape=z
+positions=65 append=65 args=65 cells=4 dispatches=4 unique/range=PASS idsSHA256=FEE16EC542015EFDEEC7654EA06333EB655815DA008A8A349EFAD6D02E86ED35
+shape=rectangle
+positions=65 append=65 args=65 cells=4 dispatches=4 unique/range=PASS idsSHA256=FEE16EC542015EFDEEC7654EA06333EB655815DA008A8A349EFAD6D02E86ED35
+shape=translated
+positions=65 append=0 args=0 cells=0 dispatches=0 unique/range=PASS idsSHA256=E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855
+positions=65 append=65 args=65 cells=1 dispatches=1 unique/range=PASS idsSHA256=FEE16EC542015EFDEEC7654EA06333EB655815DA008A8A349EFAD6D02E86ED35
+positions=65 append=65 args=65 cells=1 dispatches=1 unique/range=PASS idsSHA256=FEE16EC542015EFDEEC7654EA06333EB655815DA008A8A349EFAD6D02E86ED35
+positions=65 append=65 args=65 cells=1 dispatches=1 unique/range=PASS idsSHA256=FEE16EC542015EFDEEC7654EA06333EB655815DA008A8A349EFAD6D02E86ED35
+positions=65 append=65 args=65 cells=1 dispatches=1 unique/range=PASS idsSHA256=FEE16EC542015EFDEEC7654EA06333EB655815DA008A8A349EFAD6D02E86ED35
+GPU boundaries, mixed culling, batch equality, same-count edits and lifecycle PASS
+COMMAND PASS
+
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\11-capacity.txt ===
+2026-10-27T01:35:00.1671359+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Before: managed=54878208 Unity allocated=649715349 reserved=1855533056
+10M actual allocated buffer objects: positions=10000000x12 visible=10000000x4 args=1x20 GPU instanceCount=72048 cells=260 dispatches=17
+After build/cull/synchronized args read: wall ms=3651 managed=295755776 Unity allocated=649879557 reserved=1855533056. These are process snapshots and aggregate wall time, not a GPU timing or driver peak measurement.
+Capacity GPU allocation/culling and explicit release PASS
+COMMAND PASS

@@ -1,0 +1,6 @@
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\48-shaderbundle.txt ===
+2026-10-27T01:59:01.0029582+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Narrow shader/compute AssetBundle compilation for Windows; no Player build or Build Settings change.
+Target graphics APIs=Direct3D12,Direct3D11
+Compiled bundle=E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\ShaderBundle\grass-shader-validation bytes=82750 SHA256=3BB69E29212776F598B195DA7BF2CF19077ACF27D231FB9016EF8B1E33384B26
+COMMAND PASS

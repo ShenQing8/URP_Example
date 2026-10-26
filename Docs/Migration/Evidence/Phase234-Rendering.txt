@@ -1,0 +1,85 @@
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\70-Mobile-appearance.txt ===
+2026-10-27T02:24:04.6122643+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Actual pipeline=Mobile_RPAsset; MeshRenderers cast shadows only so image deltas are on grass.
+SampleSH(0) ambient contribution with direct lights off RGB absolute mean delta=0.25098890
+Ambient-probe override RGB delta=0; BlendProbes preserves the source API default, baked probe validity belongs to phase 5.
+Wind A RGB absolute mean delta=0.10968482
+Wind B RGB absolute mean delta=0.06316332
+Wind C RGB absolute mean delta=0.04950681
+World-space color texture RGB absolute mean delta=0.42160931
+Height/width random blade geometry RGB absolute mean delta=0.14278220
+Fog RGB absolute mean delta=0.06339798
+Non-main directional light RGB absolute mean delta=0.07857390
+Additional shadows disabled by original Mobile RPAsset; preserved.
+Shader MobileDrawMeshInstancedIndirect/SingleGrass supported=True
+Shader URPMobileGrassInstancedIndirectDemo/GrassBendingRTPrePassPS supported=True
+Shader URPMobileGrassInstancedIndirectDemo/SkyBox supported=True
+COMMAND PASS
+
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\89-Mobile-render-final.txt ===
+2026-10-27T02:53:55.6199573+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Actual active pipeline=Mobile_RPAsset
+Runtime quality names=PC index=0
+Mobile-scene: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=2789 normal/depth graph copy=False (Mobile does not request a prepass)
+Mobile-ambient: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=2789 normal/depth graph copy=False (Mobile does not request a prepass)
+Mobile-main: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=2789 normal/depth graph copy=False (Mobile does not request a prepass)
+Mobile main light RGB absolute mean delta=0.49187598
+Mobile-main-no-shadows: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=2789 normal/depth graph copy=False (Mobile does not request a prepass)
+Mobile-shadows: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=2789 normal/depth graph copy=False (Mobile does not request a prepass)
+Mobile-no-shadows: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=2789 normal/depth graph copy=False (Mobile does not request a prepass)
+Mobile real shadow sampling RGB absolute mean delta=0.04066977
+Mobile-point: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=2789 normal/depth graph copy=False (Mobile does not request a prepass)
+Mobile point light (test position/intensity) RGB absolute mean delta=0.02311720
+Mobile-wind-zero: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=2789 normal/depth graph copy=False (Mobile does not request a prepass)
+Mobile-wind: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=2789 normal/depth graph copy=False (Mobile does not request a prepass)
+Mobile wind geometry RGB absolute mean delta=0.15001449
+Mobile-feature-off: bendingRecorded=False enabled=0
+Mobile-feature-on: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=2789 normal/depth graph copy=False (Mobile does not request a prepass)
+Mobile bending/Feature response RGB absolute mean delta=0.10414049
+Shader MobileDrawMeshInstancedIndirect/SingleGrass supported=True
+Shader URPMobileGrassInstancedIndirectDemo/GrassBendingRTPrePassPS supported=True
+Shader URPMobileGrassInstancedIndirectDemo/SkyBox supported=True
+COMMAND PASS
+
+=== E:\GithubRepositories\URP_Example\Logs\MigrationPhase234-20261027\86-PC-bundle-final.txt ===
+2026-10-27T02:47:51.8216593+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Rendering a fresh camera with material/Shader/Compute loaded from the actual Windows bundle. This camera has no earlier Editor-material indirect submissions.
+positions=1000000 append=76842 args=76842 cells=258 dispatches=24 unique/range=PASS idsSHA256=7E76FE2DF23AA5B9A431EC25F6BF671881F92A0C116B9712EFF0835F24893558
+Actual active pipeline=PC_RPAsset
+Runtime quality names=PC index=0
+PC-scene: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=1763 normal/depth graph copy=True (Mobile does not request a prepass)
+PC-ambient: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=1763 normal/depth graph copy=True (Mobile does not request a prepass)
+PC-main: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=1763 normal/depth graph copy=True (Mobile does not request a prepass)
+PC main light RGB absolute mean delta=0.43055734
+PC-main-no-shadows: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=1763 normal/depth graph copy=True (Mobile does not request a prepass)
+PC-shadows: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=1763 normal/depth graph copy=True (Mobile does not request a prepass)
+PC-no-shadows: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=1763 normal/depth graph copy=True (Mobile does not request a prepass)
+PC real shadow sampling RGB absolute mean delta=0.04316881
+PC-point: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=1763 normal/depth graph copy=True (Mobile does not request a prepass)
+PC point light (test position/intensity) RGB absolute mean delta=0.02499230
+PC-wind-zero: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=1763 normal/depth graph copy=True (Mobile does not request a prepass)
+PC-wind: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=1763 normal/depth graph copy=True (Mobile does not request a prepass)
+PC wind geometry RGB absolute mean delta=0.14990292
+PC-feature-off: bendingRecorded=False enabled=0
+PC-feature-on: R8 supported render=True blend=True bending min=0.0000 max=1.0000 nonwhite=1763 normal/depth graph copy=True (Mobile does not request a prepass)
+PC bending/Feature response RGB absolute mean delta=0.12068351
+Shader MobileDrawMeshInstancedIndirect/SingleGrass supported=True
+Shader URPMobileGrassInstancedIndirectDemo/GrassBendingRTPrePassPS supported=True
+Shader URPMobileGrassInstancedIndirectDemo/SkyBox supported=True
+Actual pipeline=PC_RPAsset; MeshRenderers cast shadows only so image deltas are on grass.
+SampleSH(0) ambient contribution with direct lights off RGB absolute mean delta=0.24116755
+Ambient-probe override RGB delta=0; BlendProbes preserves the source API default, baked probe validity belongs to phase 5.
+Wind A RGB absolute mean delta=0.15465216
+Wind B RGB absolute mean delta=0.09146293
+Wind C RGB absolute mean delta=0.07003357
+World-space color texture RGB absolute mean delta=0.62719554
+Height/width random blade geometry RGB absolute mean delta=0.17584313
+Fog RGB absolute mean delta=0.04935703
+Non-main directional light RGB absolute mean delta=0.06986302
+Point shadow fixture world=(52.38, 2.00, 7.24), size=(8,4,8), light=(55.38, 10.00, 4.24), intensity=200 range=40
+Additional point shadow sampling on grass RGB absolute mean delta=0.07918592
+Shader MobileDrawMeshInstancedIndirect/SingleGrass supported=True
+Shader URPMobileGrassInstancedIndirectDemo/GrassBendingRTPrePassPS supported=True
+Shader URPMobileGrassInstancedIndirectDemo/SkyBox supported=True
+Windows compiled bundle GPU cull, Forward+ lighting/shadows, wind and bending PASS
+COMMAND PASS

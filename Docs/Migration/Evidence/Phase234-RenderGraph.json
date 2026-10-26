@@ -1,0 +1,771 @@
+{
+  "PC": {
+    "raw_file": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\87-PC-graph-final.json",
+    "raw_sha256": "8dcdeb5f0f7f1e27b1800a0b54b41440abd076bb16964841d6eef88c6b105d1c",
+    "captureTimestamp": "02:47:54",
+    "executionName": "Main Camera",
+    "bending": {
+      "name": "Grass Bending (linear white)",
+      "imported": false,
+      "creationPassIndex": 8,
+      "releasePassIndex": 21,
+      "consumerList": [
+        10,
+        16,
+        19,
+        21
+      ],
+      "producerList": [
+        8
+      ],
+      "memoryless": false,
+      "textureData": {
+        "rid": 1036
+      },
+      "bufferData": {
+        "rid": -2
+      }
+    },
+    "texture_descriptor": {
+      "width": 512,
+      "height": 512,
+      "depth": 1,
+      "bindMS": false,
+      "samples": 1,
+      "format": 5,
+      "clearBuffer": true
+    },
+    "passes": [
+      {
+        "index": 0,
+        "name": "Initialize Frame",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 1,
+        "name": "Set Motion Vector Global Matrices",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 2,
+        "name": "Setup Forward Lights",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 3,
+        "name": "Setup Debug Properties",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 4,
+        "name": "Setup Camera Properties",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 5,
+        "name": "Draw Main Light Shadowmap",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            12
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            12
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 6,
+        "name": "Draw Additional Lights Shadowmap",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 7,
+        "name": "Setup Camera Properties",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 8,
+        "name": "Grass Bending Trails",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            13
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 9,
+        "name": "Draw Depth Normal Prepass",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            8
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            9,
+            8
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 10,
+        "name": "Grass Depth Normals (bent)",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            13,
+            9,
+            8
+          ],
+          "m_Buffers": [
+            1,
+            2,
+            3
+          ],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            9,
+            8
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 11,
+        "name": "Blit SSAO",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            8,
+            9
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            14
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 12,
+        "name": "Blur SSAO Horizontal (High)",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            14
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            16
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 13,
+        "name": "Blur SSAO Vertical (High)",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            16
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            14
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 14,
+        "name": "Blur SSAO Final (High)",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            14
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            15
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 15,
+        "name": "Cleanup SSAO",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            15
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 16,
+        "name": "Draw Opaque Objects",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            7,
+            12,
+            3,
+            15,
+            12,
+            3,
+            13,
+            9,
+            8,
+            15
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            6,
+            7
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 17,
+        "name": "Draw Skybox",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            7
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            6,
+            7
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 18,
+        "name": "Downsample Color",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            6
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            17
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 19,
+        "name": "Draw Transparent Objects",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            7,
+            12,
+            3,
+            15,
+            12,
+            3,
+            13,
+            9,
+            8,
+            15,
+            17
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            6,
+            7
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 20,
+        "name": "Blit Final To Back Buffer",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            6
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            4
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 21,
+        "name": "Draw UIToolkit/u GUI Overlay",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            7,
+            12,
+            3,
+            13,
+            9,
+            8,
+            15,
+            17
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            4,
+            7
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 22,
+        "name": "Draw IMGUI/Software Cursor Overlay",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            4
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      }
+    ]
+  },
+  "Mobile": {
+    "raw_file": "E:\\GithubRepositories\\URP_Example\\Logs\\MigrationPhase234-20261027\\91-Mobile-graph-final.json",
+    "raw_sha256": "136b03e1e28f4f3edfc06dce10e98d2df53d32ce5db07c3cf81ab414d48a253f",
+    "captureTimestamp": "02:53:56",
+    "executionName": "Main Camera",
+    "bending": {
+      "name": "Grass Bending (linear white)",
+      "imported": false,
+      "creationPassIndex": 7,
+      "releasePassIndex": 12,
+      "consumerList": [
+        8,
+        10,
+        12
+      ],
+      "producerList": [
+        7
+      ],
+      "memoryless": false,
+      "textureData": {
+        "rid": 1027
+      },
+      "bufferData": {
+        "rid": -2
+      }
+    },
+    "texture_descriptor": {
+      "width": 512,
+      "height": 512,
+      "depth": 1,
+      "bindMS": false,
+      "samples": 1,
+      "format": 5,
+      "clearBuffer": true
+    },
+    "passes": [
+      {
+        "index": 0,
+        "name": "Initialize Frame",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 1,
+        "name": "Set Motion Vector Global Matrices",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 2,
+        "name": "Setup Forward Lights",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 3,
+        "name": "Setup Debug Properties",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 4,
+        "name": "Setup Camera Properties",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 5,
+        "name": "Draw Main Light Shadowmap",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            12
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            12
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 6,
+        "name": "Setup Camera Properties",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 7,
+        "name": "Grass Bending Trails",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            13
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 8,
+        "name": "Draw Opaque Objects",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            7,
+            12,
+            12,
+            13
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            6,
+            7
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 9,
+        "name": "Draw Skybox",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            7
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            6,
+            7
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 10,
+        "name": "Draw Transparent Objects",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            7,
+            12,
+            12,
+            13
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            6,
+            7
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 11,
+        "name": "Blit Final To Back Buffer",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            6
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            4
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 12,
+        "name": "Draw UIToolkit/u GUI Overlay",
+        "culled": false,
+        "reads": {
+          "m_Textures": [
+            5,
+            12,
+            13
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            4,
+            5
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      },
+      {
+        "index": 13,
+        "name": "Draw IMGUI/Software Cursor Overlay",
+        "culled": false,
+        "reads": {
+          "m_Textures": [],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        },
+        "writes": {
+          "m_Textures": [
+            4
+          ],
+          "m_Buffers": [],
+          "m_AccelerationStructures": []
+        }
+      }
+    ]
+  }
+}

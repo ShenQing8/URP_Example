@@ -4,29 +4,32 @@
 
 ## 当前摘要
 
-- **当前阶段**：阶段 1／实施 A 完成（资源迁入验收）；详细证据见 [Phase1.md](Phase1.md)。
-- **整体迁移**：26 个源资源及 33 个 meta 已迁入；目标 Unity 实际导入，C# 因旧 Configure／Execute override 报两项 CS0115，项目当前不可运行验收。阶段 2～4 尚未实施。
-- **当前授权**：用户批准本对话仅实施阶段 1，允许阶段内资源迁入、导入／引用检查、Status／证据更新及本地提交；不推送远程，不自动开始阶段 2。本轮已完成该范围。
-- **下一阶段**：实施 B／阶段 2～4 联合迁移，尚未获批。等待用户明确批准；不在本轮修复旧 API 或 Shader。
-- **目标目录**：`E:\GithubRepositories\URP_Example`。
-- **源目录**：`E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res`，资源与仓库保持只读；阶段 0 操作纠正见活动记录。
-- **目标版本**：Unity 6000.6.3f1／URP 17.6.0；源为 2019.4.15f1／URP 7.3.1。
-- **迁移分支**：`codex/urp6-migration`（目标仓库）。
-- **本阶段接手 HEAD**：`8350698ed22734ede4ddf59533479e60796241bd`；开始时目标工作区干净，迁移分支正确。初始 main 基线仍为 `42c1fde2ef37cde1348cd587c8215494d99e9356`。
-- **阶段 0 交接提交**：已核验 `8350698ed22734ede4ddf59533479e60796241bd`，仅包含 AGENTS、Audit、Plan、Status 四份文档。
-- **阶段 1 提交与工作区**：用 `git -C E:\GithubRepositories\URP_Example log -1 -- Docs/Migration/Status.md` 定位包含本文的阶段 1 提交；实际 SHA 和提交后工作区状态在交接答复给出，下一对话补记。提交内容仅为本阶段迁入资源、许可归档和证据／状态；原有目标 70 文件、源 88 文件内容均保持基线。
+- **当前阶段**：实施 B／阶段 2、3、4 完成（Windows Editor／Direct3D 12 联合验收）。详细实现、真实证据、失败纠正与限制见 [Phase234.md](Phase234.md)。不等于整体迁移完成。
+- **当前授权**：2026-10-27 用户批准阶段 2～4 联合实现、修复、验证和本地提交；本轮到此结束，不推送、不自动进入阶段 5。
+- **目标／源**：`E:\GithubRepositories\URP_Example`；只读源 `E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res`。源 88 文件、master／HEAD 及四项既有改动均保留；33 个迁入原 meta 保留。
+- **实际版本**：Unity 6000.6.3f1 (45d8eee7de74)，URP／Core／Shader Graph 17.6.0；ProjectVersion、manifest、lock 与已安装包相符。
+- **分支／接手 HEAD**：`codex/urp6-migration`；`8d23a576e5274bd6563036c1d82b82c2cf0aff24`，已核实阶段 1 交接提交；接手工作区干净。阶段 0 提交为 `8350698ed22734ede4ddf59533479e60796241bd`。
+- **结果**：CPU Cell→Compute Append→CopyCount→RenderMeshIndirect 真实数据链通过；边界、合批、ID 参考集、10M 容量、两管线光照／风／SH／雾／纹理、构建资源实际加载、R8 四轨迹／5.204 秒恢复、深度法线／SSAO、8 相机位／Overlay／层掩码均有实际证据。
+- **构建边界**：阶段 3 的窄 Shader／Compute 资源包已按 Windows DX12／DX11 实际编译并在 DX12 加载验证；未执行阶段 6 的 Player 构建。DX11 未切设备运行，Android／Vulkan／Metal／XR 未验证。
+- **编辑器**：复用 PID 46016／NVIDIA RTX 4060 Laptop GPU；已退出 Play 并恢复 SampleScene，未新增并发编辑器，源项目未打开。
+- **保护与范围**：最初目标 70 文件中 68 个原字节不变，仅两个现代 Renderer 接线／序列化升级；Packages／ProjectSettings 保持。新增验证辅助仅在 Editor 执行；原 FPS／字体、Lit 升级外观与 GI 问题未删除或绕过。
+- **证据**：小体积输出、GPU、编译与图摘要见 [Phase234.md](Phase234.md)；完整日志／截图／资源包在 `Logs/MigrationPhase234-20261027`，不提交大产物。
+- **提交／工作区**：本轮仅本任务文件本地提交；包含本文的提交可用 `git log -1 -- Docs/Migration/Status.md` 定位。实际 SHA 与提交后状态在最终答复给出，下一阶段接手时补记，避免自引用哈希。
+- **下一步**：等待阶段 5 单独授权，处理 FPS／字体、两个 Lit 材质自动升级差异和 GI／烘焙；完整 Player、Profiler、设备与长期稳定性仍为阶段 6。
 
 ## 阶段总表
 
 | 阶段 | 工作 | 授权 | 状态 | 验证摘要 |
 | --- | --- | --- | --- | --- |
-| 0 | 基线、审计、计划与交接文档 | 已批准 | 完成 | 版本、文档引用、阶段字段、四文件范围及受保护内容哈希检查通过；以文档提交交接 |
-| 1 | 资源迁入与引用接线 | 已批准 | 完成（资源迁入） | 26 资源／33 meta 齐全；GUID／PPtr 检查通过，原三处缺项保留分类；Unity 已实际导入，两项预期 CS0115 阻断编译；不等于可运行 |
-| 2 | CPU／Compute／Indirect | 未批准 | 未开始 | 未运行 Unity／GPU 验证 |
-| 3 | Shader／光照／动画 | 未批准 | 未开始 | 未编译目标 Shader |
-| 4 | RenderGraph 弯曲 Pass | 未批准 | 未开始 | 未实现／验证 |
-| 5 | 演示完整性与缺项恢复 | 未批准 | 未开始 | 原缺失插件／字体等仍未处理 |
-| 6 | 构建、性能与最终运行 | 未批准 | 未开始 | 未构建或运行迁移项目；Android 也未验证 |
+| 0 | 基线、审计、计划与交接文档 | 已批准 | 完成 | 文档与受保护基线核验通过 |
+| 1 | 资源迁入与引用接线 | 已批准 | 完成（资源迁入） | 26 资源／33 meta；真实导入及旧 API 阻断有历史证据 |
+| 2 | CPU／Compute／Indirect | 已批准 | 完成（DX12 联合验收） | GPU 边界、ID／counter／CPU 参考集、合批、位置刷新、相机与 10M 容量实际通过 |
+| 3 | Shader／光照／动画 | 已批准 | 完成（当前 Windows 范围） | 两管线实际光照／阴影／动画／SH／纹理；DX11／DX12 资源编译及 DX12 构建资源加载通过 |
+| 4 | RenderGraph 弯曲 Pass | 已批准 | 完成（DX12 联合验收） | 最终 Main Camera 图依赖、R8 内容、四轨迹、重叠／交互带／恢复、深度法线与多相机通过 |
+| 5 | 演示完整性与缺项恢复 | 未批准 | 未开始 | FPS／字体、Lit 升级外观和旧 GI／烘焙待处理 |
+| 6 | 构建、性能与最终运行 | 未批准 | 未开始 | Player／Profiler／长期稳定性及实际设备未验收 |
+
+当前没有未取得证据却标为成功的联合项目：上述完成限于明确记录的 Windows／DX12 范围。平台、性能与整体工程完整性不借此标记完成。以下阶段 0／1 章节保留历史事实，授权与当前进度以上述摘要及最新活动记录为准。
 
 ## 阶段 0 文件与原因
 
@@ -63,7 +66,7 @@
 
 复算方法：对上述范围每个文件读取原始字节计算 SHA-256；用相对于各项目根的 POSIX 路径排序，每项编码为 `路径 + TAB + 小写 SHA-256 + LF`，拼接后以 UTF-8 编码再计算 SHA-256。该值固定的是阶段 0 内容基线；实施后目标摘要预期改变，源摘要应保持不变。
 
-## 未解决事项
+## 未解决事项（阶段 1 交接时的历史状态）
 
 | 事项 | 当前处理／影响 |
 | --- | --- |
@@ -102,31 +105,17 @@
 
 完整本地证据：`E:\GithubRepositories\URP_Example\Logs\MigrationPhase1-20261027`；原 Editor.log 切片起点为字节 2363677。可提交的简要导入输出、引用摘要及哈希清单见 [Phase1.md](Phase1.md) 的证据链接。Logs、Library 和大体积日志不提交。
 
-## 下一对话：实施 B／阶段 2～4（待批准）
-
-在相同项目下串行接手现有分支。以下提示由用户发送时才构成阶段 2～4 授权；本轮仅提供入口，未开始实施：
+## 下一对话入口（阶段 5 待单独批准）
 
 ```text
-批准实施阶段 2、3、4：CPU／Compute／Indirect、Shader／光照／动画和 RenderGraph 弯曲，按仓库 Plan.md 联合实施与验证。
-
-目标目录：E:\GithubRepositories\URP_Example
-源目录：E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res（只读）
-目标版本：Unity 6000.6.3f1，URP 17.6.0。
-
-先读取：
-E:\GithubRepositories\URP_Example\AGENTS.md
-E:\GithubRepositories\URP_Example\Docs\Migration\Audit.md
-E:\GithubRepositories\URP_Example\Docs\Migration\Plan.md
-E:\GithubRepositories\URP_Example\Docs\Migration\Status.md
-E:\GithubRepositories\URP_Example\Docs\Migration\Phase1.md
-
-核对实际目标仓库、迁移分支、HEAD 与阶段 1 交接提交；保留用户已有改动和只读源工作区。
-阶段 1 已迁入 26 资源／33 meta；Unity 导入后旧 Configure／Execute 有两项 CS0115，旧 Renderer Feature 不可用。
-参考 Evidence/Phase1-*；两个 Lit 材质已有官方升级差异，缺失 FPS／字体与烘焙效果仍留阶段 5。
-本轮只批准阶段 2～4，修复共享 C#／Compute／Shader／RenderGraph 契约直到联合验收；不得用旧兼容路径、固定计数或删除效果绕过问题。
-启动 Unity 前核对占用，优先使用现有会话；记录真实编译、GPU counter／ID、光照、轨迹纹理与运行证据。
-未取得联合证据的项目保留“待联合验证”；结束时更新 Status，列出失败、未验证项和下一步。
-允许提交本对话产生的本地改动，不推送远程，不自动进入阶段 5。
+批准实施阶段 5：演示完整性与缺项恢复，按 Plan.md 继续。
+目标 E:\GithubRepositories\URP_Example；源 E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res 只读。
+先读取 AGENTS.md、Status.md、Plan.md、Audit.md、Phase1.md、Phase234.md。
+核对 codex/urp6-migration、HEAD、工作区与阶段 2～4 交接提交；补记实际 SHA。
+阶段 2～4 已完成 Windows Editor／DX12 联合验收；DX11 仅资源编译，Player 与设备验收不在该结论中。
+本轮只实施阶段 5：恢复 FPS／字体和演示操作、比较两 Lit 升级差异、检查旧 GI／探针并按实际需要重烘焙；保留现代包与设置。
+先读 Phase234 的原生 Mobile 0.8 缩放 Overlay 对照与 BlendProbes 边界，不把源外观或旧烘焙误当已验证。
+保留已有改动，不推送，不自动进入阶段 6；更新 Status 并给出真实验证和本地提交。
 ```
 
 ## 活动记录
@@ -152,3 +141,13 @@ E:\GithubRepositories\URP_Example\Docs\Migration\Phase1.md
 - 源 88 文件和原有目标 70 文件摘要均与阶段 0 相同，源 master、HEAD、四项既有改动保留。静态证据和实际 Unity 日志节选已写入版本化 Evidence，完整脚本／日志／diff 留本地 Logs。
 - 暂存范围 66 文件核对通过；新写 Docs/Migration 的 git diff --cached --check 通过，全量检查因原始／Unity 序列化格式返回 2，共 187 处空白提示，完整结果留本地证据，未为格式提示改写资源字节。
 - 以包含本 Status 的阶段 1 本地提交交接；最终 SHA、暂存检查及提交后工作区状态以交接答复为准。阶段 1 仅按资源迁入完成，整体不可运行；阶段 2～4 未获批、未实施，不推送。
+
+### 2026-10-27：阶段 2～4 获批并完成 Windows 联合验收
+
+- 用户明确批准三阶段联合实现和验证；核验目标分支、干净接手状态与阶段 1 提交 8d23a576。源及其四项改动保持只读，没有启动源 Unity 或目标第二会话。
+- 修复共享位置／Cell／Compute／args／Indirect ID 契约、相机与释放、三组风和光照，改用 RenderGraph 独立俯视剔除及 R8 图；颜色／深度／法线共享变形。真实 GPU 测试、主相机图、资源编译与构建资源实际加载通过，详见 Phase234。
+- 记录并修正实际中间 C#／测试错误，未用旧 Configure／Execute、兼容模式、固定计数或删效果通过。最初误标 Mobile 的同回调质量切换结果作废；实际管线分帧复测通过。
+- 保留 Probe Blend、原根部上下 0.5m 交互范围；四原轨迹与真实 5.204 秒恢复通过。关闭草地层后禁止消费缓存深度。叠加相机原生 0.8 缩放差异经无草地／临时 1 对照定位，交付比例保持。
+- 更正 Audit 的目标 Mobile 比例：阶段 1 HEAD 为 0.8，PC 为 1。官方升级旧管线资产和自定义材质序列化，材质 Shader 数值逐项不变；现代配置保留。丢弃构建生成的 PC_RPAsset 编译预筛选字段并恢复准确初始字节。
+- 最终源 88 文件／分支／HEAD／状态一致，33 原 meta 一致；目标初始 70 文件仅两现代 Renderer 预期改变，Packages／ProjectSettings 不变；GUID／meta／包冲突检查通过。已恢复 SampleScene 并退出 Play，编辑器保持运行。
+- 仅提交本轮代码、Renderer、官方序列化差异、验证辅助及报告／小证据，不提交大日志、截图、资源包或缓存，不推送。阶段 5 尚未获批；最终提交 SHA 与工作区状态在交接答复给出。
