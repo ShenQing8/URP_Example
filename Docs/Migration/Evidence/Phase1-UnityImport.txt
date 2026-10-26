@@ -1,0 +1,48 @@
+Actual Unity editor output excerpt; numbers are lines in the local Editor-import.log.
+Session: PID 46016, Unity 6000.6.3f1, Windows Editor, Direct3D 12.
+Project: E:/GithubRepositories/URP_Example; existing SampleScene; automatic refresh.
+Original Logs/Editor.log begins at byte offset 2363677.
+
+555: Assets\URPMobileGrassInstancedIndirectDemo\InstancedIndirectGrass\Core\GrassBending\GrassBendingRTPrePass.cs(18,30): error CS0115: 'GrassBendingRTPrePass.CustomRenderPass.Configure(CommandBuffer, RenderTextureDescriptor)': no suitable method found to override
+557: Assets\URPMobileGrassInstancedIndirectDemo\InstancedIndirectGrass\Core\GrassBending\GrassBendingRTPrePass.cs(31,30): error CS0115: 'GrassBendingRTPrePass.CustomRenderPass.Execute(ScriptableRenderContext, ref RenderingData)': no suitable method found to override
+558: *** Tundra build failed (9.46 seconds), 3 items updated, 801 evaluated
+562: Assets\URPMobileGrassInstancedIndirectDemo\InstancedIndirectGrass\Core\GrassBending\GrassBendingRTPrePass.cs(18,30): error CS0115: 'GrassBendingRTPrePass.CustomRenderPass.Configure(CommandBuffer, RenderTextureDescriptor)': no suitable method found to override
+563: Assets\URPMobileGrassInstancedIndirectDemo\InstancedIndirectGrass\Core\GrassBending\GrassBendingRTPrePass.cs(31,30): error CS0115: 'GrassBendingRTPrePass.CustomRenderPass.Execute(ScriptableRenderContext, ref RenderingData)': no suitable method found to override
+565: Assets\URPMobileGrassInstancedIndirectDemo\InstancedIndirectGrass\Core\GrassBending\GrassBendingRTPrePass.cs(18,30): error CS0115: 'GrassBendingRTPrePass.CustomRenderPass.Configure(CommandBuffer, RenderTextureDescriptor)': no suitable method found to override
+566: Assets\URPMobileGrassInstancedIndirectDemo\InstancedIndirectGrass\Core\GrassBending\GrassBendingRTPrePass.cs(31,30): error CS0115: 'GrassBendingRTPrePass.CustomRenderPass.Execute(ScriptableRenderContext, ref RenderingData)': no suitable method found to override
+567: Importing 'GUID: b5f1a6e1970fb8d4fb90ef53ef9aa4a2 - Path: Assets/URPMobileGrassInstancedIndirectDemo' with importer (DefaultImporter)
+569: Importing 'GUID: a8828e32a402aff4c964595e1f00f8cf - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass' with importer (DefaultImporter)
+571: Importing 'GUID: fb102f7a1d3c77e4ba044a2d8b0a0e56 - Path: Assets/URPMobileGrassInstancedIndirectDemo/SkyBox' with importer (DefaultImporter)
+573: Importing 'GUID: a512c6d3bbd7eff4bb745cd18c77c3dd - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core' with importer (DefaultImporter)
+575: Importing 'GUID: 2f9df52daf4ad6b4c9f5e1ea092b8024 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene' with importer (DefaultImporter)
+577: Importing 'GUID: c118256f2d35285458aa39c598f129e6 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/GrassBending' with importer (DefaultImporter)
+579: Importing 'GUID: 4c1ab577a0060cc40af4dc8d0d6e16e0 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene' with importer (DefaultImporter)
+581: Importing 'GUID: b4bb10ac330c5c04680371d58f56a3a1 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity' with importer (DefaultImporter)
+583: Importing 'GUID: 53ce169df7acf6c44bcb3a3369318d3b - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/ReflectionProbe-0.exr' with importer (TextureImporter)
+587: Importing 'GUID: 2b3a04f0d3d535c41b3e191a9cf544a7 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_dir.png' with importer (TextureImporter)
+589: Importing 'GUID: edec5ef3226950841ac8090d6ac18095 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrassVertexColor.jpg' with importer (TextureImporter)
+591: Importing 'GUID: fdb09265ee228f841837865b94f91ee4 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_light.exr' with importer (TextureImporter)
+593: Importing 'GUID: 91755c17faee27e4f9e4267da00da25c - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/GrassBending/GrassBendingRTPrePassTrailShader.shader' with importer (ShaderImporter)
+596: Importing 'GUID: fd090f3b1d7b5df4f9c363d609cfa330 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrass.shader' with importer (ShaderImporter)
+599: Importing 'GUID: 4ff257ce2a1c37546a9b544e669e976b - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/CullingCompute.compute' with importer (ComputeShaderImporter)
+601: Importing 'GUID: 4f0fe8165c896ae4590d85abb1fd7ba1 - Path: Assets/URPMobileGrassInstancedIndirectDemo/SkyBox/SkyBox.shader' with importer (ShaderImporter)
+603: Importing 'GUID: e02b21a96e26af1429c35d255d688c90 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/Black Dynamic.mat' with importer (NativeFormatImporter)
+605: Importing 'GUID: 51f5ff1887fa6d44e9b663a87b55b7bb - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/GrassGround.mat' with importer (NativeFormatImporter)
+607: Importing 'GUID: 811aa85b06456c648be0ccbde7139fb4 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/PlayerMove.anim' with importer (NativeFormatImporter)
+609: Importing 'GUID: 481756766bafef24cb4d80894112ddea - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/GrassBending/GrassBendingRTPrePassPS.mat' with importer (NativeFormatImporter)
+611: Importing 'GUID: 2a0ca5d9e755e74448eaac7a643303db - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrass.mat' with importer (NativeFormatImporter)
+613: Importing 'GUID: eb06ea4bb74a06e4c91328c44f3d4c4b - Path: Assets/URPMobileGrassInstancedIndirectDemo/SkyBox/SkyBox.mat' with importer (NativeFormatImporter)
+615: Importing 'GUID: acc3d0d5da0a12246b00469c08fd457a - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/Player.controller' with importer (NativeFormatImporter)
+617: Importing 'GUID: 67e17f87458eb844a9a8fd6f37c788ac - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/UniversalRenderPipelineAsset.asset' with importer (NativeFormatImporter)
+618: UniversalRenderPipelineAsset_Renderer is missing RendererFeatures
+619: This could be due to missing scripts or compile error.
+632: Importing 'GUID: 6886f3f13f6f021418952724d2f0507e - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/UniversalRenderPipelineAsset_Renderer.asset' with importer (NativeFormatImporter)
+634: Importing 'GUID: 1c88819250a3b194a93cf3412d456661 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/LightingData.asset' with importer (NativeFormatImporter)
+636: Importing 'GUID: f6ba7152c8bde8a4683072c5f8fa8d6b - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/GrassBending/GrassBendingTrailRenderer.prefab' with importer (PrefabImporter)
+640: Asset Pipeline Refresh (id=c6317ece2bfde7041b26a1e76747e6ac): Total: 15.800 seconds - Initiated by RefreshV2(AllowForceSynchronousImport)
+701: Importing 'GUID: e02b21a96e26af1429c35d255d688c90 - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/Black Dynamic.mat' with importer (NativeFormatImporter)
+703: Importing 'GUID: 51f5ff1887fa6d44e9b663a87b55b7bb - Path: Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/GrassGround.mat' with importer (NativeFormatImporter)
+706: Asset Pipeline Refresh (id=986cc029cc151c4439af118745fafd12): Total: 0.067 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+707: UniversalRenderPipelineAsset_Renderer is missing RendererFeatures
+708: This could be due to missing scripts or compile error.
+759: Asset Pipeline Refresh (id=ceffeb5666b5e5b4ea43e5ebb1b5b281): Total: 0.020 seconds - Initiated by RefreshV2(AllowForceSynchronousImport)

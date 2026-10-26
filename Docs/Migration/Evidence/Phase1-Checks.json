@@ -1,0 +1,208 @@
+{
+  "checked_at": "2026-10-27T01:08:45.690055+08:00",
+  "target": "E:\\GithubRepositories\\URP_Example",
+  "source": "E:\\GithubRepositories\\URP_MeshInstancedIndirectExample\\Res",
+  "phase0_head": "8350698ed22734ede4ddf59533479e60796241bd",
+  "source_head": "cd9f9be6296e21ec7c49b678c3d4cce8c7bc64cd",
+  "source_branch": "master",
+  "source_existing_changes_preserved": [
+    " M Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrass.mat",
+    " M Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/GrassGround.mat",
+    " M Packages/packages-lock.json",
+    " M ProjectSettings/QualitySettings.asset"
+  ],
+  "protected_target_count": 70,
+  "protected_target_baseline_sha256": "e14bd1fe1f07a002b270243bf810326777b056cd8dabddb7321d8c5ee7b59c50",
+  "protected_source_count": 88,
+  "protected_source_baseline_sha256": "5fc3140fbb1d2d37f9beab286f80d0ea6b78eb0ee367271394ccdbb399626075",
+  "protected_target_unchanged": true,
+  "source_unchanged": true,
+  "migration_file_count": 59,
+  "migration_resource_count": 26,
+  "migration_meta_count": 33,
+  "byte_identical_count": 57,
+  "unity_material_upgrades": [
+    "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/Black Dynamic.mat",
+    "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/GrassGround.mat"
+  ],
+  "guid_collisions": {},
+  "missing_or_orphan_meta": [],
+  "local_pptr_count": 299,
+  "local_pptr_errors": [],
+  "external_anchor_errors": [],
+  "prefab_asset_fileids_100100000": 4,
+  "importer_generated_fileid_references_not_runtime_verified": 24,
+  "external_reference_occurrences": {
+    "asset": 88,
+    "builtin": 24,
+    "package": 33,
+    "missing": 3
+  },
+  "known_missing_refs": [
+    {
+      "path": "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity",
+      "line": 1642,
+      "fileID": "11500000",
+      "guid": "e4ff4051e75dc9443879b116bd65c930",
+      "category": "missing",
+      "resolved": []
+    },
+    {
+      "path": "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity",
+      "line": 1727,
+      "fileID": "12800000",
+      "guid": "fb80074802966ad438ec681fae1be1c2",
+      "category": "missing",
+      "resolved": []
+    },
+    {
+      "path": "Assets/URPMobileGrassInstancedIndirectDemo/SkyBox/SkyBox.mat",
+      "line": 23,
+      "fileID": "2800000",
+      "guid": "606abc37fcc31474699772fde405e2b4",
+      "category": "missing",
+      "resolved": []
+    }
+  ],
+  "package_guids": [
+    {
+      "guid": "04c410c9937594faa893a11dceb85f7e",
+      "occurrences": 1,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Shaders/Utils/Sampling.shader"
+      ]
+    },
+    {
+      "guid": "0f854b35a0cf61a429bd5dcfea30eddd",
+      "occurrences": 1,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Shaders/Utils/ScreenSpaceShadows.shader"
+      ]
+    },
+    {
+      "guid": "31321ba15b8f8eb4c954353edc038b1d",
+      "occurrences": 20,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Runtime/Materials/Lit.mat"
+      ]
+    },
+    {
+      "guid": "41439944d30ece34e96484bdb6645b55",
+      "occurrences": 1,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Runtime/Data/PostProcessData.asset"
+      ]
+    },
+    {
+      "guid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "occurrences": 2,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Shaders/Lit.shader"
+      ]
+    },
+    {
+      "guid": "a79441f348de89743a2939f4d699eac1",
+      "occurrences": 1,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Runtime/UniversalAdditionalCameraData.cs"
+      ]
+    },
+    {
+      "guid": "bf2edee5c58d82540a51f03df9d42094",
+      "occurrences": 1,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Runtime/Data/UniversalRenderPipelineAsset.cs"
+      ]
+    },
+    {
+      "guid": "c17132b1f77d20942aa75f8429c0f8bc",
+      "occurrences": 1,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Shaders/Utils/Blit.shader"
+      ]
+    },
+    {
+      "guid": "d0353a89b1f911e48b9e16bdc9f2e058",
+      "occurrences": 2,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Editor/AssetVersion.cs"
+      ]
+    },
+    {
+      "guid": "d6dae50ee9e1bfa4db75f19f99355220",
+      "occurrences": 1,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Shaders/Utils/CopyDepth.shader"
+      ]
+    },
+    {
+      "guid": "de640fe3d0db1804a85f9fc8f5cadab6",
+      "occurrences": 1,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Runtime/UniversalRendererData.cs"
+      ]
+    },
+    {
+      "guid": "e6e9a19c3678ded42a3bc431ebef7dbd",
+      "occurrences": 1,
+      "resolved": [
+        "Library/PackageCache/com.unity.render-pipelines.universal@327d93d1cbc8/Shaders/Utils/FallbackError.shader"
+      ]
+    }
+  ],
+  "lighting_data": {
+    "format": 21,
+    "engine_header": "2019.4.3f1",
+    "external_references": [
+      {
+        "guid": "b4bb10ac330c5c04680371d58f56a3a1",
+        "type": 3,
+        "path": "",
+        "resolved": "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity"
+      },
+      {
+        "guid": "fdb09265ee228f841837865b94f91ee4",
+        "type": 3,
+        "path": "",
+        "resolved": "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_light.exr"
+      },
+      {
+        "guid": "2b3a04f0d3d535c41b3e191a9cf544a7",
+        "type": 3,
+        "path": "",
+        "resolved": "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_dir.png"
+      },
+      {
+        "guid": "53ce169df7acf6c44bcb3a3369318d3b",
+        "type": 3,
+        "path": "",
+        "resolved": "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/ReflectionProbe-0.exr"
+      }
+    ],
+    "rendering_and_gi_validity": "not verified"
+  },
+  "attribution_sha256": {
+    "LICENSE.txt": "0a6fd645efa858488bdc833d31e02471dcc36c1e3871467e43d4ff0fc0c35acd",
+    "SourceREADME.md": "1a48c8837f303c38a3c98ce5f05e50963b1cbd4601ebc9431b2bc6b097d9a6b8"
+  },
+  "inventory_sha256": "07e55c94ad1a25b126b87248e241194b98a2e49a1d593c2d9b7654f7a93d85e4",
+  "editor_pid": 46016,
+  "unity": "6000.6.3f1",
+  "urp": "17.6.0",
+  "platform": "Windows Editor",
+  "graphics_api": "Direct3D 12",
+  "mode": "Existing interactive editor automatic AssetDatabase refresh; SampleScene stayed open",
+  "native_imports": {
+    "directories": 7,
+    "resources": 20
+  },
+  "scripts_in_failed_assembly": 6,
+  "csharp_compile_errors": [
+    "Assets\\URPMobileGrassInstancedIndirectDemo\\InstancedIndirectGrass\\Core\\GrassBending\\GrassBendingRTPrePass.cs(18,30): error CS0115: 'GrassBendingRTPrePass.CustomRenderPass.Configure(CommandBuffer, RenderTextureDescriptor)': no suitable method found to override",
+    "Assets\\URPMobileGrassInstancedIndirectDemo\\InstancedIndirectGrass\\Core\\GrassBending\\GrassBendingRTPrePass.cs(31,30): error CS0115: 'GrassBendingRTPrePass.CustomRenderPass.Execute(ScriptableRenderContext, ref RenderingData)': no suitable method found to override"
+  ],
+  "shader_error_lines_in_import_slice": [],
+  "shader_compute_variants_play_gpu_build": "not verified",
+  "log_byte_offset": 2363677,
+  "local_log": "Logs/MigrationPhase1-20261027/Editor-import.log"
+}

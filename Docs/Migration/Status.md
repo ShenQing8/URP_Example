@@ -4,23 +4,24 @@
 
 ## 当前摘要
 
-- **当前阶段**：阶段 0 完成，以包含本状态文件的阶段 0 本地提交作为交接点。
-- **整体迁移**：尚未实施；目标仍为原 URP 模板，没有迁入源资源。
-- **当前授权**：用户仅批准阶段 0，允许创建目标本地迁移分支、写入下列四份文档并提交；不推送远程；暂不开始阶段 1。
-- **下一阶段**：阶段 1／实施 A，尚未获批。等待用户在实施对话明确授权。
+- **当前阶段**：阶段 1／实施 A 完成（资源迁入验收）；详细证据见 [Phase1.md](Phase1.md)。
+- **整体迁移**：26 个源资源及 33 个 meta 已迁入；目标 Unity 实际导入，C# 因旧 Configure／Execute override 报两项 CS0115，项目当前不可运行验收。阶段 2～4 尚未实施。
+- **当前授权**：用户批准本对话仅实施阶段 1，允许阶段内资源迁入、导入／引用检查、Status／证据更新及本地提交；不推送远程，不自动开始阶段 2。本轮已完成该范围。
+- **下一阶段**：实施 B／阶段 2～4 联合迁移，尚未获批。等待用户明确批准；不在本轮修复旧 API 或 Shader。
 - **目标目录**：`E:\GithubRepositories\URP_Example`。
 - **源目录**：`E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res`，资源与仓库保持只读；阶段 0 操作纠正见活动记录。
 - **目标版本**：Unity 6000.6.3f1／URP 17.6.0；源为 2019.4.15f1／URP 7.3.1。
 - **迁移分支**：`codex/urp6-migration`（目标仓库）。
-- **本阶段接手 HEAD／回退基线**：`42c1fde2ef37cde1348cd587c8215494d99e9356`，初始分支 main，开始时目标工作区干净。
-- **阶段 0 交接提交**：用 `git log -1 -- Docs/Migration/Status.md` 定位包含本文档的阶段 0 提交；交接答复提供实际 SHA，下一对话核验并记录接手 SHA。本文不填写自身提交哈希。
+- **本阶段接手 HEAD**：`8350698ed22734ede4ddf59533479e60796241bd`；开始时目标工作区干净，迁移分支正确。初始 main 基线仍为 `42c1fde2ef37cde1348cd587c8215494d99e9356`。
+- **阶段 0 交接提交**：已核验 `8350698ed22734ede4ddf59533479e60796241bd`，仅包含 AGENTS、Audit、Plan、Status 四份文档。
+- **阶段 1 提交与工作区**：用 `git -C E:\GithubRepositories\URP_Example log -1 -- Docs/Migration/Status.md` 定位包含本文的阶段 1 提交；实际 SHA 和提交后工作区状态在交接答复给出，下一对话补记。提交内容仅为本阶段迁入资源、许可归档和证据／状态；原有目标 70 文件、源 88 文件内容均保持基线。
 
 ## 阶段总表
 
 | 阶段 | 工作 | 授权 | 状态 | 验证摘要 |
 | --- | --- | --- | --- | --- |
 | 0 | 基线、审计、计划与交接文档 | 已批准 | 完成 | 版本、文档引用、阶段字段、四文件范围及受保护内容哈希检查通过；以文档提交交接 |
-| 1 | 资源迁入与引用接线 | 未批准 | 未开始 | 未导入源资源 |
+| 1 | 资源迁入与引用接线 | 已批准 | 完成（资源迁入） | 26 资源／33 meta 齐全；GUID／PPtr 检查通过，原三处缺项保留分类；Unity 已实际导入，两项预期 CS0115 阻断编译；不等于可运行 |
 | 2 | CPU／Compute／Indirect | 未批准 | 未开始 | 未运行 Unity／GPU 验证 |
 | 3 | Shader／光照／动画 | 未批准 | 未开始 | 未编译目标 Shader |
 | 4 | RenderGraph 弯曲 Pass | 未批准 | 未开始 | 未实现／验证 |
@@ -38,7 +39,7 @@
 
 阶段 0 不修改 Assets、Packages、ProjectSettings，不启动 Unity，不做阶段 1 的资源复制／导入。允许的目标 Git 元数据变化是新建迁移分支及其文档提交。
 
-## 验证记录
+## 阶段 0 验证记录（历史）
 
 | 检查 | 当前结果／证据 |
 | --- | --- |
@@ -66,19 +67,47 @@
 
 | 事项 | 当前处理／影响 |
 | --- | --- |
-| 旧 Pass、剔除边界、Forward+、Shader 和弯曲纹理契约 | 静态审计已定位，等待阶段 2～4；当前没有任何迁移运行成功结论 |
+| 旧 Pass、剔除边界、Forward+、Shader 和弯曲纹理契约 | 阶段 1 已实际观察 Configure／Execute 的 CS0115 和旧 Renderer 缺 Feature 错误；等待获批阶段 2～4 联合修复／验证；当前没有迁移运行成功结论 |
 | FPS Counter 脚本和字体缺失 | 等待阶段 5 恢复或基于真实数据做等价实现；原样字体／插件不可得时必须记录差异 |
 | 旧 Preset、Timeline 设置及闲置天空贴图引用 | 已分类，不将旧设置覆盖到目标；后续按是否为运行依赖处理 |
-| LightingData 在 Unity 6 的有效性 | 静态外部引用齐全，但导入／效果未验证；必要时在目标重烘焙 |
+| LightingData 在 Unity 6 的有效性 | 四个二进制外部 GUID 齐全且已实际导入，但 GI／LightProbes／烘焙效果未验证；必要时在目标重烘焙 |
+| Lit 材质自动升级差异 | Unity 将两个材质升级至 AssetVersion 10，队列 2050 -> 2000，部分颜色／发光值变化；完整 diff 在本地证据目录，数值摘要见 Phase1.md。阶段 5 必须实际比较，不宣称外观一致 |
+| 旧管线资产升级与接线 | 两旧资产已导入且发生官方 UpgradeAsset 调用，磁盘仍为源字节；未接入目标有效管线，Feature 因编译失败不可用。阶段 4 使用现代 PC／Mobile Renderer 接入 RenderGraph，不以旧 Renderer 替换 |
 | 验收平台 | 尚未新增用户选择；计划优先 Windows，Android 单独验证，不承诺尚无证据的设备结果 |
-| 目标编辑器占用 | 历史观察到有 Unity 进程，本阶段未启动或关闭编辑器；实施时重新核对项目锁和可用会话 |
+| 目标编辑器占用 | 阶段 1 使用现有 PID 46016／SampleScene／DX12 会话自动导入，没有新增或强制关闭编辑器；后续重新核对锁与会话 |
 
-## 下一对话：实施 A／阶段 1
+## 阶段 1 文件与实际验证
 
-阶段 0 提交并完成校验后，由用户在相同项目下创建 Local 对话，串行接手现有分支。以下提示由用户发送时才构成阶段 1 授权：
+| 范围 | 改动与原因 |
+| --- | --- |
+| Assets/URPMobileGrassInstancedIndirectDemo 及根 meta | 完整复制源工作区 26 个资源、33 个 meta，保留身份和场景／材质／Prefab／动画接线；57 文件源字节一致，仅两个 Lit 材质由 Unity 自动升级 |
+| Docs/ThirdParty/URPMobileGrassInstancedIndirectDemo | 原 LICENSE 与 README 原字节归档，保留 ColinLeung-NiloCat MIT 署名；历史性能及截图不作为新证据 |
+| Docs/Migration/Phase1.md、Evidence/Phase1-* | 记录实际导入、编译阻断、引用分类、双边 SHA-256 清单和自动写回差异 |
+| Docs/Migration/Status.md | 更新本轮授权、验收边界与下一实施入口，保留阶段 0 历史 |
+
+| 检查 | 实际结果／边界 |
+| --- | --- |
+| 环境 | Unity 6000.6.3f1 (45d8eee7de74)、URP／Core／Shader Graph 17.6.0；Windows Editor、Direct3D 12；项目 E:\GithubRepositories\URP_Example |
+| 资源／GUID | 26 资源／33 meta 齐全，33 GUID 保留，无重复／目标或包冲突；未复制源 Packages、ProjectSettings 或缓存 |
+| PPtr／包引用 | 299 处同文件 PPtr 均解析；148 处外部文本引用分类为 Assets 88／包 33／内置 24／已知缺失 3；4 个 Prefab 特殊入口 fileID 单列；24 处 importer 生成 fileID 未做运行引用验收 |
+| 缺项 | 与 Audit 一致：FPS Counter、字体、闲置天空 _MainTex；未删除配置，未伪造替代项；前两项阶段 5 处理 |
+| LightingData | 二进制 v21 外部表四 GUID 均解析；NativeFormatImporter 实际导入；GI／LightProbes／旧烘焙效果仍未验证 |
+| Unity 实际导入 | 使用既有 PID 46016，保持 SampleScene；自动 Refresh 记录 7 目录／20 非 C# 资源导入、6 C# 编译输入；未启动第二会话。WScript 激活尝试失败，未发送快捷键，自动导入不受影响 |
+| Unity C# | **失败（预期）**：GrassBendingRTPrePass.cs:18 Configure、:31 Execute，均 CS0115；编译退出码 1；旧 Renderer 同时报 missing RendererFeatures。留给阶段 2～4，不绕过编译 |
+| Shader／Compute | 3 Shader／1 Compute importer 实际运行，切片未报告相关错误；完整变体、GPU kernel 执行和各 API 后端均未验证 |
+| 序列化写回 | 接受并记录两个 Lit 材质官方升级；还原唯一非必要目标设置补写字段；代码、Shader、Compute、场景、Prefab、meta、旧管线资产原字节保留 |
+| 受保护内容 | 原有目标 70 文件／源 88 文件逐项 SHA-256 与阶段 0 一致；源 master／HEAD 与四项未提交改动保留；目标包版本与 PC／Mobile 原设置保持 |
+| Git 范围／空白 | 暂存仅本阶段 66 文件；新写 Docs/Migration 空白检查通过。全量 git diff --cached --check 返回 2，187 处源资源／原 README／Unity 材质序列化格式提示（185 行尾空白、2 EOF 空行），保留并记录，未谎报通过 |
+| Play／GPU／构建／视觉 | **未执行／未验证**；本阶段只完成资源迁入，不称项目可运行 |
+
+完整本地证据：`E:\GithubRepositories\URP_Example\Logs\MigrationPhase1-20261027`；原 Editor.log 切片起点为字节 2363677。可提交的简要导入输出、引用摘要及哈希清单见 [Phase1.md](Phase1.md) 的证据链接。Logs、Library 和大体积日志不提交。
+
+## 下一对话：实施 B／阶段 2～4（待批准）
+
+在相同项目下串行接手现有分支。以下提示由用户发送时才构成阶段 2～4 授权；本轮仅提供入口，未开始实施：
 
 ```text
-批准实施阶段 1：资源迁入与引用接线，按仓库 Plan.md 执行。
+批准实施阶段 2、3、4：CPU／Compute／Indirect、Shader／光照／动画和 RenderGraph 弯曲，按仓库 Plan.md 联合实施与验证。
 
 目标目录：E:\GithubRepositories\URP_Example
 源目录：E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res（只读）
@@ -89,11 +118,15 @@ E:\GithubRepositories\URP_Example\AGENTS.md
 E:\GithubRepositories\URP_Example\Docs\Migration\Audit.md
 E:\GithubRepositories\URP_Example\Docs\Migration\Plan.md
 E:\GithubRepositories\URP_Example\Docs\Migration\Status.md
+E:\GithubRepositories\URP_Example\Docs\Migration\Phase1.md
 
-核对实际目标仓库、迁移分支、HEAD 与阶段 0 交接提交；保留用户已有改动。
-只实施阶段 1，按资源迁入验收；明确记录预期编译阻断，不宣称项目可运行。
-执行实际可做的导入／引用检查，更新 Status 并给出下一阶段提示。
-允许提交本对话产生的本地改动，不推送远程，不自动进入阶段 2。
+核对实际目标仓库、迁移分支、HEAD 与阶段 1 交接提交；保留用户已有改动和只读源工作区。
+阶段 1 已迁入 26 资源／33 meta；Unity 导入后旧 Configure／Execute 有两项 CS0115，旧 Renderer Feature 不可用。
+参考 Evidence/Phase1-*；两个 Lit 材质已有官方升级差异，缺失 FPS／字体与烘焙效果仍留阶段 5。
+本轮只批准阶段 2～4，修复共享 C#／Compute／Shader／RenderGraph 契约直到联合验收；不得用旧兼容路径、固定计数或删除效果绕过问题。
+启动 Unity 前核对占用，优先使用现有会话；记录真实编译、GPU counter／ID、光照、轨迹纹理与运行证据。
+未取得联合证据的项目保留“待联合验证”；结束时更新 Status，列出失败、未验证项和下一步。
+允许提交本对话产生的本地改动，不推送远程，不自动进入阶段 5。
 ```
 
 ## 活动记录
@@ -107,3 +140,15 @@ E:\GithubRepositories\URP_Example\Docs\Migration\Status.md
 - 随后显式使用 git -C 指向目标，创建目标 codex/urp6-migration 分支；后续 Git 写命令固定使用目标绝对路径。
 - 已编写四份文档，检查链接、阶段字段、格式和范围通过；阶段开始前后目标 70／源 88 个受保护文件逐项哈希完全一致，源原分支及四项既有改动保留。
 - 暂存范围仅四份文档，git diff --cached --check 通过；以本次文档提交交接，实际 SHA 和最终工作区状态在交接答复给出，下一阶段核对 Git。未启动 Unity，未迁入资源，未开始阶段 1，未推送远程。
+
+### 2026-10-27：阶段 1 获批，资源迁入验收完成
+
+- 用户明确只批准阶段 1，允许本轮产生的本地提交；已读 AGENTS／Audit／Plan／Status，核验分支、干净工作区及阶段 0 交接提交 8350698ed22734ede4ddf59533479e60796241bd。
+- 版本四处证据相符；先采集目标 70／源 88 文件 SHA-256 和源 Git 状态，再将源当前工作区的 26 个资源及 33 个 meta 迁入。原 LICENSE／README 归档；源没有编辑、切分支、暂存或提交。
+- 目标已由 Unity 6000.6.3f1／DX12／PID 46016 占用；使用该会话自动导入，未启动第二实例或打开源项目。激活会话的 WScript 尝试返回失败，未发出快捷键；后续检查真实 Refresh 日志确认资源导入完成。
+- 实际 Unity C# 编译失败：GrassBendingRTPrePass.cs:18／31 两项 CS0115；旧 Renderer 报 missing RendererFeatures。保留旧代码／效果，没有通过删 override、禁用 Feature 或兼容模式消除错误；API 修复不在本轮范围。
+- Unity 自动升级两个 Lit 材质，接受并记录版本、队列、颜色／发光数值差异；对唯一目标设置补写字段核对默认值和 diff 后还原原字节。其余 57 个迁入文件、全部原有目标文件保持内容；迁入场景仍未打开，Play／GPU／构建未验证。
+- GUID 无冲突，299 个同文件 PPtr 与可检查外部 anchor 均解析；Prefab 100100000 特殊入口及 importer fileID 单独标注。包内 Lit 的 20 处引用、LightingData 四个二进制外部 GUID 均可追溯；已知三处悬空不变。
+- 源 88 文件和原有目标 70 文件摘要均与阶段 0 相同，源 master、HEAD、四项既有改动保留。静态证据和实际 Unity 日志节选已写入版本化 Evidence，完整脚本／日志／diff 留本地 Logs。
+- 暂存范围 66 文件核对通过；新写 Docs/Migration 的 git diff --cached --check 通过，全量检查因原始／Unity 序列化格式返回 2，共 187 处空白提示，完整结果留本地证据，未为格式提示改写资源字节。
+- 以包含本 Status 的阶段 1 本地提交交接；最终 SHA、暂存检查及提交后工作区状态以交接答复为准。阶段 1 仅按资源迁入完成，整体不可运行；阶段 2～4 未获批、未实施，不推送。
