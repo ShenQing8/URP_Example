@@ -195,7 +195,7 @@ public class InstancedIndirectGrassRenderer : MonoBehaviour
     }
     void OnGUI()
     {
-        GUI.contentColor = Color.black;
+        using var gui = DemoGUI.Begin();
         GUI.Label(new Rect(200, 0, 450, 60), $"After CPU cell frustum culling,\n-Visible cell count = {lastVisibleCells}/{cells.Length}\n-Real compute dispatch count = {lastDispatches}");
         shouldBatchDispatch = GUI.Toggle(new Rect(400, 400, 200, 100), shouldBatchDispatch, "shouldBatchDispatch");
     }

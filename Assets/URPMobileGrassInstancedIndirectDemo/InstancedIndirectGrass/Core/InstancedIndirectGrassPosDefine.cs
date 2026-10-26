@@ -14,6 +14,7 @@ public class InstancedIndirectGrassPosDefine : MonoBehaviour
     void Update() { UpdatePosIfNeeded(); if (grass) grass.drawDistance = drawDistance; }
     void OnGUI()
     {
+        using var gui = DemoGUI.Begin();
         GUI.Label(new Rect(300, 50, 200, 30), "Instance Count: " + instanceCount / 1000000 + "Million");
         instanceCount = Mathf.Max(1, (int)GUI.HorizontalSlider(new Rect(300, 100, 200, 30), instanceCount / 1000000f, 1, 10)) * 1000000;
         GUI.Label(new Rect(300, 150, 200, 30), "Draw Distance: " + drawDistance);

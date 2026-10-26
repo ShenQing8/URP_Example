@@ -17,6 +17,7 @@ public class RotateLight : MonoBehaviour
 
     private void OnGUI()
     {
+        using var gui = DemoGUI.Begin();
         mainLight.enabled = GUI.Toggle(new Rect(100, 150, 200, 30), mainLight.enabled, "Main Light On/OFF");
         pointLight.enabled = GUI.Toggle(new Rect(100, 250, 200, 30), pointLight.enabled, "PointLight Light On/OFF");
 

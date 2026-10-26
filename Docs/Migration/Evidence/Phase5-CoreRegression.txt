@@ -1,0 +1,106 @@
+=== Logs/MigrationPhase5-20261027/CoreRegression/phase5-cameras-PC.txt ===
+2026-10-27T04:02:11.2442606+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Source camera pose 0 position=(64.20, 8.00, 7.24) rotation=(10.00, 270.00, 0.00)
+positions=1000000 append=76842 args=76842 cells=258 dispatches=24 unique/range=PASS idsSHA256=7E76FE2DF23AA5B9A431EC25F6BF671881F92A0C116B9712EFF0835F24893558
+Source camera pose 1 position=(37.93, 20.36, 83.48) rotation=(33.73, 202.22, 359.99)
+positions=1000000 append=77657 args=77657 cells=275 dispatches=18 unique/range=PASS idsSHA256=12804A3196B6EE1E4C2FB988C901D8CE27223C6435551DBF9AA442066A795E06
+Source camera pose 2 position=(62.84, 30.61, 46.99) rotation=(37.51, 252.24, 0.00)
+positions=1000000 append=79035 args=79035 cells=280 dispatches=23 unique/range=PASS idsSHA256=4B81EED717641FEDED4A10C8512EFB0D48E1CA9377B45D644DDCAE98BA894C2A
+Source camera pose 3 position=(5.89, 16.38, 81.50) rotation=(28.57, 179.70, 359.99)
+positions=1000000 append=76894 args=76894 cells=269 dispatches=16 unique/range=PASS idsSHA256=17A957A4D5F0EF9B9CA17EAB035FB012C9F345308478C84F31CAB3E94F54CF0F
+Source camera pose 4 position=(8.27, 13.84, 83.70) rotation=(317.75, 201.03, 359.98)
+positions=1000000 append=207 args=207 cells=26 dispatches=5 unique/range=PASS idsSHA256=AC7611EFCE5CCA4615CAE4DEDBFEEEF617B36A6E16247D72AAD68015F3C28D85
+Source camera pose 5 position=(-79.04, 12.70, 160.98) rotation=(8.97, 143.61, 359.97)
+positions=1000000 append=77095 args=77095 cells=252 dispatches=17 unique/range=PASS idsSHA256=23BF817BF338AA4E84546E26FEDBE3408C1697130FB947BA9458C2A7D60E14A5
+Source camera pose 6 position=(-248.94, 14.35, 27.55) rotation=(1.13, 66.69, 0.00)
+positions=1000000 append=74329 args=74329 cells=239 dispatches=22 unique/range=PASS idsSHA256=F4F317D500A518A7B48F5552E61EC8E35673340ADD10F147A8FF8743F9E80645
+Source camera pose 7 position=(160.86, 54.50, 34.26) rotation=(23.31, 262.54, 0.00)
+positions=1000000 append=66585 args=66585 cells=249 dispatches=25 unique/range=PASS idsSHA256=F625A3BF8542553D9856B7F0781AF091C588D563F4B385B9C67932D7A3788E1C
+Empty overlay RGB delta=0; overlay owns grass buffers=False
+Same camera stack Feature on/off RGB delta=0.101808980107307
+Native scene only, grass disabled, renderScale=1 base/overlay RGB delta=0
+Native scene only, grass disabled, renderScale=1 base/overlay RGB delta=0
+Zero culling mask: no grass graph pass or cached buffers consumed PASS
+Source camera poses, final matrices, camera stack isolation PASS
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/CoreRegression/phase5-cameras-Mobile.txt ===
+2026-10-27T04:03:39.6087895+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Source camera pose 0 position=(64.20, 8.00, 7.24) rotation=(10.00, 270.00, 0.00)
+positions=1000000 append=76842 args=76842 cells=258 dispatches=24 unique/range=PASS idsSHA256=7E76FE2DF23AA5B9A431EC25F6BF671881F92A0C116B9712EFF0835F24893558
+Source camera pose 1 position=(37.93, 20.36, 83.48) rotation=(33.73, 202.22, 359.99)
+positions=1000000 append=77657 args=77657 cells=275 dispatches=18 unique/range=PASS idsSHA256=12804A3196B6EE1E4C2FB988C901D8CE27223C6435551DBF9AA442066A795E06
+Source camera pose 2 position=(62.84, 30.61, 46.99) rotation=(37.51, 252.24, 0.00)
+positions=1000000 append=79035 args=79035 cells=280 dispatches=23 unique/range=PASS idsSHA256=4B81EED717641FEDED4A10C8512EFB0D48E1CA9377B45D644DDCAE98BA894C2A
+Source camera pose 3 position=(5.89, 16.38, 81.50) rotation=(28.57, 179.70, 359.99)
+positions=1000000 append=76894 args=76894 cells=269 dispatches=16 unique/range=PASS idsSHA256=17A957A4D5F0EF9B9CA17EAB035FB012C9F345308478C84F31CAB3E94F54CF0F
+Source camera pose 4 position=(8.27, 13.84, 83.70) rotation=(317.75, 201.03, 359.98)
+positions=1000000 append=207 args=207 cells=26 dispatches=5 unique/range=PASS idsSHA256=AC7611EFCE5CCA4615CAE4DEDBFEEEF617B36A6E16247D72AAD68015F3C28D85
+Source camera pose 5 position=(-79.04, 12.70, 160.98) rotation=(8.97, 143.61, 359.97)
+positions=1000000 append=77095 args=77095 cells=252 dispatches=17 unique/range=PASS idsSHA256=23BF817BF338AA4E84546E26FEDBE3408C1697130FB947BA9458C2A7D60E14A5
+Source camera pose 6 position=(-248.94, 14.35, 27.55) rotation=(1.13, 66.69, 0.00)
+positions=1000000 append=74329 args=74329 cells=239 dispatches=22 unique/range=PASS idsSHA256=F4F317D500A518A7B48F5552E61EC8E35673340ADD10F147A8FF8743F9E80645
+Source camera pose 7 position=(160.86, 54.50, 34.26) rotation=(23.31, 262.54, 0.00)
+positions=1000000 append=66585 args=66585 cells=249 dispatches=25 unique/range=PASS idsSHA256=F625A3BF8542553D9856B7F0781AF091C588D563F4B385B9C67932D7A3788E1C
+Empty overlay RGB delta=0.0329426750540733; overlay owns grass buffers=False
+Same camera stack Feature on/off RGB delta=0.0646321401000023
+Native scene only, grass disabled, renderScale=0.8 base/overlay RGB delta=0.00355291739106178
+Native scene only, grass disabled, renderScale=1 base/overlay RGB delta=0
+Zero culling mask: no grass graph pass or cached buffers consumed PASS
+Source camera poses, final matrices, camera stack isolation PASS
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/CoreRegression/phase5-interaction.txt ===
+2026-10-27T04:04:50.5953575+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+phase5-interaction-empty: red min=1.00000 max=1.00000 nonwhite=0
+phase5-interaction-actor0: red min=0.00000 max=1.00000 nonwhite=679
+Actor 0 newest world=(-8.22, -0.30, 15.55) expected texel=(241,244) local red min=0.0000 lifetime=5 points=279
+phase5-interaction-actor1: red min=0.00000 max=1.00000 nonwhite=678
+Actor 1 newest world=(50.56, -0.30, 10.87) expected texel=(301,239) local red min=0.0000 lifetime=5 points=279
+phase5-interaction-actor2: red min=0.00000 max=1.00000 nonwhite=675
+Actor 2 newest world=(14.92, -0.30, -30.07) expected texel=(264,197) local red min=0.0000 lifetime=5 points=279
+phase5-interaction-actor3: red min=0.00000 max=1.00000 nonwhite=682
+Actor 3 newest world=(19.23, -0.30, 37.22) expected texel=(269,266) local red min=0.0000 lifetime=5 points=279
+phase5-interaction-all: red min=0.00000 max=1.00000 nonwhite=2337
+phase5-interaction-offscreen-second-camera: red min=0.00000 max=1.00000 nonwhite=2337
+Opposite-view camera produces same track pixels; visible/args buffer identities are isolated PASS
+Overlap and 5-second lifetime recovery scheduled after a real engine frame; separate reports follow.
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/CoreRegression/phase5-interaction-overlap.txt ===
+phase5-interaction-overlap-single: red min=0.49804 max=1.00000 nonwhite=576
+phase5-interaction-overlap-double: red min=0.24706 max=1.00000 nonwhite=576
+Overlap single=0.49804 double=0.24706 expected product=0.24804; real elapsed=0.333s
+OVERLAP PASS
+phase5-interaction-above-interaction-slab: red min=1.00000 max=1.00000 nonwhite=0
+Original vertical interaction slab exclusion PASS
+Original four trails stopped emitting; real lifetime recovery begins now.
+
+=== Logs/MigrationPhase5-20261027/CoreRegression/phase5-interaction-recovery.txt ===
+2026-10-27T04:04:56.1617213+08:00 actual Play elapsed=5.204s
+phase5-interaction-recovered: red min=1.00000 max=1.00000 nonwhite=0
+RECOVERY PASS
+
+=== Logs/MigrationPhase5-20261027/CoreRegression/phase5-final-shaders.txt ===
+2026-10-27T04:08:14.2577672+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Shader MobileDrawMeshInstancedIndirect/SingleGrass supported=True
+Shader URPMobileGrassInstancedIndirectDemo/GrassBendingRTPrePassPS supported=True
+Shader URPMobileGrassInstancedIndirectDemo/SkyBox supported=True
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/CoreRegression/phase5-stop-final.txt ===
+2026-10-27T04:08:14.3834538+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Stop requested.
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/CoreRegression/phase5-restore-final.txt ===
+2026-10-27T04:08:15.0895997+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU
+Restored Assets/Scenes/SampleScene.unity
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/13-settings-baseline.txt ===
+2026-10-27T04:15:50.8414818+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU Play=False
+Loaded default Volume components=19; all nonnull; names=LiftGammaGain,ColorLookup,ScreenSpaceLensFlare,ShadowsMidtonesHighlights,WhiteBalance,SplitToning,Tonemapping,Vignette,ColorCurves,ChannelMixer,ColorAdjustments,Bloom,DepthOfField,MotionBlur,ChromaticAberration,PaniniProjection,FilmGrain,LensDistortion,ProbeVolumesOptions
+Current default Volume profile=Assets/Settings/DefaultVolumeProfile.asset
+Four missing-script orphan subassets are not in the serialized or loaded components list; preserve original asset bytes.
+COMMAND PASS

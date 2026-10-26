@@ -1,0 +1,260 @@
+{
+  "date": "2026-10-27 Asia/Shanghai",
+  "scope": "Phase 5; Windows Editor DX12 only; no Player, no push",
+  "project": "E:\\GithubRepositories\\URP_Example",
+  "handoffHead": "8b79517a4128c21ade3b42f4fb5af4cf3ed267c3",
+  "branch": "main",
+  "origin": "https://github.com/ShenQing8/URP_Example.git",
+  "unity": "6000.6.3f1 (45d8eee7de74)",
+  "urpCoreShaderGraph": "17.6.0",
+  "editorPID": 32380,
+  "GPU": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "source": {
+    "root": "E:\\GithubRepositories\\URP_MeshInstancedIndirectExample\\Res",
+    "files": 88,
+    "changed": [],
+    "head": "cd9f9be6296e21ec7c49b678c3d4cce8c7bc64cd",
+    "branch": "master",
+    "status": "M Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrass.mat\n M Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/GrassGround.mat\n M Packages/packages-lock.json\n M ProjectSettings/QualitySettings.asset",
+    "samePathsContentGitStatus": true
+  },
+  "target": {
+    "snapshotFiles": 148,
+    "changedSnapshotFiles": [
+      "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrassPosDefine.cs",
+      "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/InstancedIndirectGrassRenderer.cs",
+      "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/MoveCamera.cs",
+      "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/RotateLight.cs",
+      "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity",
+      "Assets/URPMobileGrassInstancedIndirectDemo/SkyBox/SkyBox.mat",
+      "ProjectSettings/EditorBuildSettings.asset",
+      "README.md"
+    ],
+    "originalMetaPreserved": 33,
+    "assetGUIDs": 66,
+    "duplicateGUIDs": [],
+    "missingMeta": [],
+    "packageGUIDConflicts": [],
+    "textGUIDReferencesChecked": 408,
+    "unresolvedSerializedBaselineGUIDReferences": [
+      [
+        "Assets/Settings/DefaultVolumeProfile.asset",
+        "60f3b30c03e6ba64d9a27dc9dba8f28d"
+      ],
+      [
+        "Assets/Settings/DefaultVolumeProfile.asset",
+        "0fd9ee276a1023e439cf7a9c393195fa"
+      ],
+      [
+        "Assets/Settings/DefaultVolumeProfile.asset",
+        "5a00a63fdd6bd2a45ab1f2d869305ffd"
+      ],
+      [
+        "Assets/Settings/DefaultVolumeProfile.asset",
+        "74955a4b0b4243bc87231e8b59ed9140"
+      ],
+      [
+        "Assets/Settings/PC_Renderer.asset",
+        "e5c6678ed2aaa91408dd3df699057aae"
+      ],
+      [
+        "Assets/Settings/PC_Renderer.asset",
+        "03cfc4915c15d504a9ed85ecc404e607"
+      ],
+      [
+        "Assets/Settings/PC_Renderer.asset",
+        "53a11f4ebaebf4049b3638ef78dc9664"
+      ],
+      [
+        "Assets/Settings/PC_Renderer.asset",
+        "8f96cd657dc40064aa21efcc7e50a2e7"
+      ],
+      [
+        "Assets/Settings/PC_Renderer.asset",
+        "57d7c4c16e2765b47a4d2069b311bffe"
+      ],
+      [
+        "Assets/Settings/PC_Renderer.asset",
+        "24ec0e140fb444a44ab96ee80844e18e"
+      ],
+      [
+        "Assets/Settings/PC_Renderer.asset",
+        "b9a23f869c4fd45f19c5ada54dd82176"
+      ]
+    ],
+    "missingDemoGUIDReferences": [],
+    "baselineUnresolvedClassification": {
+      "DefaultVolumeProfile": "4 orphan missing-script subassets excluded from serialized and loaded 19-component list",
+      "PC_Renderer": "7 obsolete ProbeVolumeResources fields; modern resources have moved to GraphicsSettings per installed Deprecated.cs"
+    },
+    "packagesAndModernPipelinesUnchanged": true,
+    "lightingAndTwoLitMaterialsByteUnchanged": true,
+    "lightingDataSHA256": "72d97f8980b2c1eab0d82aacdc26417a61d24668086cfcd1e056934a6c98e7ae",
+    "lightingDataBytes": 23160
+  },
+  "runtimeFont": {
+    "name": "LegacyRuntime",
+    "builtinGUID": "0000000000000000e000000000000000",
+    "fileID": 10102,
+    "originalPluginFontUnavailable": true
+  },
+  "GI": {
+    "lightingDataValid": true,
+    "lightmapGroups": 1,
+    "lightmappedRenderers": 18,
+    "bakedProbeCount": 8,
+    "finiteSHCoefficients": 216,
+    "defaultReflection": "scene/ReflectionProbe-0.exr",
+    "rebaked": false,
+    "reason": "actual baked lightmap and BlendProbes response/restoration demonstrated in both pipelines; keep original local probe semantics"
+  },
+  "historicalFailuresThisTurn": [
+    "01-inspect-before.txt: cross-queue request ran on SampleScene; replaced lightingSettings getter with TryGetLightingSettings; reran on demo",
+    "09-ui-small.txt: assertions passed but native Invalid index during size cleanup; not final pass; total-index cleanup fixed and 10-ui-small-final passed with native error checks"
+  ],
+  "selectedFinalReports": {
+    "Phase5-Operations.txt": [
+      "05-operations-PC.txt",
+      "08-ui-PC.txt",
+      "10-ui-small-final.txt",
+      "11-ui-Mobile.txt"
+    ],
+    "Phase5-Visuals.txt": [
+      "04-visuals-PC.txt",
+      "06-visuals-Mobile.txt",
+      "07-inspect-final-edit.txt",
+      "12-inspect-play-final.txt"
+    ],
+    "Phase5-CoreRegression.txt": [
+      "CoreRegression/phase5-cameras-PC.txt",
+      "CoreRegression/phase5-cameras-Mobile.txt",
+      "CoreRegression/phase5-interaction.txt",
+      "CoreRegression/phase5-interaction-overlap.txt",
+      "CoreRegression/phase5-interaction-recovery.txt",
+      "CoreRegression/phase5-final-shaders.txt",
+      "CoreRegression/phase5-stop-final.txt",
+      "CoreRegression/phase5-restore-final.txt",
+      "13-settings-baseline.txt"
+    ]
+  },
+  "rawEvidenceSHA256": {
+    "01-inspect-before.txt": "518f3823bc0b757c4df48cacf8d0cd3e44dea59c357216f64f395488723c0074",
+    "02-inspect-legacy.txt": "3bb9108e48329d9b4ea79de9418493aa917667873ccbdbf91cc169580e59be2d",
+    "03-reload-scene.txt": "7c2b32e9a4f0f8e7c71d457b96944c1f4e30aaf25486013967dc015ed3ee4e0e",
+    "04-visuals-PC-baked-probe-grass.png": "d4a6b32ae551b1518b751681c53ad3c6deff4e91f189e43eb82ed436f70be278",
+    "04-visuals-PC-black-lightmap.png": "4ee4c87f60d21e457288a182434df42cffab388e9d053757e6dcac432fe17e9f",
+    "04-visuals-PC-fog-off.png": "13178c807ec89a6e8fdecda464daca8e71ad7de0b27d8e3b8fd63196db381005",
+    "04-visuals-PC-legacy-color.png": "810dcc29ef82eb368df7ae94e8e0abc0a18788bd0df41655e88446c393badd42",
+    "04-visuals-PC-legacy-emission.png": "4ccb993e9317f5077c5333c9ed433af4d851fd60eae737da57691781e8aa491f",
+    "04-visuals-PC-legacy-queues.png": "9730835a0b0884add2515c8d5dc6f0df83f9080649fab66970e47ea4ed65772d",
+    "04-visuals-PC-restored-probe-grass.png": "d0f5202d537cc042357941b1ba286c0d42535eb44802dd662d867188b4089c8e",
+    "04-visuals-PC-scene.png": "9730835a0b0884add2515c8d5dc6f0df83f9080649fab66970e47ea4ed65772d",
+    "04-visuals-PC-zero-probe-grass.png": "2d0a106b8650f790deba3643dd6ae021352d750bd76f4da48d2c37a31499f458",
+    "04-visuals-PC.txt": "942ee53240eca344373b50ffc25657e3533c8cb922cbe30e0a0b6d4f2671257a",
+    "05-operations-PC-game.png": "3816a7c0684d279954de0500943e261fe5f3864c5903ff111f21f2e0baa2b565",
+    "05-operations-PC.txt": "a7007af13bd3ae6cf5e7b43771fea2d994a975ab68dd788e7d0ff0b21a2a8980",
+    "06-visuals-Mobile-baked-probe-grass.png": "46c7cebe95eb73fb087a61f4fce37ad755eceae28a0d21707e814d3ea9f89a01",
+    "06-visuals-Mobile-black-lightmap.png": "17c2a152853336213ff5e8f9864bf6194e6f53b74b10cefb506e01eaa6c2f9ba",
+    "06-visuals-Mobile-fog-off.png": "20c9385504c48a50d9196f7626061d5e7df4e869daf5e329e06e1e7b99672716",
+    "06-visuals-Mobile-legacy-color.png": "9af3d97f62813ffd69b68ffef7e42c7aa1525206d9bc1f3c44cb90ac67f966ac",
+    "06-visuals-Mobile-legacy-emission.png": "6f06bcc9be96daf6dbe1528f3e1673730a88accd9c4e3798eb2e2517132e4ef5",
+    "06-visuals-Mobile-legacy-queues.png": "9af3d97f62813ffd69b68ffef7e42c7aa1525206d9bc1f3c44cb90ac67f966ac",
+    "06-visuals-Mobile-restored-probe-grass.png": "ac7a82b172032556944ad5ebf06d38a1613515b15d48f20fce41147fa2014554",
+    "06-visuals-Mobile-scene.png": "9af3d97f62813ffd69b68ffef7e42c7aa1525206d9bc1f3c44cb90ac67f966ac",
+    "06-visuals-Mobile-zero-probe-grass.png": "ec2c322590924f8e043affa5c6f5547eb54d86fdb24c92be91207563fbbbb78c",
+    "06-visuals-Mobile.txt": "c5b7a22aa7deb13d1aaacf14b6c9992875c7f9b47196a35c55f6c3daf540ad37",
+    "07-inspect-final-edit.txt": "201650b0a7d19aefc5a74aecd904671a88d87cd0fc07fcd11bf912a6c6cf6f69",
+    "08-ui-PC-game.png": "a1d877c946acf452a8f8fd672f87331c105bdadedb4fca4ced6a4582e2dd84f7",
+    "08-ui-PC.txt": "dabb13f80e6ba29348938b03e88043ca55b2291226993d5f11b36a69308c1711",
+    "09-ui-small-game.png": "26e3f4c1ab44856602be353e78c66a8864c6e69c12287dafa1adbdf68b87848c",
+    "09-ui-small.txt": "03ace6b7fa9292a766e11b1c5094319fca4eaed4c06a2b91716aaf1d57ce0ef2",
+    "10-ui-small-final-game.png": "5b7f5bf3315bbdd09791cf45f69abf70e99610734668a915519049ba046c7e04",
+    "10-ui-small-final.txt": "f069d0243fac6868d1325b56af89e190b5da3842694d27d042d4bb0118f2900a",
+    "11-ui-Mobile-game.png": "9c860b9e46520cc0dcb9da8cc46674136f11822917b8a6afb90d613e43285c44",
+    "11-ui-Mobile.txt": "c1e0ad375827e92fa53b6fec121eae749fe64d22514509f9b20f7aeda4ecbd20",
+    "12-inspect-play-final.txt": "3e1afac5f6980379ecc57e11bdcf7c397fe4086fc0ab1c717713df5f2226f09c",
+    "13-settings-baseline.txt": "0bcf9774a82b9bcf8cfd9f1e3d89bd3a77978b496da7dc2cb9007ecbe68abfde",
+    "CoreRegression/phase5-cameras-Mobile-base.png": "b0e7ba57f48f8be26f7d34860e03b91411a602604be2cbb60821848273aac6c0",
+    "CoreRegression/phase5-cameras-Mobile-mask-zero.png": "a93ea4006066b7c30f786027e2d1f318a2291dbb7ed07a9a9bf8d9706138e92c",
+    "CoreRegression/phase5-cameras-Mobile-native-base-scale-0.8.png": "78bb15c38b2ca4c6cf2d993cd2bdb19f9659ab15d2478c9c915efcdc4d97db73",
+    "CoreRegression/phase5-cameras-Mobile-native-base-scale-1.png": "78bb15c38b2ca4c6cf2d993cd2bdb19f9659ab15d2478c9c915efcdc4d97db73",
+    "CoreRegression/phase5-cameras-Mobile-native-stack-scale-0.8.png": "7e39af2cae55a898fee9c33580f8e82820f089791e2c76d071f118ef0fac841a",
+    "CoreRegression/phase5-cameras-Mobile-native-stack-scale-1.png": "78bb15c38b2ca4c6cf2d993cd2bdb19f9659ab15d2478c9c915efcdc4d97db73",
+    "CoreRegression/phase5-cameras-Mobile-overlay.png": "4b97f59133f028f47d635a8ecc8b70ffe36e5f114c598dc2ac44b13664d53029",
+    "CoreRegression/phase5-cameras-Mobile-pose-0.png": "b1a7f77068be5ad63621edd4bcbd2eb74e17e0fd1a945973b7d7f26325ed47ac",
+    "CoreRegression/phase5-cameras-Mobile-pose-1.png": "9bb74badb3bdd3f7b5a92776c0fef6637772e921c676c15116abcc171ca43008",
+    "CoreRegression/phase5-cameras-Mobile-pose-2.png": "1b1a76636b6db694852cab578d42b1abacf7a44c3e8859208c631f2b659638e4",
+    "CoreRegression/phase5-cameras-Mobile-pose-3.png": "63d97c4e83bec5ec586c551f57f4ca77db366e79880c6bd724dfc0e3199c6881",
+    "CoreRegression/phase5-cameras-Mobile-pose-4.png": "aa17c0d3d1f9339c19186c3ed3516d942c89a44ac7fb2b5bafcb958059424087",
+    "CoreRegression/phase5-cameras-Mobile-pose-5.png": "c6cacfa9be3568bdb0f602b4140242f417cd5bee940ddbbb2bf519cc885b15f8",
+    "CoreRegression/phase5-cameras-Mobile-pose-6.png": "5646b456fd7f9346d4f72f13f3bfbfc6a536fec2a5deb26e988d97d428444c03",
+    "CoreRegression/phase5-cameras-Mobile-pose-7.png": "55904f2d371118540bd95b85fcadc49d15c48eeed8b9468215a850af735bb3c6",
+    "CoreRegression/phase5-cameras-Mobile-stack-feature-off.png": "c5f61e5ad59f1efe43361ca6f3e785f7948042a8d8615a2cb6a231187ace82c4",
+    "CoreRegression/phase5-cameras-Mobile.txt": "f8ab0745aba15ae40e788f52f20bc970e9b6a57780a30ffb7cf01d5bc22b2327",
+    "CoreRegression/phase5-cameras-PC-base.png": "0a43d07fed5ef58e60d57b91d6bc008718afb908104fe1e519c588e13a7a779e",
+    "CoreRegression/phase5-cameras-PC-mask-zero.png": "35f720269c13621965c752941c362296defcd6f6e1d02df3383e4febc30c28a0",
+    "CoreRegression/phase5-cameras-PC-native-base-scale-1.png": "b87cd05a1455332e615d1d9405ceb3c772ceea629b629c952de81ad2990ad3dc",
+    "CoreRegression/phase5-cameras-PC-native-stack-scale-1.png": "b87cd05a1455332e615d1d9405ceb3c772ceea629b629c952de81ad2990ad3dc",
+    "CoreRegression/phase5-cameras-PC-overlay.png": "0a43d07fed5ef58e60d57b91d6bc008718afb908104fe1e519c588e13a7a779e",
+    "CoreRegression/phase5-cameras-PC-pose-0.png": "ba57cee747e442f130d0a6979c3e4bf558f53cc1e98a0cf62cc6167a8daad7ab",
+    "CoreRegression/phase5-cameras-PC-pose-1.png": "b8f73028fcbf0d27c9bc4542afb2e8c03942aa63ad13ceba73c14aa61f2bc958",
+    "CoreRegression/phase5-cameras-PC-pose-2.png": "74b3effa32a72a9153c0b6ef69890c05192f873cb301c01f5bd55ab8d7d16273",
+    "CoreRegression/phase5-cameras-PC-pose-3.png": "ffc2cd1003c09c9b761a622e474b7d5145cc7223aed5f5dd1149670328854802",
+    "CoreRegression/phase5-cameras-PC-pose-4.png": "2c39f54946851bd9ab037ce962721b93983f3597b3e461a1b30ea4090029f978",
+    "CoreRegression/phase5-cameras-PC-pose-5.png": "2579244d13539f6b9a5f940d7370916b0b4f496bbec5f5ef75b20bed9f8dc249",
+    "CoreRegression/phase5-cameras-PC-pose-6.png": "cabf7f0e9f5c28482baf8121846d8f4ee88a3a7b5916f9c3a250462010e4ccf4",
+    "CoreRegression/phase5-cameras-PC-pose-7.png": "e4fbfc69425229a8d6879b3921b9b6e6945a23190c03d8b7c2ebfbdd3cd915e5",
+    "CoreRegression/phase5-cameras-PC-stack-feature-off.png": "73bb2f0ab62b026caea00f2edb574914afcd1a979262ed84a36c64412ee126d2",
+    "CoreRegression/phase5-cameras-PC.txt": "bed64b282f90ee27f1d485fbc2902e876783c6354c1a808c9e4e8ea904419a88",
+    "CoreRegression/phase5-final-quality-PC.txt": "f4dc81b413792c9c32fed4b1971b5ab63dd0e2d95f85cee7c5a9d8906fff0d1b",
+    "CoreRegression/phase5-final-shaders.txt": "b753ae56fdfd382207d88d640161a52a425041b2644e6c6d35d9234c473a2ef9",
+    "CoreRegression/phase5-gameview.txt": "fc84517f2d65baf2a468f5e67e1ea4b6c70d11e0dea1110419c00619c35c5238",
+    "CoreRegression/phase5-handoff-shaders.txt": "7c830f583930c0ac874a22171e308bd510e56078d4a2c8b4e6faf7e05397b8ae",
+    "CoreRegression/phase5-interaction-above-interaction-slab-bending.png": "c7b1015023a0c91862ba77f3b5a326931e66f9aa84ca98f6a8bd4edda9bc3eb3",
+    "CoreRegression/phase5-interaction-actor0-bending.png": "ae3110e64a469dcf67051ad20b402c4772866e87563dab4ce27153f19dbb1e68",
+    "CoreRegression/phase5-interaction-actor1-bending.png": "d4dcddbecb49b8d0a7d35317fb503c08f13a58c556b426daa449f8ea7af07765",
+    "CoreRegression/phase5-interaction-actor2-bending.png": "e5bb3af3efb66ee5dcda09229d3455ee922c3748a6ffb5ed158d7e039e952080",
+    "CoreRegression/phase5-interaction-actor3-bending.png": "b77b3001182f7646a30bb444b7a18ec3237e5ac1217b2b53c30689c68e0ca122",
+    "CoreRegression/phase5-interaction-all-bending.png": "7079aab9a5114872a8fb2e4e884917a6bbd2035ea34861483e6a10491679a82d",
+    "CoreRegression/phase5-interaction-empty-bending.png": "c7b1015023a0c91862ba77f3b5a326931e66f9aa84ca98f6a8bd4edda9bc3eb3",
+    "CoreRegression/phase5-interaction-offscreen-second-camera-bending.png": "7079aab9a5114872a8fb2e4e884917a6bbd2035ea34861483e6a10491679a82d",
+    "CoreRegression/phase5-interaction-overlap-double-bending.png": "d55f198c46f0d0891efdf158f56a08fb3c12002db8e62a84f67306792510e0b7",
+    "CoreRegression/phase5-interaction-overlap-single-bending.png": "7e33159fc46681e8836eafaccc2a555035546757d65ce07dfcd338b71b8c4114",
+    "CoreRegression/phase5-interaction-overlap.txt": "49a01705e0a2c8fdfc8fb6c52e06130c574e34af9ff24572a21e903af676c93f",
+    "CoreRegression/phase5-interaction-recovered-bending.png": "c7b1015023a0c91862ba77f3b5a326931e66f9aa84ca98f6a8bd4edda9bc3eb3",
+    "CoreRegression/phase5-interaction-recovery.txt": "681518d8823d35a61827ae84f3d49fa1f8a436f130d41d1afc613e7b50fab340",
+    "CoreRegression/phase5-interaction.txt": "30f552c52234d865058fdacccef8f28ee807583b7052e0d96e8b9e9413d2adb0",
+    "CoreRegression/phase5-open.txt": "45c30fd98aef2c23628d18e382b101b62dcf7eb869e66424a8392645526238cc",
+    "CoreRegression/phase5-play-final.txt": "cb1fd17fb580191201aea66088f0c5bc152c3c37012df795c7aba833d955029d",
+    "CoreRegression/phase5-play-fixed.txt": "249d74c6b66340af25e4957d4771f2a5c814555a6015e693536efa4ba1f9ee0a",
+    "CoreRegression/phase5-play-ui.txt": "6bec1c10df8a68e1fdf42e61772efe16bfaf02652f08cc656a8604e1530bf7f7",
+    "CoreRegression/phase5-play2.txt": "324ce6d65d523d672efd29ae32fb18c8eb12569a5454daaad6a74b0f33fd6d91",
+    "CoreRegression/phase5-quality-Mobile.txt": "edfbf6a23bf9a4b43e34290b7fcaffdeb483d0a3c6e29d70aae9b3051af4ff93",
+    "CoreRegression/phase5-quality-PC.txt": "ca1ad0fcab2ccbaa9523914dea18fd8b958bf96a16e71c6f5bc0db5561e6754e",
+    "CoreRegression/phase5-refresh-final-code.txt": "683ef1e9aac2138c2956c11e9b9f77b5ca3622effa7a861810e76e16b9858fcb",
+    "CoreRegression/phase5-refresh-settings-check.txt": "3c52a3bab96c03b6e500bec8fcb1d59ba25f526be325f104f22c33fecebba42e",
+    "CoreRegression/phase5-refresh-ui-fix.txt": "54395361034dd58a42c10e70a1d6f3738afb686a4802a7be0eaa97e05d582135",
+    "CoreRegression/phase5-refresh-ui.txt": "add90385258f2ff8ac25b3985e8bd3009cf91600121a0e0182dfa575246988eb",
+    "CoreRegression/phase5-refresh.txt": "a6723740d7863c39e5d691f8dd4bd0cf9152187d570e707d91adbf0a94dfb513",
+    "CoreRegression/phase5-refresh2.txt": "0ce9a1518bf23b9d9ea49d6b9acf169cafc542a1ca55207bb268f414c6c7e6aa",
+    "CoreRegression/phase5-refresh3.txt": "e6417531df1bc0ce45eef92be7c1439d7a87ffb30441a727c96900162e658677",
+    "CoreRegression/phase5-restore-final.txt": "bdd2ce124cb208b4a3695d0f80b1d85641eb3cad645ef27eb95ca6b4bd6c6687",
+    "CoreRegression/phase5-stop-final.txt": "f426fc7b320654fb436073b80827f14daf8dd188adf348770a46e695378e21e4",
+    "CoreRegression/phase5-stop-for-validation.txt": "de75421a5b2d743dac98a4e5d22af9ff1da19814fce246d650275be0c2e680e2",
+    "CoreRegression/phase5-stop-ui-fix.txt": "e3aa9117f06ae8456ef5eade74fd2e0d5080b9326d0ba82acabeeeef228ccb72",
+    "CoreRegression/phase5-stop3.txt": "b1037add0c9e5905b3ca8959a9e1e745cfbbb1212a1bcffcdec3d881d0d62ebb",
+    "CoreRegression/phase5-stop4.txt": "3f0e03f5c39daf36d98550a61d2a640151137c9611cbb3fa6c8dcde7a78139d0",
+    "CoreRegression/phase5-ui-quality-Mobile.txt": "0c3c8183b304f9ba83e6c84d19e56cd8dc541c557638d37a733a36a6c01dfca4",
+    "desktop.png": "8a66e2a4333b37fa201238e067fd4e2aa316bf3e23d8e7950cc608754786066f",
+    "desktop2.png": "0cb633acbe5bc497ed90530df82e6ae1bb0d9badb1f3a8afba60320a78b666ff",
+    "Editor-phase5.log": "31008bc12a3f079eb8d22fe93ce4c546e69c0a2c869cb4da3b3a4f4c61b351d1"
+  },
+  "validatedMarkdownLinks": 56,
+  "notVerified": [
+    "Unity 2019 source runtime appearance equality",
+    "Windows Player build/start",
+    "DX11 device execution",
+    "Android/Vulkan/Metal/XR",
+    "Profiler CPU/GPU frame times and peak/long-term stability"
+  ]
+}

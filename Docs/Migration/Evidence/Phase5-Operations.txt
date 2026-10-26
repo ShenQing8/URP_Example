@@ -1,0 +1,52 @@
+=== Logs/MigrationPhase5-20261027/05-operations-PC.txt ===
+2026-10-27T04:01:50.2802874+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU Play=True
+NextView -> 1 actual camera=(55.73, 11.99, 31.84)
+NextView -> 2 actual camera=(57.58, 16.85, 35.79)
+NextView -> 3 actual camera=(43.91, 16.72, 47.88)
+NextView -> 4 actual camera=(34.37, 15.95, 57.47)
+NextView -> 5 actual camera=(5.21, 15.12, 84.09)
+NextView -> 6 actual camera=(-68.75, 14.89, 67.64)
+NextView -> 7 actual camera=(-8.79, 25.24, 58.92)
+NextView -> 0 actual camera=(10.54, 20.67, 45.23)
+Four real Animator transforms moved; main light rotation and both enable toggles PASS
+Instance UI value=1000000 distance=25 actual GPU visible=8932 batch count equality PASS FPS=59.91 ms=16.69 samples=29 allocated=618023190 reserved=1608134656 graphics=473934272
+Instance UI value=3000000 distance=200 actual GPU visible=173659 batch count equality PASS FPS=59.91 ms=16.69 samples=29 allocated=618023190 reserved=1608134656 graphics=473934272
+Instance UI value=10000000 distance=200 actual GPU visible=183045 batch count equality PASS FPS=3.50 ms=285.67 samples=30 allocated=619205582 reserved=1608134656 graphics=571066824
+Instance UI value=1000000 distance=25 actual GPU visible=8939 batch count equality PASS FPS=1.78 ms=560.41 samples=32 allocated=619278828 reserved=1608134656 graphics=843869052
+Statistics ready: fps=1.7844 avg=24.4786 min=0.1792 max=60.3864; built-in font=LegacyRuntime; target=60 vsync=0; disable/re-enable PASS
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/08-ui-PC.txt ===
+2026-10-27T04:04:09.6383800+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU Play=True
+EditorWindow.SendEvent -> real GameView input -> runtime IMGUI controls, target=(x:77.77, y:47.00, width:852.27, height:479.40)
+Camera button mouse click PASS
+Main/point light and batch mouse toggles PASS
+Instance mouse slider -> 3000000 actual GPU visible=80025
+Distance mouse slider -> 200
+Light speed mouse slider -> 0 PASS
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/10-ui-small-final.txt ===
+2026-10-27T04:06:56.3022485+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU Play=True
+Removed previous harness size Migration stage 5 temporary (640x360)
+EditorWindow.SendEvent -> real GameView input -> runtime IMGUI controls, target=(x:290.83, y:166.85, width:426.13, height:239.70)
+Runtime screen=640x360
+Camera button mouse click PASS
+Main/point light and batch mouse toggles PASS
+Instance mouse slider -> 3000000 actual GPU visible=80049
+Distance mouse slider -> 200
+Light speed mouse slider -> 0 PASS
+Input System backquote hide/show PASS
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/11-ui-Mobile.txt ===
+2026-10-27T04:07:20.6304540+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU Play=True
+EditorWindow.SendEvent -> real GameView input -> runtime IMGUI controls, target=(x:77.77, y:47.00, width:852.27, height:479.40)
+Runtime screen=1280x720
+Camera button mouse click PASS
+Main/point light and batch mouse toggles PASS
+Instance mouse slider -> 3000000 actual GPU visible=80052
+Distance mouse slider -> 200
+Light speed mouse slider -> 0 PASS
+Input System backquote hide/show PASS
+COMMAND PASS

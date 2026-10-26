@@ -1,0 +1,75 @@
+=== Logs/MigrationPhase5-20261027/04-visuals-PC.txt ===
+2026-10-27T04:01:28.2975808+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU Play=True
+Actual pipeline=PC_RPAsset; frozen camera/actor/light transforms and zero wind clone; test variants use temporary material clones
+Both Lit queues 2000 -> 2050 RGB channel mean absolute delta=0.000000000
+Legacy _Color values only RGB channel mean absolute delta=0.000000027
+Emission legacy=RGBA(2.67015743, 2.28573036, 0.8010472, 1) linear=RGBA(8.677231, 6.163892, 0.6056039, 1) upgraded=RGBA(8.677231, 6.163892, 0.6056039, 1)
+Unconverted legacy emission in modern HDR Lit (deliberate comparison) RGB channel mean absolute delta=0.003510117
+Fog RGB channel mean absolute delta=0.114953086
+Baked lightmap black comparison RGB channel mean absolute delta=0.008994145
+Interpolated probe L0 before=0.128392085,0.44110328,0.3269763; zero=0,0,0
+Grass BlendProbes baked SH vs zero RGB channel mean absolute delta=0.084479801
+Restored baked SH RGB channel mean absolute delta=0.000000005
+Valid old LightingData + 18 lightmapped renderers + 8 finite interpolated probes consumed in target. No rebake required by these checks.
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/06-visuals-Mobile.txt ===
+2026-10-27T04:02:57.8970354+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU Play=True
+Actual pipeline=Mobile_RPAsset; frozen camera/actor/light transforms and zero wind clone; test variants use temporary material clones
+Both Lit queues 2000 -> 2050 RGB channel mean absolute delta=0.000000000
+Legacy _Color values only RGB channel mean absolute delta=0.000000000
+Emission legacy=RGBA(2.67015743, 2.28573036, 0.8010472, 1) linear=RGBA(8.677231, 6.163892, 0.6056039, 1) upgraded=RGBA(8.677231, 6.163892, 0.6056039, 1)
+Unconverted legacy emission in modern HDR Lit (deliberate comparison) RGB channel mean absolute delta=0.003543734
+Fog RGB channel mean absolute delta=0.123676635
+Baked lightmap black comparison RGB channel mean absolute delta=0.009039126
+Interpolated probe L0 before=0.128392085,0.44110328,0.3269763; zero=0,0,0
+Grass BlendProbes baked SH vs zero RGB channel mean absolute delta=0.093098193
+Restored baked SH RGB channel mean absolute delta=0.000000005
+Valid old LightingData + 18 lightmapped renderers + 8 finite interpolated probes consumed in target. No rebake required by these checks.
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/07-inspect-final-edit.txt ===
+2026-10-27T04:04:04.3205556+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU Play=False
+Scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+LightingData=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/LightingData.asset
+LightingData dependencies=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_dir.png,Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity,Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/ReflectionProbe-0.exr,Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_light.exr
+isValid=True
+validityErrorMessage=
+LightingSettings=
+Lightmaps=1 mode=Single, Dual
+map color=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_light.exr direction=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_dir.png mask=
+LightProbes count=8 cells=18 baked=8
+Probe positions=(21.5, 20.1999989, 46.2);(21.5, 20.1999989, 44.2);(21.5, 18.1999989, 46.2);(21.5, 18.1999989, 44.2);(19.5, 20.1999989, 46.2);(19.5, 20.1999989, 44.2);(19.5, 18.1999989, 46.2);(19.5, 18.1999989, 44.2)
+Default reflection=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/ReflectionProbe-0.exr size=128
+SH coefficients=216 finite=True min=-0.008735334 max=0.450762063
+Light Directional Light type=Directional bakeType=Mixed baked=True enabled=True
+Light Light type=Point bakeType=Realtime baked=False enabled=False
+Renderers=26 valid lightmap index=18
+Missing scripts=0
+Built-in font=LegacyRuntime path=Library/unity default resources guid=0000000000000000e000000000000000 fileID=10102
+Material=Black Dynamic shader=Universal Render Pipeline/Lit queue=2000 Base=RGBA(0.000, 0.000, 0.000, 1.000) Color=RGBA(0.000, 0.000, 0.000, 1.000) emission=RGBA(8.677, 6.164, 0.606, 1.000)
+Material=GrassGround shader=Universal Render Pipeline/Lit queue=2000 Base=RGBA(0.173, 0.377, 0.137, 1.000) Color=RGBA(0.173, 0.377, 0.137, 1.000) emission=RGBA(0.000, 0.000, 0.000, 1.000)
+COMMAND PASS
+
+=== Logs/MigrationPhase5-20261027/12-inspect-play-final.txt ===
+2026-10-27T04:07:46.5083356+08:00 Unity=6000.6.3f1 project=E:\GithubRepositories\URP_Example API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU Play=True
+Scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+LightingData=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/LightingData.asset
+LightingData dependencies=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_dir.png,Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity,Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/ReflectionProbe-0.exr,Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_light.exr
+isValid=True
+validityErrorMessage=
+LightingSettings=
+Lightmaps=1 mode=Single, Dual
+map color=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_light.exr direction=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/Lightmap-0_comp_dir.png mask=
+LightProbes count=8 cells=18 baked=8
+Probe positions=(21.5, 20.1999989, 46.2);(21.5, 20.1999989, 44.2);(21.5, 18.1999989, 46.2);(21.5, 18.1999989, 44.2);(19.5, 20.1999989, 46.2);(19.5, 20.1999989, 44.2);(19.5, 18.1999989, 46.2);(19.5, 18.1999989, 44.2)
+Default reflection=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene/ReflectionProbe-0.exr size=128
+SH coefficients=216 finite=True min=-0.008735334 max=0.450762063
+Light Light type=Point bakeType=Realtime baked=False enabled=False
+Light Directional Light type=Directional bakeType=Mixed baked=True enabled=True
+Renderers=26 valid lightmap index=18
+Missing scripts=0
+Built-in font=LegacyRuntime path=Library/unity default resources guid=0000000000000000e000000000000000 fileID=10102
+Material=Black Dynamic shader=Universal Render Pipeline/Lit queue=2000 Base=RGBA(0.000, 0.000, 0.000, 1.000) Color=RGBA(0.000, 0.000, 0.000, 1.000) emission=RGBA(8.677, 6.164, 0.606, 1.000)
+Material=GrassGround shader=Universal Render Pipeline/Lit queue=2000 Base=RGBA(0.173, 0.377, 0.137, 1.000) Color=RGBA(0.173, 0.377, 0.137, 1.000) emission=RGBA(0.000, 0.000, 0.000, 1.000)
+COMMAND PASS
