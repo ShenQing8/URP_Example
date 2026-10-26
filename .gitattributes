@@ -28,6 +28,8 @@
 *.slnx          text
 
 # Binary assets - never convert or diff
+# Unity's baked LightingData is binary even when other .asset files use text serialization.
+**/LightingData.asset binary
 *.png           binary
 *.jpg           binary
 *.jpeg          binary

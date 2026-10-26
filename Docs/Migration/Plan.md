@@ -16,7 +16,9 @@
 | 实施 C：演示完整性 | 5 | 恢复操作、统计、场景和光照资源 |
 | 实施 D：最终验收 | 6 | 验证整体行为、构建和运行证据 |
 
-所有对话串行使用同一本地目录和迁移分支 `codex/urp6-migration`，不并发写入；不为每个阶段建立另一份 Unity 项目。阶段 2、3、4 的中间提交可以尚待集成，但在取得实际 Unity／GPU 证据前不标记各项运行验收完成。
+所有对话串行使用同一本地目录和已确认的接手分支，不并发写入；不为每个阶段建立另一份 Unity 项目。阶段 0～4 使用过 `codex/urp6-migration`；用户发布远程后当前接手分支已为 `main`，具体 HEAD／上游以 Status 和实际 Git 为准，不自动切换历史分支。阶段 2、3、4 的中间提交可以尚待集成，但在取得实际 Unity／GPU 证据前不标记各项运行验收完成。
+
+远程仓库为 [ShenQing8/URP_Example](https://github.com/ShenQing8/URP_Example)，克隆地址为 `https://github.com/ShenQing8/URP_Example.git`。本计划中的 E 盘路径记录原实施环境；异机接手先确认实际仓库根，再解析仓库内相对路径。原始审计与验证路径／哈希不批量替换；新环境测试生成自己的证据。
 
 ## 2. 阶段 0：冻结基线与文档
 
@@ -86,7 +88,7 @@
 
 ## 9. Git 与证据规范
 
-初始目标提交：`42c1fde2ef37cde1348cd587c8215494d99e9356`。保留 main 基线，串行在迁移分支提交；源仓库不参与提交。每次开始记录实际 HEAD；后续阶段记录接手提交及本阶段提交，不在文档中伪造尚未生成的 SHA。
+初始目标提交：`42c1fde2ef37cde1348cd587c8215494d99e9356`，作为可回退的原模板基线保留在历史中；main 现已承载迁移与文档提交。每次开始核对实际分支、HEAD、origin 地址和上游跟踪关系，按当前获准范围串行实施；若需新功能分支，先明确该阶段的分支安排，不自动回到旧迁移分支。源仓库不参与提交。后续阶段记录接手提交及本阶段提交，不在文档中伪造尚未生成的 SHA。
 
 每次提交仅包含本阶段自有改动。阶段中间不可运行的提交在说明中标明“待适配／待联合验证”，不能用“编译成功”标题误导。用户已授权的范围内可做合理检查点提交；不擅自推送远程或丢弃用户改动。
 
@@ -111,17 +113,18 @@
 
 ```text
 继续 Unity 草地项目迁移。
-目标目录：E:\GithubRepositories\URP_Example
+仓库：https://github.com/ShenQing8/URP_Example.git
+目标目录：当前克隆的仓库根（本机 E:\GithubRepositories\URP_Example）
 源目录：E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res（只读）
 目标版本：Unity 6000.6.3f1，URP 17.6.0。
 
-先读取：
-E:\GithubRepositories\URP_Example\AGENTS.md
-E:\GithubRepositories\URP_Example\Docs\Migration\Audit.md
-E:\GithubRepositories\URP_Example\Docs\Migration\Plan.md
-E:\GithubRepositories\URP_Example\Docs\Migration\Status.md
+先从已确认的目标根目录读取：
+AGENTS.md
+Docs/Migration/Audit.md
+Docs/Migration/Plan.md
+Docs/Migration/Status.md
 
-核对实际工作目录、分支、HEAD、工作区与上一阶段证据。
+核对实际工作目录、接手分支、HEAD、origin／上游、工作区与上一阶段证据，不自动切回历史迁移分支。
 本对话批准实施的阶段范围：【由用户填写，例如阶段 1】。
 在该范围内实施和修复直到满足验收标准，保留已有用户改动。
 结束时更新 Status，说明修改原因、真实验证、未验证项、问题和下一步。

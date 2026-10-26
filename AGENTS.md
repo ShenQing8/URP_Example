@@ -3,7 +3,9 @@
 ## 项目与约束
 
 - 目标仓库：`E:\GithubRepositories\URP_Example`。目标是 Unity 6000.6.3f1、URP 17.6.0；实施前从 ProjectVersion、manifest、lock 和已安装包核对实际版本。
+- 远程身份：`https://github.com/ShenQing8/URP_Example.git`，远程默认分支为 main。本机路径是当前工作区；在其他克隆中先用 git rev-parse --show-toplevel 确认根目录，文档路径相对于该根定位，不强制使用 E 盘。
 - 迁移源：`E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res`。源项目及其 Git 仓库保持只读；所有改动在目标仓库实施。保留源目录已有未提交改动。
+- 源目录仅在需要原始对照或补迁资源时使用，现有核心演示不依赖该外部路径。异机缺少源或历史完整日志时记录证据缺口；历史路径／哈希保持原样，新验证单独留证。
 - 保留 CPU Cell 剔除、GPU Compute 剔除、GPU 计数驱动的 Indirect Rendering、草地光照与动画、轨迹交互弯曲，以及演示操作。完整功能基线见 Audit.md。
 - 新自定义 Render Pass 使用 RenderGraph API，适配目标实际包接口。目标 17.6 的旧 Configure/Execute 路径和兼容模式不能作为方案。
 - 禁止通过删除效果、注释关键逻辑、固定假数据、伪造统计或忽略 Shader 错误获得虚假的成功。运行时实例数量来自实际 GPU 剔除结果；边界测试数据仅用于验证。
@@ -12,16 +14,16 @@
 ## 每次开始或接手迁移
 
 1. 先读取以下文件，再按其指向的当前阶段工作：
-   - `E:\GithubRepositories\URP_Example\Docs\Migration\Status.md`：当前状态、授权范围、提交和交接入口。
-   - `E:\GithubRepositories\URP_Example\Docs\Migration\Plan.md`：阶段范围、依赖、验收与交接规则。
-   - `E:\GithubRepositories\URP_Example\Docs\Migration\Audit.md`：静态证据、已知问题及官方依据；首次接手、改接口或处理审计风险时读取。
-2. 核对目标目录、当前分支、HEAD、工作区状态及用户最新授权。授权记录只覆盖已批准范围；计划中的后续阶段不等于获批。
+   - `Docs/Migration/Status.md`：当前状态、授权范围、提交和交接入口。
+   - `Docs/Migration/Plan.md`：阶段范围、依赖、验收与交接规则。
+   - `Docs/Migration/Audit.md`：静态证据、已知问题及官方依据；首次接手、改接口或处理审计风险时读取。
+2. 核对目标目录、当前分支、HEAD、origin／上游跟踪关系、工作区状态及用户最新授权。授权记录只覆盖已批准范围；计划中的后续阶段不等于获批。接手分支以 Status 和实际 Git 为准，不因历史记录出现 codex/urp6-migration 而自动切回旧分支。
 3. 对照前一阶段记录检查代码与证据，不把旧聊天的结论当作当前已验证状态。明确区分静态发现、实际测试结果和未验证事项。
 4. 串行在同一本地目录和迁移分支工作，同一时间只由一个实施对话写入。修复本阶段问题直到达到验收条件；不要自动进入未授权阶段。
 
 ## 写入与验证
 
-- 所有 Git 写操作显式使用 `git -C E:\GithubRepositories\URP_Example ...`；操作前确认仓库根目录。仅暂存本任务明确产生的文件，保留用户改动；只做获准的本地提交，不推送远程。
+- 所有 Git 写操作显式使用 git -C 指向已确认的目标根目录（本机为 `git -C E:\GithubRepositories\URP_Example ...`）。仅暂存本任务明确产生的文件，保留用户改动；提交与推送按用户明确授权执行。用户已自行推送的事实不代表代理获得后续推送授权。
 - Unity 2019 源项目保持关闭，不用新版 Unity 导入源目录。运行验证只针对目标项目，并记录准确版本、项目路径、运行方式和实际结果。
 - 启动 Unity 前核对目标是否已被编辑器占用；使用可用的现有会话或安排释放项目锁，不强制终止用户的编辑器，不对同一项目并发启动编辑器。
 - 修改共享 buffer、实例 ID、Shader 变形或弯曲纹理契约时，同时检查 C#、Compute、颜色／深度／法线 Pass 的消费者。阶段 2～4 允许在同一授权对话中联合实现和验证。

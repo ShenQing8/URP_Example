@@ -5,19 +5,20 @@
 ## 当前摘要
 
 - **当前阶段**：实施 B／阶段 2、3、4 完成（Windows Editor／Direct3D 12 联合验收）。详细实现、真实证据、失败纠正与限制见 [Phase234.md](Phase234.md)。不等于整体迁移完成。
-- **当前授权**：本轮仅复核阶段 2～4 交接并编写中文 README，不包含阶段 5 实施或新增 Git 提交；阶段 2～4 的历史实现／验证授权已执行完毕。阶段 5 仍待单独授权。
+- **当前授权**：用户已自行推送仓库，本轮调整发布影响的说明、协作与交接记录，并修复二进制 LightingData 的 Git 换行属性及无损恢复检出字节；不包含阶段 5 实施。本轮改动保留本地，不自动提交或推送。阶段 5 仍待单独授权。
 - **目标／源**：`E:\GithubRepositories\URP_Example`；只读源 `E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res`。源 88 文件、master／HEAD 及四项既有改动均保留；33 个迁入原 meta 保留。
 - **实际版本**：Unity 6000.6.3f1 (45d8eee7de74)，URP／Core／Shader Graph 17.6.0；ProjectVersion、manifest、lock 与已安装包相符。
-- **分支／接手 HEAD**：`codex/urp6-migration`；`8d23a576e5274bd6563036c1d82b82c2cf0aff24`，已核实阶段 1 交接提交；接手工作区干净。阶段 0 提交为 `8350698ed22734ede4ddf59533479e60796241bd`。
+- **当前分支／接手 HEAD**：`main` 跟踪 `origin/main`，`d52ece0d33408bb2b7b85d50a2bc20faf5dc1623`（docs:完善 README 文档）；本轮开始工作区干净。该提交已包含此前 README／Status 文档，不再是未提交改动。
+- **远程／历史提交**：origin 为 `https://github.com/ShenQing8/URP_Example.git`。本轮通过 git ls-remote --symref 确认远程默认 main 及其 HEAD 均为 d52ece0；本地 codex/urp6-migration 同指该提交，但远程未查到同名分支。阶段 0／1／2～4 的交接提交分别为 `8350698`／`8d23a57`／`b22b027`，历史分支不再是强制接手入口。
 - **结果**：CPU Cell→Compute Append→CopyCount→RenderMeshIndirect 真实数据链通过；边界、合批、ID 参考集、10M 容量、两管线光照／风／SH／雾／纹理、构建资源实际加载、R8 四轨迹／5.204 秒恢复、深度法线／SSAO、8 相机位／Overlay／层掩码均有实际证据。
 - **构建边界**：阶段 3 的窄 Shader／Compute 资源包已按 Windows DX12／DX11 实际编译并在 DX12 加载验证；未执行阶段 6 的 Player 构建。DX11 未切设备运行，Android／Vulkan／Metal／XR 未验证。
 - **编辑器历史交接**：阶段 2～4 复用 PID 46016／NVIDIA RTX 4060 Laptop GPU，结束时已退出 Play 并恢复 SampleScene，未新增并发编辑器，源项目未打开。本轮未操作编辑器，后续实施时重新核对实际会话与项目锁。
 - **保护与范围**：最初目标 70 文件中 68 个原字节不变，仅两个现代 Renderer 接线／序列化升级；Packages／ProjectSettings 保持。新增验证辅助仅在 Editor 执行；原 FPS／字体、Lit 升级外观与 GI 问题未删除或绕过。
 - **证据**：小体积输出、GPU、编译与图摘要见 [Phase234.md](Phase234.md)；完整日志／截图／资源包在 `Logs/MigrationPhase234-20261027`，不提交大产物。
-- **核心迁移提交／本轮工作区**：已核验 `b22b027790e627a80a02e48a110feed605842448` 为阶段 2～4 交接提交。本轮仅 README.md 与 Status.md 文档改动，保留未提交；不推送，下一阶段接手时保留这些改动。
+- **核心迁移提交／本轮工作区**：核心迁移仍为 `b22b027790e627a80a02e48a110feed605842448`，用户后续文档提交 d52ece0 已推送。本轮修改 README.md、AGENTS.md、Plan.md、Status.md 和 .gitattributes，未提交；LightingData 工作区恢复为既有 Git 原始字节，不产生新的资源内容 diff。下一阶段接手时保留并核对。
 - **下一步**：等待阶段 5 单独授权，处理 FPS／字体、两个 Lit 材质自动升级差异和 GI／烘焙；完整 Player、Profiler、设备与长期稳定性仍为阶段 6。
 
-### 阶段 2～4 交接复核与中文 README（2026-10-27）
+### 阶段 2～4 交接复核与中文 README（2026-10-27，历史记录）
 
 - 本轮用户授权为复核阶段 2～4 的交接和相关文档，通过后编写中文 README；不包含阶段 5 实施。本轮没有启动 Unity 或重跑核心验证，也不把历史测试当作本轮新测试。
 - 已核验核心迁移提交 `b22b027790e627a80a02e48a110feed605842448`，分支为 codex/urp6-migration，接手工作区干净。与阶段 1 比较为 40 个文件改动；检查阶段报告、关键 C#／Compute／Shader／RenderGraph 接线及后续阶段边界，未发现阻挡进入阶段 5 的交接问题。
@@ -120,9 +121,11 @@
 
 ```text
 批准实施阶段 5：演示完整性与缺项恢复，按 Plan.md 继续。
-目标 E:\GithubRepositories\URP_Example；源 E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res 只读。
+目标为当前仓库根（本机 E:\GithubRepositories\URP_Example）；原对照源 E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res 只读。
 先读取 AGENTS.md、Status.md、Plan.md、Audit.md、Phase1.md、Phase234.md。
-核对 codex/urp6-migration、HEAD、工作区与阶段 2～4 交接提交；补记实际 SHA。
+仓库 https://github.com/ShenQing8/URP_Example.git；本机接手 main，跟踪 origin/main。
+核对实际仓库根、origin、当前分支、HEAD 和工作区；当前已发布基线为 d52ece0，核心迁移提交为 b22b027，补记接手时实际 SHA，不自动切回历史 codex/urp6-migration。
+若在其他目录克隆，按实际仓库根解析文档路径；保留本轮远程发布说明与 .gitattributes 的未提交改动。历史日志绝对路径仅用于追溯，缺少本机原文件时不宣称完成原始哈希核验。
 阶段 2～4 已完成 Windows Editor／DX12 联合验收；DX11 仅资源编译，Player 与设备验收不在该结论中。
 本轮只实施阶段 5：恢复 FPS／字体和演示操作、比较两 Lit 升级差异、检查旧 GI／探针并按实际需要重烘焙；保留现代包与设置。
 先读 Phase234 的原生 Mobile 0.8 缩放 Overlay 对照与 BlendProbes 边界，不把源外观或旧烘焙误当已验证。
@@ -162,3 +165,14 @@
 - 更正 Audit 的目标 Mobile 比例：阶段 1 HEAD 为 0.8，PC 为 1。官方升级旧管线资产和自定义材质序列化，材质 Shader 数值逐项不变；现代配置保留。丢弃构建生成的 PC_RPAsset 编译预筛选字段并恢复准确初始字节。
 - 最终源 88 文件／分支／HEAD／状态一致，33 原 meta 一致；目标初始 70 文件仅两现代 Renderer 预期改变，Packages／ProjectSettings 不变；GUID／meta／包冲突检查通过。已恢复 SampleScene 并退出 Play，编辑器保持运行。
 - 仅提交本轮代码、Renderer、官方序列化差异、验证辅助及报告／小证据，不提交大日志、截图、资源包或缓存，不推送。阶段 5 尚未获批；最终提交 SHA 与工作区状态在交接答复给出。
+
+### 2026-10-27：用户发布远程仓库，更新协作入口
+
+- 用户说明阶段 5 尚未开始，已将项目推送至 https://github.com/ShenQing8/URP_Example.git，并授权直接调整此次发布影响的文件；未授权开始阶段 5 或由代理新增远程推送。
+- 本轮开始核验：当前 main／origin/main／远程 main 均为 `d52ece0d33408bb2b7b85d50a2bc20faf5dc1623`；远程默认分支 main；本地工作区干净。原 codex/urp6-migration 本地分支同指 d52ece0，不切分支、不重写历史、不修改 remote 配置。
+- README 新增当前仓库身份、克隆步骤和异机路径／缓存／证据说明；AGENTS 将仓库内读取路径相对化并明确核对 origin／上游、按实际根写入和推送授权；Plan 更新发布后的 main 接手与可回退历史基线；Status 更正旧“未提交”状态并更新阶段 5 提示。
+- 保留 Audit／Phase1／Phase234、原始 Evidence、第三方 README／许可中的历史路径、分支和“本轮未推送”等事实；用户本次推送不追溯改写代理历史，也不等于验证阶段 5 或 Player 成功。
+- .gitignore 现有规则适用；git ls-files 未包含 Library、Temp、Logs、UserSettings、Obj、Build 或 Builds 路径。未因发布仓库改写 Unity 功能代码、管线设置或包依赖。
+- 二进制属性扫描发现 .gitattributes 的 *.asset text 覆盖到 LightingData.asset；本机 core.autocrlf=true，Git filters 将原始 23,160 字节变为 23,175 字节，工作区与该转换结果完全一致。HEAD 原始 blob 的 SHA-256 与阶段 1 迁入清单相同，证明是检出换行变化，不是新的烘焙内容。补充 **/LightingData.asset binary，并恢复精确原始字节；本轮不重烘焙、不修改 GI 参数、不宣称 GI 外观验收通过。
+- 验证通过：30 处本地文档链接可解析，格式及 git diff --check 通过；全部跟踪二进制扫描未再发现强制 text。LightingData 的工作区／HEAD／Git filters 模拟检出字节均相同，大小 23,160，SHA-256 `72d97f8980b2c1eab0d82aacdc26417a61d24668086cfcd1e056934a6c98e7ae`，与阶段 1 清单一致。仅针对该文件重算索引属性／状态，暂存内容仍为空。
+- 本轮新增 Git diff 限五个文件：四份文档及 .gitattributes；LightingData 恢复为既有提交内容，历史 Evidence 不改。HEAD／分支／origin 均未修改，改动留本地待后续获准提交和推送后生效于远程。未启动 Unity，未运行新 GPU／构建测试；阶段 5 仍未开始。

@@ -1,5 +1,7 @@
 # Unity 6 URP 间接实例化草地示例
 
+项目仓库：[ShenQing8/URP_Example](https://github.com/ShenQing8/URP_Example)。当前远程默认分支为 `main`。
+
 将 ColinLeung-NiloCat 的 Unity 2019.4／URP 7 草地示例迁移到 **Unity 6000.6.3f1／URP 17.6.0**，演示 CPU Cell 剔除、GPU Compute 剔除、间接实例化绘制，以及通过 RenderGraph 实现的草地交互弯曲。
 
 **当前状态（2026-10-27）**：阶段 2～4 已完成 Windows Editor／Direct3D 12 核心联合验收；演示完整性恢复为阶段 5，完整 Player 构建和最终运行验收为阶段 6。核心功能已在 Unity 中实际运行，整个迁移项目尚未完成最终验收。最新进度以 [迁移状态](Docs/Migration/Status.md) 为准。
@@ -16,6 +18,19 @@
 | 已运行验证环境 | Windows Editor、Direct3D 12、NVIDIA GeForce RTX 4060 Laptop GPU |
 
 运行设备需要支持 Compute Shader、GPU Instancing、间接绘制及本项目 Shader 所需能力（草地 Shader target 4.5）。**Mobile 是一套 URP 配置的名称，不代表 Android 实机已经验证通过。**
+
+## 获取项目
+
+```bash
+git clone https://github.com/ShenQing8/URP_Example.git
+cd URP_Example
+```
+
+现有核心演示代码与迁入资源已包含在本仓库中，运行它们无需另行取得审计机器上的源项目目录。阶段 5 的 FPS／字体等缺项仍见下方待办，不因发布仓库而视为已恢复。
+
+`Library`、`Temp`、`Logs` 和 `UserSettings` 不随 Git 分发；首次打开时由 Unity 生成必要缓存。历史审计、交接和证据中的 `E:\GithubRepositories\...` 是当时的本机路径，不要求克隆到相同盘符。阅读文档、查找资源和执行验证时，以当前克隆的仓库根目录为准；对照历史原始日志或只读源资源则需要另行具备相应本地文件。
+
+仓库通过 `.gitattributes` 将二进制 `LightingData.asset` 与其他文本 `.asset` 分开处理，确保克隆／检出时不会对烘焙数据进行换行转换；协作时保留该规则。
 
 ## 快速运行
 
@@ -109,7 +124,7 @@ TestScene 下保留的旧 `UniversalRenderPipelineAsset` 及 Renderer 仅供迁�
 | 图与相机 | PC 深度法线／SSAO 依赖、8 个相机位置、Overlay 和层掩码隔离 | 实时反射相机、XR 未验证 |
 | Shader／Compute 资源 | Windows DX11／DX12 资源包严格编译，DX12 实际加载构建资源后验证绘制与剔除 | DX11 未切设备运行；资源包不是完整 Player |
 
-小体积文本／JSON 证据保存在 [Docs/Migration/Evidence](Docs/Migration/Evidence)。完整日志、截图与资源包在本机 `Logs/MigrationPhase234-20261027`，由 Git 忽略，不随克隆自动提供。Editor 验证辅助的复跑方法见交接报告；普通运行无需创建测试请求文件。
+小体积文本／JSON 证据保存在 [Docs/Migration/Evidence](Docs/Migration/Evidence)，随仓库分发。完整日志、截图与资源包在原验证机器的 `Logs/MigrationPhase234-20261027`，由 Git 忽略，不随克隆自动提供。历史证据中的绝对路径和哈希保留用于追溯，不改写为新机器的路径；在新环境复跑应生成新的证据并记录环境。Editor 验证辅助的复跑方法见交接报告；普通运行无需创建测试请求文件。
 
 ## 后续工作与已知限制
 
