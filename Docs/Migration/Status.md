@@ -4,20 +4,28 @@
 
 ## 当前摘要
 
-- **当前阶段**：阶段 5 完成（Windows Editor／Direct3D 12）；阶段 2～4 的既有联合验收保持。实现、替代差异、旧 GI／材质对照及本轮真实证据见 [Phase5.md](Phase5.md)。整体迁移尚未完成最终验收。
-- **当前授权**：用户已批准本轮阶段 5 的实施、验证、交接文档及本地提交；不推送、不自动进入阶段 6。范围内工作已完成。
-- **目标／源**：`E:\GithubRepositories\URP_Example`；只读源 `E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res`。源 88 文件、master／HEAD 和四项既有改动保留；33 个迁入原 meta 保留。
-- **实际版本**：Unity 6000.6.3f1 (45d8eee7de74)，URP／Core／Shader Graph 17.6.0；本轮重新核对 ProjectVersion、manifest、lock 和已安装包。
-- **实际接手 HEAD／分支**：`main` 跟踪 `origin/main`，`8b79517a4128c21ade3b42f4fb5af4cf3ed267c3`，开始工作区干净。d52ece0 之后的发布说明和 `.gitattributes` 已提交于 8b79517，本轮保留；不是尚待暂存的用户改动。
-- **远程／历史**：origin 为 `https://github.com/ShenQing8/URP_Example.git`，git ls-remote 确认默认 main／远程 HEAD 同为 8b79517。阶段 0／1／核心提交为 `8350698`／`8d23a57`／`b22b027790e627a80a02e48a110feed605842448`；本轮没有切回历史 codex/urp6-migration。
-- **阶段 5 结果**：缺失插件改为真实 FPS／毫秒／50 区间均值／预热后极值、内存和设备统计；内置 LegacyRuntime 字体实际解析／绘出。真实鼠标操作、反引号快捷键、两管线／640×360 与 1280×720、8 相机位、四角色／轨迹、5.204 秒恢复、数量／距离／合批和禁用重启通过。
-- **材质／GI**：两 Lit 的队列／颜色／发光差异已经目标画面对照及官方升级源码核对，保留其现有字节。旧 LightingData 在目标有效，18 个 Renderer 使用光照贴图，8 个有限 SH 探针和默认反射实际加载；光照贴图／探针归零与恢复对照通过，未发现重烘焙必要。保留原局部探针位置及 BlendProbes 语义，不宣称源外观逐像素一致。
-- **缺项／入口**：场景 Missing Script=0，原三项悬空资源引用已处理；天空仅清理不使用的纹理 PPtr。草地场景已列为构建场景首位，SampleScene 和现代 Input System 配置保留；未构建 Player。
-- **保护与编辑器**：复用目标 PID 32380，无源编辑器、无第二项目会话；结束退出 Play、恢复 PC／1280×720／SampleScene。Packages、现代 URP 配置、Lit／烘焙资源、原 meta 受保护；ProjectSettings 仅增加获准演示构建入口。
-- **验证限制**：Windows Editor／DX12；Mobile 是 Windows 上的 Forward 配置，0.8 缩放 Overlay 原生差异仍保留。DX11 仍仅历史资源编译，Player、Profiler CPU／GPU 帧时、峰值、长期稳定性和实际设备未验证。
-- **既有设置边界**：扩大扫描另见原模板 4 个缺脚本的孤立 Volume 子资源（不在活动列表，实际 19 个组件全部有效）和 PC_Renderer 7 个旧探针资源 GUID（官方已废弃字段）。原设置哈希保持；草地演示无悬空引用，不将此结论扩大为全仓库零序列化残留，详见 Phase5。
-- **证据与本地提交**：小证据见 [Phase5.md](Phase5.md) 及 Evidence/Phase5-*；完整日志／截图在 `Logs/MigrationPhase5-20261027`，不提交大产物。最终阶段提交含本 Status，可用 `git log -1 -- Docs/Migration/Status.md` 定位；实际 SHA 和提交后工作区在交接答复给出。本轮不推送。
-- **下一步**：等待阶段 6 单独授权，执行完整 Player、Profiler／稳定性与设备验收。
+- **当前阶段**：阶段 6 完成，结论限本机 Windows x64／Mono Player 的 DX12／DX11；阶段 2～5 的历史验收保持。报告、真实数据与限制见 [Phase6.md](Phase6.md)，未把未测设备标为完成。
+- **当前授权**：用户已批准阶段 6 集成、构建、运行、Profiler／启停／资源验证、必要修复与本地提交；Summary 用中文，不推送。本轮范围内工作已完成。
+- **接手 Git**：实际根 `E:\GithubRepositories\URP_Example`；main 跟踪 origin/main；接手 HEAD／阶段 5 提交为 `707212f087763d0c55704166fbe1c870605b1f58`。开始时唯一未提交改动为下方阶段 5 复核记录，全文保留并随本轮 Status 交接。origin 为 `https://github.com/ShenQing8/URP_Example.git`，查询远程默认 main／HEAD 为 `8b79517a4128c21ade3b42f4fb5af4cf3ed267c3`；不切旧分支、不推送。
+- **版本与会话**：重新核对 Unity `6000.6.3f1 (45d8eee7de74)`、URP／Core／Shader Graph `17.6.0`、Input System `1.20.0`；全程复用目标 Editor PID 32380，无源编辑器或第二项目会话。最终全部 Player 已正常退出；Editor 为 Edit／SampleScene／dirty=False／PC，C# compilationFailed=False。
+- **构建与普通运行**：最终 Release、显式诊断 Development、普通 Development 均由 Unity 成功构建，0 error／0 warning。最终 Release 分别以 DX12／DX11 真实启动，普通 Development 以 DX12 启动，首场景、画面、字体及正常退出通过；普通产物没有诊断类型／复制钩子，即使传入诊断参数也不启动辅助。
+- **Player 功能**：DX12／DX11，PC／Mobile 各 8 相机位、GPU counter=Indirect instanceCount、ID 唯一／范围及 CPU 参考集、合批集合、数量至 1000 万、距离边界、0～5003 尾线程、四 Animator／原四轨迹通过。真实 R8 图、PC 深度／法线消费者及 5.351／5.337 秒恢复成立；活动对象组件、19 个有效 Volume 组件、内置字体、18 个 lightmap Renderer、8 个有限 SH 探针和默认反射实际加载。
+- **操作**：真实 Windows 鼠标操作及物理反引号扫描码后，统计隐藏／恢复、相机、主光／点光、转速、数量／距离、合批均有 Player 状态读回和截图。测试后未保存场景改动。
+- **Profiler**：四组 Player 帧时及短时二进制捕获已保存和离线导入。剔除初始记录扰动后，DX12 PC／Mobile／10M 的 GPU 中位数约 0.750／0.257／0.758 ms；DX11 PC 约 0.639 ms。CPU／GPU／P95／内存完整表在报告／Evidence；总帧周期含限帧等待，Editor 统计未冒充 Player 性能。
+- **持续运行／释放**：DX12 20 次禁用／重启、5 次场景往返及实际 600.038 秒持续运行；DX11 5 次禁用、5 次场景往返、20.040 秒短期运行。旧 positions／visible／args 失效、旧 Mesh 销毁和重载恢复通过；后段程序 Mesh=1、RT=14，未见持续增长；新增 Unity Error／Exception／Assert=0。RT 图池保留和退出 Immediate 内存摘要均记录，不宣称全天／引擎零残留。
+- **保护**：源 88 文件摘要仍为 `5fc3140fbb1d2d37f9beab286f80d0ea6b78eb0ee367271394ccdbb399626075`，源 master／HEAD／四项既有改动不变；33 原 meta 保留。包、全部现代设置、两个 Lit、旧 GI／烘焙和场景字节保持；本轮唯一既有 Assets 内容变化是把既有观察钩子限定扩展到显式诊断构建。70 Assets GUID 无重复、无包冲突、无缺 meta。
+- **保留差异／未验证**：FPS／字体仍为等价替代；两个 Lit 官方升级和局部 BlendProbes／旧 GI 未重烘焙的边界保持。Mobile 0.8 空 Overlay 差异保留原记录，未新做 Player 像素等价验证。Android／Vulkan／Metal／XR／其他设备、RGBA8 fallback、小时／全天耐久及全部驱动瞬态峰值未验证。退出 Immediate 分配摘要未完全归因，见报告，不隐藏为零。
+- **证据／提交**：小证据为 Evidence/Phase6-*；完整日志、截图、CSV／Profiler 捕获在 `Logs/MigrationPhase6-20261027`，三个构建在 `Builds/Phase6`，大产物不入 Git。本地阶段提交含本 Status 和保留的复核记录，可用 `git log -1 -- Docs/Migration/Phase6.md` 定位；实际 SHA／提交后状态在交接答复给出。
+- **下一步**：可做阶段 6 交接复核；新增平台／设备与更长耐久另定范围，不自动推送。启动提示见下方。
+
+### 阶段 5 交接复核（2026-10-27）
+
+- 已核验阶段 5 提交 `707212f087763d0c55704166fbe1c870605b1f58`，父提交为 `8b79517a4128c21ade3b42f4fb5af4cf3ed267c3`；当前 main 跟踪 origin/main，本地跟踪状态领先 1 个提交，复核开始时工作区干净。本轮没有重新查询远程引用或推送。
+- 阅读 Phase5／Status／Plan／README、18 文件的提交范围、统计组件及关键场景／构建入口差异。统计值来自真实帧数和经过时间，内存估计和替代差异有明确说明；未发现阻挡进入阶段 6 的交接问题。
+- 逐项重算 Phase5-Checks 中 110 份原始日志／图像的 SHA-256，全部匹配；3 份已提交汇总中的 17 份原始报告内容逐一匹配。查看 640×360 最终 UI 截图及 PC 场景图，与记录一致；这是复核已有产物，不是本轮重新运行 Unity。
+- 源 88 文件摘要仍为阶段 0 的 `5fc3140fbb1d2d37f9beab286f80d0ea6b78eb0ee367271394ccdbb399626075`；33 个原 meta 保留。相对阶段 5 接手提交，Packages／现代 Assets/Settings／ProjectSettings 仅构建入口有预期变化；两 Lit 与烘焙资源保持，LightingData 为 23,160 字节，SHA-256 与阶段 1 清单一致。56 处 README／协作／迁移文档的本地链接可解析。
+- 阶段 6 应首先在真实 Player 构建和启动中检查内置字体、Input System 操作、首场景、草地绘制及旧 GI 资源；原模板的孤立 Volume 子资源和废弃探针字段继续作为集成检查项，不能仅据 Editor 活动列表有效就宣称 Player 已通过，也不能无条件删除历史残留来规避错误。
+- Profiler CPU／GPU 帧时、内存峰值、持续运行与反复启停、DX11 和实际设备均仍待阶段 6；Editor 统计和历史资源包编译不能替代这些证据。本轮没有启动 Unity、构建或新测试，只更新本 Status，保留未提交；阶段 6 接手时保留这份复核记录。
 
 ### 阶段 2～4 交接复核与中文 README（2026-10-27，历史记录）
 
@@ -40,9 +48,9 @@
 | 3 | Shader／光照／动画 | 已批准 | 完成（当前 Windows 范围） | 两管线实际光照／阴影／动画／SH／纹理；DX11／DX12 资源编译及 DX12 构建资源加载通过 |
 | 4 | RenderGraph 弯曲 Pass | 已批准 | 完成（DX12 联合验收） | 最终 Main Camera 图依赖、R8 内容、四轨迹、重叠／交互带／恢复、深度法线与多相机通过 |
 | 5 | 演示完整性与缺项恢复 | 已批准 | 完成（Windows Editor／DX12） | 真实统计／内置字体、实际 GUI 操作、两 Lit／旧 GI 对照及缺项引用通过；无需重烘焙 |
-| 6 | 构建、性能与最终运行 | 未批准 | 未开始 | Player／Profiler／长期稳定性及实际设备未验收 |
+| 6 | 构建、性能与最终运行 | 已批准 | 完成（Windows x64／DX12／DX11） | Player 构建／操作／GPU／Profiler／释放；DX12 持续 600 秒，其他设备未验证 |
 
-当前没有未取得证据却标为成功的联合项目：上述完成限于明确记录的 Windows／DX12 范围。平台、性能与整体工程完整性不借此标记完成。以下阶段 0／1 章节保留历史事实，授权与当前进度以上述摘要及最新活动记录为准。
+当前没有未取得证据却标为成功的联合项目：各阶段完成限于各自报告范围，阶段 6 新增 Windows Player／DX11／DX12 证据；其他设备与更长耐久不借此标记完成。以下阶段 0／1 章节保留历史事实，授权与当前进度以上述摘要及最新活动记录为准。
 
 ## 阶段 0 文件与原因
 
@@ -118,17 +126,16 @@
 
 完整本地证据：`E:\GithubRepositories\URP_Example\Logs\MigrationPhase1-20261027`；原 Editor.log 切片起点为字节 2363677。可提交的简要导入输出、引用摘要及哈希清单见 [Phase1.md](Phase1.md) 的证据链接。Logs、Library 和大体积日志不提交。
 
-## 下一对话入口（阶段 6 待单独批准）
+## 下一对话入口（Windows 阶段 6 已完成）
 
 ```text
-批准实施阶段 6：集成、构建与运行验收，按 Plan.md 继续。
-目标为当前仓库根（本机 E:\GithubRepositories\URP_Example）；源 E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res 只读。
-先读取 AGENTS.md、Status.md、Plan.md、Audit.md、Phase1.md、Phase234.md、Phase5.md。
-核对实际根、origin、main／origin/main、HEAD 和工作区；阶段 5 提交用 git log -1 -- Docs/Migration/Phase5.md 定位并补记实际 SHA。
-阶段 5 已完成 Windows Editor／DX12 演示验收；FPS／字体为等价替代，两 Lit 保留官方升级，旧 GI 实测有效且未重烘焙。
-保留 Mobile 0.8 缩放 Overlay 和局部 BlendProbes 的已记录边界，不把 Editor 统计当作 Player／设备性能证据。
-先验证 Windows Standalone 构建、启动与实际运行，再做 Profiler／长期启停和资源释放；实际设备不足的范围明确未验证。
-保留已有改动、现代包与设置；允许本轮本地提交，不推送。结束更新 Status、给出真实证据与提交。
+复核 Unity 草地迁移阶段 6 交接。
+目标为当前仓库根（本机 E:\GithubRepositories\URP_Example）；源 E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res 保持只读。
+先读 AGENTS.md、Status.md、Plan.md、Phase6.md，并核对实际根、origin、main／origin/main、HEAD 和工作区。
+阶段 6 提交用 git log -1 -- Docs/Migration/Phase6.md 定位，补记实际 SHA；保留阶段 5 的历史复核记录。
+当前完成范围为本机 Windows x64 Mono Player／DX12／DX11，含真实 GPU、Profiler、资源释放和 DX12 600 秒持续运行。
+保留 Mobile 0.8 Overlay、局部 BlendProbes、材质／字体替代和 Immediate 内存摘要的边界；不宣称其他设备或全天耐久通过。
+本次先做交接复核；新增平台／设备测试需明确实际设备和授权范围，不自动推送。
 ```
 
 ## 活动记录
@@ -187,3 +194,14 @@
 - 最终只读源 88 文件／Git 状态、原 33 meta、包与现代管线、两个 Lit／全部烘焙资产保持；仅新增获准的构建入口。退出 Play 并恢复 PC／1280×720／SampleScene，无并发编辑器。
 - 最终扫描 408 处文本 GUID，演示无悬空；另外分类保留原模板 4 个未列入 components 的缺脚本孤立子资源和 7 个已废弃探针调试资源字段。实际默认 Profile 的 19 组件全部有效；没有借删除现代设置清空静态残留。
 - 本地提交只含本阶段代码、场景／入口、统计和字体接线、报告／小证据；完整日志与截图留忽略目录。提交 SHA 由最终答复和 git log 定位；不推送。阶段 6 尚未获批。
+
+### 2026-10-27：阶段 6 获批并完成 Windows Player 验收
+
+- 接手 main／707212f，唯一未提交的阶段 5 复核记录已保留。用户明确批准阶段 6、必要实现／修复、本地提交及中文 Summary，不推送；全程目标单会话、源只读。
+- 新增显式构建请求、诊断场景处理器、Player 验收辅助和离线 Profiler 分析；只有显式诊断构建有自定义定义及复制钩子。普通 Development 的门控另做实际构建／启动验证，无 Missing Script；未改生产 GPU 计数、Shader 变形、画质或旧 GI。
+- Unity 构建和最终普通产物启动通过。DX12／DX11 的 PC／Mobile 8 视角、GPU ID／counter／args／CPU 参考、容量／距离／合批、真实原轨迹与恢复、字体／GI／默认 Volume、真实鼠标／反引号操作均有证据，详见 Phase6。
+- Profiler CPU／GPU 数据来自四组实际 Player 采样及导入的 Player 二进制捕获；无效 recorder 列不解释成 0 成本，CPU Cell 从 RawFrameDataView 提取，计时窗口没有同步 GPU 读回。
+- DX12 完成 20 次启停、5 次场景往返和 600.038 秒持续运行；DX11 5 次启停、5 次场景往返和 20.040 秒短期运行。旧 GPU buffer／Mesh 释放断言和实际重载通过；内存峰值、RT 图池稳定性及 Immediate 退出摘要分别留证，不承诺全驱动／全天无泄漏。
+- 保留早启动、辅助 CS0122／CS0165、CPU 读取图全局状态错误和首轮 OS 按键未隐藏等失败；均修正或按证据分类重跑。官方未启用 DOF／Panini 剥离信息保持，不改包或屏蔽 Shader 错误。
+- 构建自动生成的预筛选、运行列表、Graphics 默认字段、Input System preload 和测试包临时资源已核对；现代配置恢复准确接手字节。源 88 文件、33 原 meta、材质／场景／烘焙／包保持；新增 4 个脚本及 meta，唯一既有代码改动为观察钩子的显式构建条件。
+- 已更新本 Status、Phase6 报告、README 和小证据；大产物保留忽略目录。阶段完成限定 Windows 已执行范围，Android 等实际设备未验证。阶段本地提交和最终工作区以交接答复及 git log 定位；没有推送。

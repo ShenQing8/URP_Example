@@ -1,0 +1,39 @@
+=== 01-release-build.txt ===
+2026-10-27T12:04:28.2304918+08:00 project=E:\GithubRepositories\URP_Example Unity=6000.6.3f1 target=StandaloneWindows64 options=None
+Scenes=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity,Assets/Scenes/SampleScene.unity
+Result=Succeeded bytes=106456473 duration=00:06:08.8928508 errors=0 warnings=0 path=E:/GithubRepositories/URP_Example/Builds/Phase6/Release/GrassDemo.exe
+BUILD PASS
+
+=== 02-development-build.txt ===
+2026-10-27T12:13:35.5000568+08:00 project=E:\GithubRepositories\URP_Example Unity=6000.6.3f1 target=StandaloneWindows64 options=ForceOptimizeScriptCompilation, Il2CPP, CompressTextures, StripDebugSymbols, ShaderLivelinkSupport, Development
+Scenes=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity,Assets/Scenes/SampleScene.unity
+Result=Succeeded bytes=173538150 duration=00:00:43.0658216 errors=0 warnings=0 path=E:/GithubRepositories/URP_Example/Builds/Phase6/Development/GrassDemo.exe
+BUILD PASS
+
+=== 04-development-graph-copy-build.txt ===
+BUILD FAIL System.InvalidOperationException: Build requires compiled scripts, Edit mode and a clean scene.
+  at GrassPlayerBuildValidation.Poll () [0x00053] in E:\GithubRepositories\URP_Example\Assets\URPMobileGrassInstancedIndirectDemo\InstancedIndirectGrass\Editor\GrassPlayerBuildValidation.cs:28
+
+=== 05-development-final-build.txt ===
+2026-10-27T12:17:25.0003048+08:00 project=E:\GithubRepositories\URP_Example Unity=6000.6.3f1 target=StandaloneWindows64 options=ForceOptimizeScriptCompilation, Il2CPP, CompressTextures, StripDebugSymbols, ShaderLivelinkSupport, Development
+Scenes=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity,Assets/Scenes/SampleScene.unity
+Result=Succeeded bytes=173541658 duration=00:00:14.4517819 errors=0 warnings=0 path=E:/GithubRepositories/URP_Example/Builds/Phase6/Development/GrassDemo.exe
+BUILD PASS
+
+=== 13-release-final-build.txt ===
+2026-10-27T12:23:35.5695464+08:00 project=E:\GithubRepositories\URP_Example Unity=6000.6.3f1 target=StandaloneWindows64 options=None
+Scenes=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity,Assets/Scenes/SampleScene.unity
+Result=Succeeded bytes=106458857 duration=00:00:27.1469075 errors=0 warnings=0 path=E:/GithubRepositories/URP_Example/Builds/Phase6/Release/GrassDemo.exe
+BUILD PASS
+
+=== 16-plain-development-build.txt ===
+2026-10-27T12:26:28.1373168+08:00 project=E:\GithubRepositories\URP_Example Unity=6000.6.3f1 target=StandaloneWindows64 development=True diagnostics=False optionsBits=0x1 backend=Mono2x
+Scenes=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity,Assets/Scenes/SampleScene.unity
+Result=Succeeded bytes=173499659 duration=00:00:40.2480282 errors=0 warnings=0 path=E:/GithubRepositories/URP_Example/Builds/Phase6/PlainDevelopment/GrassDemo.exe
+BUILD PASS
+
+=== 18-diagnostic-gate-final-build.txt ===
+2026-10-27T12:33:53.3001866+08:00 project=E:\GithubRepositories\URP_Example Unity=6000.6.3f1 target=StandaloneWindows64 development=True diagnostics=True optionsBits=0x1 backend=Mono2x
+Scenes=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity,Assets/Scenes/SampleScene.unity
+Result=Succeeded bytes=173541658 duration=00:00:22.6800624 errors=0 warnings=0 path=E:/GithubRepositories/URP_Example/Builds/Phase6/Development/GrassDemo.exe
+BUILD PASS

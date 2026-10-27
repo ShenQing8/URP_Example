@@ -1,0 +1,92 @@
+=== DX12Final/11-stability.txt ===
+2026-10-27T12:22:55.1114058+08:00 command=stability API=Direct3D12 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+Memory start realtime=289.649 allocated=217651145 reserved=904396800 graphicsEstimate=394072832 managed=18345984 meshes=1 RTs=25
+count=1000000 append=76841 args=76841 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory cycle 0 realtime=290.014 allocated=213171353 reserved=904396800 graphicsEstimate=403554568 managed=15642624 meshes=1 RTs=29
+count=1000000 append=76841 args=76841 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76841 args=76841 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory cycle 5 realtime=291.676 allocated=217488952 reserved=904396800 graphicsEstimate=403689860 managed=15663104 meshes=1 RTs=31
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory cycle 10 realtime=293.340 allocated=213207573 reserved=904396800 graphicsEstimate=403665972 managed=15642624 meshes=1 RTs=29
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory cycle 15 realtime=295.035 allocated=217473464 reserved=904396800 graphicsEstimate=403805360 managed=15671296 meshes=1 RTs=31
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory unloaded 0 realtime=296.638 allocated=212757983 reserved=904396800 graphicsEstimate=397165088 managed=15679488 meshes=0 RTs=35
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory unloaded 1 realtime=297.315 allocated=212661559 reserved=906493952 graphicsEstimate=397193184 managed=15675392 meshes=0 RTs=35
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory unloaded 2 realtime=297.976 allocated=212667847 reserved=906493952 graphicsEstimate=397216424 managed=15675392 meshes=0 RTs=35
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory unloaded 3 realtime=298.603 allocated=212529503 reserved=906493952 graphicsEstimate=397239664 managed=15675392 meshes=0 RTs=35
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory unloaded 4 realtime=299.238 allocated=212535951 reserved=906493952 graphicsEstimate=397262904 managed=15679488 meshes=0 RTs=35
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory end realtime=899.817 allocated=220172034 reserved=906493952 graphicsEstimate=376646584 managed=15622144 meshes=1 RTs=14
+Repeated disables=20 scene roundtrips=5 soakActualSeconds=600.038
+Bending format=R8_UNorm size=512x512 nonwhite=2737 min=0 graphCopy=True normalsConsumer=True
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== DX12Final/11-stability-soak.txt ===
+Memory soak 0 realtime=299.779 allocated=218728654 reserved=906493952 graphicsEstimate=412869760 managed=15687680 meshes=1 RTs=35
+Memory soak 1 realtime=329.783 allocated=218477588 reserved=906493952 graphicsEstimate=377429604 managed=18685952 meshes=1 RTs=14
+Memory soak 2 realtime=359.782 allocated=218395488 reserved=906493952 graphicsEstimate=376847204 managed=18477056 meshes=1 RTs=14
+Memory soak 3 realtime=389.789 allocated=218392380 reserved=906493952 graphicsEstimate=376813184 managed=16363520 meshes=1 RTs=14
+Memory soak 4 realtime=419.781 allocated=218382988 reserved=906493952 graphicsEstimate=376741224 managed=18456576 meshes=1 RTs=14
+Memory soak 5 realtime=449.788 allocated=218370804 reserved=906493952 graphicsEstimate=376646024 managed=18509824 meshes=1 RTs=14
+Memory soak 6 realtime=479.781 allocated=218372528 reserved=906493952 graphicsEstimate=376657924 managed=18460672 meshes=1 RTs=14
+Memory soak 7 realtime=509.788 allocated=218389740 reserved=906493952 graphicsEstimate=376789944 managed=18591744 meshes=1 RTs=14
+Memory soak 8 realtime=539.789 allocated=220207570 reserved=906493952 graphicsEstimate=376941284 managed=18677760 meshes=1 RTs=14
+Memory soak 9 realtime=569.783 allocated=220190354 reserved=906493952 graphicsEstimate=376788264 managed=18427904 meshes=1 RTs=14
+Memory soak 10 realtime=599.793 allocated=220168962 reserved=906493952 graphicsEstimate=376623344 managed=18444288 meshes=1 RTs=14
+Memory soak 11 realtime=629.785 allocated=220168658 reserved=906493952 graphicsEstimate=376623904 managed=18382848 meshes=1 RTs=14
+Memory soak 12 realtime=659.780 allocated=220168574 reserved=906493952 graphicsEstimate=376635244 managed=18440192 meshes=1 RTs=14
+Memory soak 13 realtime=689.780 allocated=220186146 reserved=906493952 graphicsEstimate=376766144 managed=18505728 meshes=1 RTs=14
+Memory soak 14 realtime=719.792 allocated=220178386 reserved=906493952 graphicsEstimate=376694184 managed=18522112 meshes=1 RTs=14
+Memory soak 15 realtime=749.790 allocated=220182918 reserved=906493952 graphicsEstimate=376730444 managed=18481152 meshes=1 RTs=14
+Memory soak 16 realtime=779.780 allocated=220187498 reserved=906493952 graphicsEstimate=376766144 managed=18436096 meshes=1 RTs=14
+Memory soak 17 realtime=809.787 allocated=220183696 reserved=906493952 graphicsEstimate=376823068 managed=18464768 meshes=1 RTs=14
+Memory soak 18 realtime=839.779 allocated=220173806 reserved=906493952 graphicsEstimate=376659044 managed=18477056 meshes=1 RTs=14
+Memory soak 19 realtime=869.788 allocated=220173846 reserved=906493952 graphicsEstimate=376659044 managed=18423808 meshes=1 RTs=14
+
+=== DX11/21-stability-dx11.txt ===
+2026-10-27T12:36:16.5099926+08:00 command=stability API=Direct3D11 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+Memory start realtime=116.198 allocated=208516850 reserved=635830272 graphicsEstimate=83598546 managed=16560128 meshes=1 RTs=25
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory cycle 0 realtime=116.564 allocated=204030441 reserved=635830272 graphicsEstimate=92965758 managed=15503360 meshes=1 RTs=29
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory unloaded 0 realtime=117.991 allocated=199151557 reserved=635830272 graphicsEstimate=23228308 managed=15503360 meshes=0 RTs=19
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory unloaded 1 realtime=118.583 allocated=199155991 reserved=637927424 graphicsEstimate=23233208 managed=15499264 meshes=0 RTs=19
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory unloaded 2 realtime=119.173 allocated=199156695 reserved=637927424 graphicsEstimate=23233208 managed=15503360 meshes=0 RTs=19
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory unloaded 3 realtime=119.795 allocated=199159111 reserved=637927424 graphicsEstimate=23256308 managed=15503360 meshes=0 RTs=19
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory unloaded 4 realtime=120.395 allocated=199155063 reserved=637927424 graphicsEstimate=23162928 managed=15482880 meshes=0 RTs=19
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory end realtime=140.980 allocated=209159702 reserved=637927424 graphicsEstimate=68687578 managed=15564800 meshes=1 RTs=14
+Repeated disables=5 scene roundtrips=5 soakActualSeconds=20.040
+Bending format=R8_UNorm size=512x512 nonwhite=2780 min=0 graphCopy=True normalsConsumer=True
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== DX11/21-stability-dx11-soak.txt ===
+Memory soak 0 realtime=120.941 allocated=209231164 reserved=637927424 graphicsEstimate=79226110 managed=15519744 meshes=1 RTs=33

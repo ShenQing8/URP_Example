@@ -4,7 +4,7 @@
 
 将 ColinLeung-NiloCat 的 Unity 2019.4／URP 7 草地示例迁移到 **Unity 6000.6.3f1／URP 17.6.0**，演示 CPU Cell 剔除、GPU Compute 剔除、间接实例化绘制，以及通过 RenderGraph 实现的草地交互弯曲。
 
-**当前状态（2026-10-27）**：阶段 2～4 核心迁移与阶段 5 演示完整性已完成 Windows Editor／Direct3D 12 验收；完整 Player 构建和最终运行验收仍为阶段 6。核心功能已在 Unity 中实际运行，整个迁移项目尚未完成最终验收。最新进度以 [迁移状态](Docs/Migration/Status.md) 为准。
+**当前状态（2026-10-27）**：阶段 6 已完成本机 Windows x64／Mono Player 的 Direct3D 12／11 构建与运行验收，包含真实 GPU 数据、操作、Profiler、资源释放和 DX12 10 分钟持续运行。Android 等其他设备及更长耐久未验证；完整结果与边界见 [阶段 6 报告](Docs/Migration/Phase6.md)，最新进度见 [迁移状态](Docs/Migration/Status.md)。
 
 ## 环境与渲染配置
 
@@ -15,7 +15,7 @@
 | PC | Forward+、Render Scale 1，保留 SSAO |
 | Mobile | Forward、Render Scale 0.8 |
 | 自定义渲染通道 | RenderGraph，不依赖旧 Configure／Execute 或兼容模式 |
-| 已运行验证环境 | Windows Editor、Direct3D 12、NVIDIA GeForce RTX 4060 Laptop GPU |
+| 已运行验证环境 | Windows Editor／DX12；Windows x64 Mono Player／DX12、DX11；NVIDIA GeForce RTX 4060 Laptop GPU |
 
 运行设备需要支持 Compute Shader、GPU Instancing、间接绘制及本项目 Shader 所需能力（草地 Shader target 4.5）。**Mobile 是一套 URP 配置的名称，不代表 Android 实机已经验证通过。**
 
@@ -46,7 +46,7 @@ cd URP_Example
 
 默认是 **100 万株草、绘制距离 125**。提高数量或距离会增加内存及计算／绘制负担，建议逐步调整。
 
-Build Settings 已将草地演示列为首场景，同时保留模板 `SampleScene`。打开项目时仍需选择演示场景；完整 Player 构建与启动将在阶段 6 验收。
+Build Settings 已将草地演示列为首场景，同时保留模板 `SampleScene`。打开 Editor 时仍需选择演示场景；Windows Player 会直接进入草地演示。完整 Player 已实际构建并以 DX12／DX11 启动，方法和本机产物路径见阶段 6 报告。
 
 场景使用 `DemoPerformanceStats` 和 Unity 内置字体，替代不可得的原 Advanced FPS Counter／字体；已检查 Missing Script=0。原插件差异及实际验证边界见阶段 5 报告。
 
@@ -115,6 +115,8 @@ TestScene 下保留的旧 `UniversalRenderPipelineAsset` 及 Renderer 仅供迁�
 
 以下是阶段 2～4 保存的真实验证结果，不是本 README 编写时重新运行的测试。完整方法、失败纠正和证据入口见 [阶段 2～4 交接报告](Docs/Migration/Phase234.md)。
 
+阶段 6 后续补齐的 Windows Player／DX11／DX12 证据见下文及阶段 6 报告；下表保持原阶段当时的验证范围。
+
 | 范围 | 已验证内容 | 边界 |
 | --- | --- | --- |
 | GPU 数据链 | 0／1／63／64／65 等边界、可见 ID 范围与唯一性、counter 与间接实例数一致、合批集合与 CPU 参考集一致 | Windows Editor／DX12 |
@@ -135,11 +137,12 @@ TestScene 下保留的旧 `UniversalRenderPipelineAsset` 及 Renderer 仅供迁�
 - 旧光照贴图、8 个局部 SH 探针和默认反射在目标有效并有实际着色贡献，当前无需重烘焙；保留原 BlendProbes 语义，不扩充为全草场的逐草叶空间 GI。
 - 两管线真实鼠标／快捷键、640×360／1280×720、数量／距离／合批、8 相机和四角色轨迹通过。草地已列为构建首场景，模板场景与现代设置保留；详情及新证据见 [Phase5.md](Docs/Migration/Phase5.md)。
 
-**阶段 6：最终构建与运行验收。**
+**阶段 6 已完成 Windows 验证范围。**
 
-- 完整 Windows Player 构建与启动运行。
-- Profiler CPU／GPU 帧时间、内存峰值及长时间启停／运行稳定性。
-- 按实际设备条件验证 DX11、Android、Vulkan 等目标；Metal／XR 也没有运行结论。
+- Release／普通 Development／显式诊断构建均成功；最终普通 Player 的 DX12／DX11 首场景、字体、草地与正常退出通过。诊断辅助只在显式构建和命令行启用，普通产物不含辅助或图复制钩子。
+- 两 API 下的 PC／Mobile、8 视角、真实 GPU ID／counter／Indirect、数量至 1000 万、四轨迹与恢复通过；真实 Windows 鼠标和反引号操作有状态读回。
+- Player Profiler CPU／GPU 帧时和内存峰值已有数据；DX12 完成 20 次启停、5 次场景往返及 600.038 秒持续运行，DX11 有短期释放回归。完整方法、P95／峰值和原始捕获摘要见阶段 6；本机 60 FPS 限帧样本不构成其他设备性能承诺。
+- Android／Vulkan／Metal／XR、其他硬件、R8 不支持设备的 RGBA8 分支、小时／全天耐久和全部驱动瞬态仍未验证。图池 RT 和退出 Immediate 内存摘要保持记录，不宣称引擎零残留。
 
 Mobile 的原始 0.8 Render Scale 在空 Overlay 对照中存在已记录的边缘采样差异，禁用草地也可复现；临时比例 1 的对照消除了该差异。当前保留原配置，详见阶段 2～4 报告，不将这一现象混同为已通过逐像素一致性验收。
 
@@ -155,6 +158,7 @@ Mobile 的原始 0.8 Render Scale 在空 Overlay 对照中存在已记录的边�
 - [阶段 1 交接](Docs/Migration/Phase1.md)：资源迁入及旧 API 阻断的历史证据。
 - [阶段 2～4 交接](Docs/Migration/Phase234.md)：核心实现、联合验收与平台边界。
 - [阶段 5 交接](Docs/Migration/Phase5.md)：演示／统计替代、材质和旧 GI 实测。
+- [阶段 6 交接](Docs/Migration/Phase6.md)：Windows Player／GPU／Profiler／资源释放、持续运行及设备边界。
 - [代理协作约定](AGENTS.md)：源只读、授权范围、功能保留及真实验证要求。
 
 ## 原项目与许可

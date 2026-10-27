@@ -1,0 +1,75 @@
+=== DX12Final/07-profile-pc.txt ===
+2026-10-27T12:18:41.1313276+08:00 command=profile-pc API=Direct3D12 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+ProfilerRecorders Main=True Render=False GPU=True Cell=False frameTiming=True pipeline=PC_RPAsset scale=1 count=1000000 target=60 vSync=0
+Profile actualSeconds=60.009 rows=3599 uniqueFrameTimings=3599; CSV units explicit; Main Thread includes waits; graphics estimate is not dedicated VRAM usage
+Memory profile-end realtime=95.680 allocated=212980505 reserved=635895808 graphicsEstimate=392055144 managed=17354752 meshes=1 RTs=25
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== DX12Final/08-profile-mobile.txt ===
+2026-10-27T12:19:52.1588603+08:00 command=profile-mobile API=Direct3D12 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+ProfilerRecorders Main=True Render=False GPU=True Cell=False frameTiming=True pipeline=Mobile_RPAsset scale=0.8 count=1000000 target=60 vSync=0
+Profile actualSeconds=60.008 rows=3600 uniqueFrameTimings=3600; CSV units explicit; Main Thread includes waits; graphics estimate is not dedicated VRAM usage
+Memory profile-end realtime=166.707 allocated=209381553 reserved=635895808 graphicsEstimate=361414408 managed=17539072 meshes=1 RTs=17
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== DX12Final/09-profile-high.txt ===
+2026-10-27T12:21:07.9275405+08:00 command=profile-high API=Direct3D12 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+ProfilerRecorders Main=True Render=False GPU=True Cell=False frameTiming=True pipeline=PC_RPAsset scale=1 count=10000000 target=60 vSync=0
+Profile actualSeconds=45.007 rows=2700 uniqueFrameTimings=2700; CSV units explicit; Main Thread includes waits; graphics estimate is not dedicated VRAM usage
+Memory profile-end realtime=232.160 allocated=216796012 reserved=904396800 graphicsEstimate=536090704 managed=249319424 meshes=1 RTs=25
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== DX11/20-profile-dx11.txt ===
+2026-10-27T12:35:09.1810154+08:00 command=profile-pc API=Direct3D11 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+ProfilerRecorders Main=True Render=False GPU=True Cell=False frameTiming=True pipeline=PC_RPAsset scale=1 count=1000000 target=60 vSync=0
+Profile actualSeconds=45.007 rows=2700 uniqueFrameTimings=2700; CSV units explicit; Main Thread includes waits; graphics estimate is not dedicated VRAM usage
+Memory profile-end realtime=93.885 allocated=208382946 reserved=635830272 graphicsEstimate=83540866 managed=17076224 meshes=1 RTs=25
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== 12-profiler-pc-analysis.txt ===
+2026-10-27T12:24:02.7886563+08:00 Unity=6000.6.3f1 capture=Logs/MigrationPhase6-20261027/DX12Final/07-profile-pc.raw
+Profiler imported actual Player frames=601 first=0 last=600; threads=/Main Thread,/Render Thread,Audio/Audio (WASAPI) Feeder Thread,Audio/Audio Mixer Thread,Audio/Audio Stream Thread,Background Job/Worker 0,Background Job/Worker 1,Background Job/Worker 10,Background Job/Worker 11,Background Job/Worker 12,Background Job/Worker 13,Background Job/Worker 14,Background Job/Worker 15,Background Job/Worker 2,Background Job/Worker 3,Background Job/Worker 4,Background Job/Worker 5,Background Job/Worker 6,Background Job/Worker 7,Background Job/Worker 8,Background Job/Worker 9,D3D12 Task/Worker,Job/Worker 0,Job/Worker 1,Job/Worker 10,Job/Worker 2,Job/Worker 3,Job/Worker 4,Job/Worker 5,Job/Worker 6,Job/Worker 7,Job/Worker 8,Job/Worker 9,Loading/AsyncRead,Loading/PreloadManager,Other Threads/AssetGarbageCollectorHelper,Other Threads/BatchDeleteObjects,Other Threads/HIDInput,Other Threads/Input Polling Thread,Other Threads/ReadAsyncQueue Thread,Profiler/Dispatcher,Scripting Threads/Finalizer
+Main Thread/Gfx.WaitForPresentOnGfxThread samples=600 meanMs=0.001538 medianMs=0.001500 p95Ms=0.002000 maxMs=0.004000
+Main Thread/Grass CPU Cell Culling samples=600 meanMs=0.143388 medianMs=0.134400 p95Ms=0.188000 maxMs=0.279800
+Main Thread/PlayerLoop samples=600 meanMs=16.618690 medianMs=16.643499 p95Ms=16.654699 maxMs=17.212200
+Main Thread/WaitForTargetFPS samples=600 meanMs=14.535554 medianMs=14.603700 p95Ms=14.800000 maxMs=15.208600
+Render Thread/Gfx.PresentFrame samples=600 meanMs=0.527941 medianMs=0.474200 p95Ms=0.678600 maxMs=8.962800
+Render Thread/RenderLoop samples=601 meanMs=1.441327 medianMs=1.270700 p95Ms=1.835900 maxMs=25.943100
+ANALYSIS PASS
+
+=== 14-profiler-mobile-analysis.txt ===
+2026-10-27T12:24:40.2675744+08:00 Unity=6000.6.3f1 capture=Logs/MigrationPhase6-20261027/DX12Final/08-profile-mobile.raw
+Profiler imported actual Player frames=602 first=0 last=601; threads=/Main Thread,/Render Thread,Audio/Audio (WASAPI) Feeder Thread,Audio/Audio Mixer Thread,Audio/Audio Stream Thread,Background Job/Worker 0,Background Job/Worker 1,Background Job/Worker 10,Background Job/Worker 11,Background Job/Worker 12,Background Job/Worker 13,Background Job/Worker 14,Background Job/Worker 15,Background Job/Worker 2,Background Job/Worker 3,Background Job/Worker 4,Background Job/Worker 5,Background Job/Worker 6,Background Job/Worker 7,Background Job/Worker 8,Background Job/Worker 9,D3D12 Task/Worker,Job/Worker 0,Job/Worker 1,Job/Worker 10,Job/Worker 2,Job/Worker 3,Job/Worker 4,Job/Worker 5,Job/Worker 6,Job/Worker 7,Job/Worker 8,Job/Worker 9,Loading/AsyncRead,Loading/PreloadManager,Other Threads/AssetGarbageCollectorHelper,Other Threads/BatchDeleteObjects,Other Threads/HIDInput,Other Threads/Input Polling Thread,Other Threads/ReadAsyncQueue Thread,Profiler/Dispatcher,Scripting Threads/Finalizer
+Main Thread/Gfx.WaitForPresentOnGfxThread samples=601 meanMs=0.001675 medianMs=0.001500 p95Ms=0.002000 maxMs=0.078400
+Main Thread/Grass CPU Cell Culling samples=601 meanMs=0.147602 medianMs=0.137100 p95Ms=0.190000 maxMs=0.284000
+Main Thread/PlayerLoop samples=601 meanMs=16.618798 medianMs=16.643801 p95Ms=16.652700 maxMs=17.032000
+Main Thread/WaitForTargetFPS samples=601 meanMs=14.724382 medianMs=14.774800 p95Ms=14.989500 maxMs=15.371800
+Render Thread/Gfx.PresentFrame samples=601 meanMs=0.266110 medianMs=0.247100 p95Ms=0.350900 maxMs=1.072200
+Render Thread/RenderLoop samples=602 meanMs=0.959776 medianMs=0.897500 p95Ms=1.338300 maxMs=3.706400
+ANALYSIS PASS
+
+=== 15-profiler-high-analysis.txt ===
+2026-10-27T12:25:11.8715817+08:00 Unity=6000.6.3f1 capture=Logs/MigrationPhase6-20261027/DX12Final/09-profile-high.raw
+Profiler imported actual Player frames=602 first=0 last=601; threads=/Main Thread,/Render Thread,Audio/Audio (WASAPI) Feeder Thread,Audio/Audio Mixer Thread,Audio/Audio Stream Thread,Background Job/Worker 0,Background Job/Worker 1,Background Job/Worker 10,Background Job/Worker 11,Background Job/Worker 12,Background Job/Worker 13,Background Job/Worker 14,Background Job/Worker 15,Background Job/Worker 2,Background Job/Worker 3,Background Job/Worker 4,Background Job/Worker 5,Background Job/Worker 6,Background Job/Worker 7,Background Job/Worker 8,Background Job/Worker 9,D3D12 Task/Worker,Job/Worker 0,Job/Worker 1,Job/Worker 10,Job/Worker 2,Job/Worker 3,Job/Worker 4,Job/Worker 5,Job/Worker 6,Job/Worker 7,Job/Worker 8,Job/Worker 9,Loading/AsyncRead,Loading/PreloadManager,Other Threads/AssetGarbageCollectorHelper,Other Threads/BatchDeleteObjects,Other Threads/HIDInput,Other Threads/Input Polling Thread,Other Threads/ReadAsyncQueue Thread,Profiler/Dispatcher,Scripting Threads/Finalizer
+Main Thread/Gfx.WaitForPresentOnGfxThread samples=601 meanMs=0.001519 medianMs=0.001500 p95Ms=0.002000 maxMs=0.004100
+Main Thread/Grass CPU Cell Culling samples=601 meanMs=1.156542 medianMs=1.124700 p95Ms=1.332600 maxMs=1.866500
+Main Thread/PlayerLoop samples=601 meanMs=16.619389 medianMs=16.644300 p95Ms=16.652599 maxMs=17.108400
+Main Thread/WaitForTargetFPS samples=601 meanMs=13.537130 medianMs=13.580200 p95Ms=13.914000 maxMs=14.081300
+Render Thread/Gfx.PresentFrame samples=601 meanMs=0.503400 medianMs=0.469700 p95Ms=0.647400 maxMs=0.804100
+Render Thread/RenderLoop samples=602 meanMs=1.355912 medianMs=1.253700 p95Ms=1.813900 maxMs=3.364900
+ANALYSIS PASS
+
+=== 22-profiler-dx11-analysis.txt ===
+2026-10-27T12:36:16.5500292+08:00 Unity=6000.6.3f1 capture=Logs/MigrationPhase6-20261027/DX11/20-profile-dx11.raw
+Profiler imported actual Player frames=602 first=0 last=601; threads=/Main Thread,/Render Thread,Audio/Audio (WASAPI) Feeder Thread,Audio/Audio Mixer Thread,Audio/Audio Stream Thread,Background Job/Worker 0,Background Job/Worker 1,Background Job/Worker 10,Background Job/Worker 11,Background Job/Worker 12,Background Job/Worker 13,Background Job/Worker 14,Background Job/Worker 15,Background Job/Worker 2,Background Job/Worker 3,Background Job/Worker 4,Background Job/Worker 5,Background Job/Worker 6,Background Job/Worker 7,Background Job/Worker 8,Background Job/Worker 9,Job/Worker 0,Job/Worker 1,Job/Worker 10,Job/Worker 2,Job/Worker 3,Job/Worker 4,Job/Worker 5,Job/Worker 6,Job/Worker 7,Job/Worker 8,Job/Worker 9,Loading/AsyncRead,Loading/PreloadManager,Other Threads/AssetGarbageCollectorHelper,Other Threads/BatchDeleteObjects,Other Threads/HIDInput,Other Threads/Input Polling Thread,Other Threads/ReadAsyncQueue Thread,Profiler/Dispatcher,Scripting Threads/Finalizer
+Main Thread/Gfx.WaitForPresentOnGfxThread samples=601 meanMs=0.001861 medianMs=0.001700 p95Ms=0.002200 maxMs=0.046600
+Main Thread/Grass CPU Cell Culling samples=601 meanMs=0.154298 medianMs=0.145600 p95Ms=0.209600 maxMs=0.299800
+Main Thread/PlayerLoop samples=601 meanMs=16.615259 medianMs=16.643299 p95Ms=16.650700 maxMs=16.793800
+Main Thread/WaitForTargetFPS samples=601 meanMs=14.416540 medianMs=14.491700 p95Ms=14.751400 maxMs=14.913800
+Render Thread/Gfx.PresentFrame samples=601 meanMs=0.161039 medianMs=0.133500 p95Ms=0.256000 maxMs=0.376400
+Render Thread/RenderLoop samples=602 meanMs=0.878928 medianMs=0.856300 p95Ms=1.135400 maxMs=1.693500
+ANALYSIS PASS

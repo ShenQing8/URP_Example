@@ -6,8 +6,8 @@ using UnityEngine.Rendering.Universal;
 
 public class GrassBendingRTPrePass : ScriptableRendererFeature
 {
-#if UNITY_EDITOR
-    // Opt-in graph copies for GPU inspection. No readback or persistent RT in player builds.
+#if UNITY_EDITOR || GRASS_PLAYER_VALIDATION
+    // Opt-in graph copies for GPU inspection. Absent from ordinary release builds.
     public static System.Action<RenderGraph, TextureHandle, Camera, string> ValidationRecord;
 #endif
     BendingPass bending;
@@ -75,7 +75,7 @@ public class GrassBendingRTPrePass : ScriptableRendererFeature
                     context.cmd.DrawRendererList(pass.list);
                 });
             }
-#if UNITY_EDITOR
+#if UNITY_EDITOR || GRASS_PLAYER_VALIDATION
             ValidationRecord?.Invoke(graph, texture, camera, "bending");
 #endif
         }
@@ -105,7 +105,7 @@ public class GrassBendingRTPrePass : ScriptableRendererFeature
                 builder.SetRenderFunc(static (PassData pass, RasterGraphContext context) =>
                     context.cmd.DrawMeshInstancedIndirect(pass.mesh, 0, pass.material, pass.pass, pass.args, 0, pass.properties));
             }
-#if UNITY_EDITOR
+#if UNITY_EDITOR || GRASS_PLAYER_VALIDATION
             if (hasNormals) ValidationRecord?.Invoke(graph, resources.cameraNormalsTexture, camera, "normals");
 #endif
         }

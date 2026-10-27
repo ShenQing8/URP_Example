@@ -1,0 +1,506 @@
+{
+  "date": "2026-10-27 Asia/Shanghai",
+  "scope": "Windows x64 Mono Player DX12/DX11; no push",
+  "project": "E:\\GithubRepositories\\URP_Example",
+  "handoffHead": "707212f087763d0c55704166fbe1c870605b1f58",
+  "branch": "main",
+  "origin": "https://github.com/ShenQing8/URP_Example.git",
+  "unity": "6000.6.3f1 (45d8eee7de74)",
+  "urpCoreShaderGraph": "17.6.0",
+  "editorPID": 32380,
+  "protection": {
+    "sourceFiles": 88,
+    "sourceChanged": [],
+    "sourceGitStatusUnchanged": true,
+    "sourceHead": "cd9f9be6296e21ec7c49b678c3d4cce8c7bc64cd",
+    "originalMetaCount": 33,
+    "originalMetaChanged": [],
+    "assetGUIDCount": 70,
+    "duplicates": {},
+    "missingMeta": [],
+    "changedBaselineTarget": [
+      "Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/Core/GrassBending/GrassBendingRTPrePass.cs"
+    ]
+  },
+  "GUIDAndSource": {
+    "assetGUIDs": 70,
+    "packageMetasChecked": 9678,
+    "conflicts": [],
+    "sourceBaselineSummary": "5fc3140fbb1d2d37f9beab286f80d0ea6b78eb0ee367271394ccdbb399626075",
+    "sourceBranch": "master"
+  },
+  "artifacts": {
+    "Release": {
+      "files": 188,
+      "directoryBytes": 106458857,
+      "directoryManifestSha256": "0eadc323f1028f7d7e295c58babe75f573c9dc0b61fabb5c4af6aef1e4a3e768",
+      "exeSha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+      "assemblySha256": "f84372459adbd0e15ffe31cf10b57aad801ae90a1fa95e30a20a9f7484e4fe6b",
+      "diagnosticTypePresent": false,
+      "graphHookPresent": false
+    },
+    "Development": {
+      "files": 307,
+      "directoryBytes": 173541658,
+      "directoryManifestSha256": "ca4b0e4598fd91fabf7d76446e40e22926c60cb4386846c1c81084ff4a065ad8",
+      "exeSha256": "4c93a4bb060a12b9044ab2103835dd1565aec9aa8381372fa84fbbc14a19b989",
+      "assemblySha256": "16422d092cc39dd1c6a6011e58f5bc5eeaec3ca0a15d3bbf22a98cd11501e541",
+      "diagnosticTypePresent": true,
+      "graphHookPresent": true
+    },
+    "PlainDevelopment": {
+      "files": 307,
+      "directoryBytes": 173499659,
+      "directoryManifestSha256": "56c86604cccb0b0d8402e3ecb979a5630eca367ab42be1d433971b7781c00a10",
+      "exeSha256": "4c93a4bb060a12b9044ab2103835dd1565aec9aa8381372fa84fbbc14a19b989",
+      "assemblySha256": "eb7f0d7c9741a16db806ca846e3f7d712c5fbb0afb77d5e23da7fed4e8072b8c",
+      "diagnosticTypePresent": false,
+      "graphHookPresent": false
+    }
+  },
+  "ordinaryStarts": [
+    {
+      "build": "Release",
+      "api": "d3d12",
+      "pid": 68768,
+      "seconds": 10.844,
+      "sceneLoadedLog": true,
+      "expectedAPI": true,
+      "captureExit": 0,
+      "exitCode": 0,
+      "diagnosticReadyUnexpected": false,
+      "errors": [],
+      "exeSha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+      "nativeImmediateMemory": [],
+      "pass": true
+    },
+    {
+      "build": "Release",
+      "api": "d3d11",
+      "pid": 71504,
+      "seconds": 10.203,
+      "sceneLoadedLog": true,
+      "expectedAPI": true,
+      "captureExit": 0,
+      "exitCode": 0,
+      "diagnosticReadyUnexpected": false,
+      "errors": [],
+      "exeSha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+      "nativeImmediateMemory": [],
+      "pass": true
+    },
+    {
+      "build": "PlainDevelopment",
+      "api": "d3d12",
+      "pid": 25192,
+      "seconds": 24.656,
+      "sceneLoadedLog": true,
+      "expectedAPI": true,
+      "captureExit": 0,
+      "exitCode": 0,
+      "diagnosticReadyUnexpected": false,
+      "errors": [],
+      "exeSha256": "4c93a4bb060a12b9044ab2103835dd1565aec9aa8381372fa84fbbc14a19b989",
+      "nativeImmediateMemory": [
+        {
+          "type": "MemoryLeaks",
+          "version": 2,
+          "phase": "Immediate",
+          "time": 1793075868025,
+          "processId": 25192,
+          "allocatedMemory": 571048,
+          "memoryLabels": [
+            {
+              "Default": 5368
+            },
+            {
+              "Thread": 9408
+            },
+            {
+              "Manager": 534039
+            },
+            {
+              "GfxDevice": 2448
+            },
+            {
+              "GfxThread": 5376
+            },
+            {
+              "Animation": 800
+            },
+            {
+              "Audio": 752
+            },
+            {
+              "Serialization": 408
+            },
+            {
+              "Input": 2440
+            },
+            {
+              "String": 481
+            },
+            {
+              "PoolAlloc": 288
+            },
+            {
+              "ScriptManager": 5696
+            },
+            {
+              "CodeReload": 440
+            },
+            {
+              "CloudService": 144
+            },
+            {
+              "VR": 1928
+            },
+            {
+              "Video": 144
+            },
+            {
+              "NativeArray": 3544
+            },
+            {
+              "Subsystems": 96
+            },
+            {
+              "CoreBusinessMetrics": 128
+            }
+          ]
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "nativeImmediateMemoryUnattributed": {
+    "DX12Final": [
+      {
+        "type": "MemoryLeaks",
+        "version": 2,
+        "phase": "Immediate",
+        "time": 1793075627771,
+        "processId": 61100,
+        "allocatedMemory": 577298,
+        "memoryLabels": [
+          {
+            "Default": 5368
+          },
+          {
+            "Thread": 10944
+          },
+          {
+            "Manager": 534039
+          },
+          {
+            "GfxDevice": 2448
+          },
+          {
+            "GfxThread": 9984
+          },
+          {
+            "Animation": 4800
+          },
+          {
+            "Serialization": 1448
+          },
+          {
+            "Input": 2440
+          },
+          {
+            "String": 587
+          },
+          {
+            "PoolAlloc": 288
+          },
+          {
+            "ScriptManager": 5696
+          },
+          {
+            "CodeReload": 440
+          },
+          {
+            "CloudService": 144
+          },
+          {
+            "VR": 1928
+          },
+          {
+            "Video": 144
+          },
+          {
+            "NativeArray": 3544
+          },
+          {
+            "Subsystems": 96
+          },
+          {
+            "CoreBusinessMetrics": 128
+          }
+        ]
+      }
+    ],
+    "DX11": [
+      {
+        "type": "MemoryLeaks",
+        "version": 2,
+        "phase": "Immediate",
+        "time": 1793075821116,
+        "processId": 72556,
+        "allocatedMemory": 558934,
+        "memoryLabels": [
+          {
+            "Default": 3832
+          },
+          {
+            "Thread": 1792
+          },
+          {
+            "Manager": 533972
+          },
+          {
+            "GfxDevice": 72
+          },
+          {
+            "GfxThread": 5376
+          },
+          {
+            "Animation": 4800
+          },
+          {
+            "Serialization": 1448
+          },
+          {
+            "Input": 2440
+          },
+          {
+            "String": 586
+          },
+          {
+            "PoolAlloc": 288
+          },
+          {
+            "ScriptManager": 5696
+          },
+          {
+            "CodeReload": 440
+          },
+          {
+            "CloudService": 144
+          },
+          {
+            "VR": 1928
+          },
+          {
+            "Video": 144
+          },
+          {
+            "NativeArray": 3544
+          },
+          {
+            "Subsystems": 96
+          },
+          {
+            "CoreBusinessMetrics": 128
+          }
+        ]
+      }
+    ],
+    "PlainDevelopment-d3d12": [
+      {
+        "type": "MemoryLeaks",
+        "version": 2,
+        "phase": "Immediate",
+        "time": 1793075868025,
+        "processId": 25192,
+        "allocatedMemory": 571048,
+        "memoryLabels": [
+          {
+            "Default": 5368
+          },
+          {
+            "Thread": 9408
+          },
+          {
+            "Manager": 534039
+          },
+          {
+            "GfxDevice": 2448
+          },
+          {
+            "GfxThread": 5376
+          },
+          {
+            "Animation": 800
+          },
+          {
+            "Audio": 752
+          },
+          {
+            "Serialization": 408
+          },
+          {
+            "Input": 2440
+          },
+          {
+            "String": 481
+          },
+          {
+            "PoolAlloc": 288
+          },
+          {
+            "ScriptManager": 5696
+          },
+          {
+            "CodeReload": 440
+          },
+          {
+            "CloudService": 144
+          },
+          {
+            "VR": 1928
+          },
+          {
+            "Video": 144
+          },
+          {
+            "NativeArray": 3544
+          },
+          {
+            "Subsystems": 96
+          },
+          {
+            "CoreBusinessMetrics": 128
+          }
+        ]
+      }
+    ]
+  },
+  "notVerified": [
+    "Android/Vulkan/Metal/XR and other physical devices",
+    "RGBA8 bending fallback on an unsupported-R8 device",
+    "hour/day endurance and all driver transient peaks",
+    "Unity 2019 pixel-identical appearance",
+    "new Player empty Overlay pixel equivalence; preserve historical Mobile 0.8 boundary"
+  ],
+  "rawEvidenceSha256": {
+    "01-release-build.txt": "e9c1ea13fed5641588651522345c5c18027ce809f27fa75b6e4e185a581740f2",
+    "02-development-build.txt": "06b30b43daa5f454e1a14083d9cb85e5742e3f128c07a0174676233c2293a1a1",
+    "04-development-graph-copy-build.txt": "ed571b36fbd29fce8d6c321af30d85a0fce3eb23dfe64843595f0c470b16edc0",
+    "05-development-final-build.txt": "5ecb71132e768d902f37ea536ae1ea3ad18237b2f1994f92804f107aac7f565c",
+    "12-profiler-pc-analysis.csv": "a244547554816797fd8731712bf2a647105d675506b88d12e65be28fec30dee1",
+    "12-profiler-pc-analysis.txt": "d8169f80ac6dece213aaad7ae2b51b6e10780614a0500cda4a46da260bba0d27",
+    "13-release-final-build.txt": "a75751443b76e264c7763c045fc7e60a4029222ea26fa7d59461ef6bbb65633d",
+    "14-profiler-mobile-analysis.csv": "f21866b201be7c0b831180f6b290468095cbe44d4d6de99ddbfb43c58752869b",
+    "14-profiler-mobile-analysis.txt": "196ae9caf7e22b07d13941fd2356bf22abaff269514c5b8844372f34839ff1e3",
+    "15-profiler-high-analysis.csv": "32a6336eb8766d23999de08d168a57b991fd4756cdacdf390d69d0289e115674",
+    "15-profiler-high-analysis.txt": "a870865cf3bf2553d6e2ffccba176b5fb3d4c1e2edcb4c5e8d11e62c18caafaa",
+    "16-plain-development-build.txt": "8c773f3b967dcc982df8f3e79b124aa4a3f4845ed44d16a0fccc5d0863d6beaa",
+    "17-editor-state.txt": "895861d925ae363b52171f5f2794e183daa8b861ac03b762563d0af3fa6b0813",
+    "18-diagnostic-gate-final-build.txt": "bd92ccbc42c08b54063a61e45c8758287b9cca1fe50498df9426c9bb1ce22ea5",
+    "22-profiler-dx11-analysis.csv": "cd85395ff8a657dac96d62c880374765bd75ec12d61fee6683214cb4cca68c13",
+    "22-profiler-dx11-analysis.txt": "fb6a7ee6b00814d626d8bc8f8ed1359e883eacad0f9081ca45c0458ac754e551",
+    "23-editor-final-state.txt": "cf027057bcddb09e1c68e408cebd4cfd39702248f38b93d9421f9d51f1456176",
+    "assembly-inclusion.json": "f1faf33de7511345164d8d1035e7c7e959ef2d2e701bef50acf2dece03d77e1d",
+    "before.json": "5f8c0432a1d4ff0c75b34114d3d6cef3cf4a9d1ccec21bab996ce43f9d1c40a7",
+    "Development-artifact-manifest.json": "86640f70a8b3c63612162a9c2718d5b9bba75a96a9a526f3094b56bb041cb862",
+    "development-dx11-pid.txt": "cae740b02fdcee8f5b7b9180581efdecf4e85b43b00022073abe07b00e0ee27a",
+    "development-pid.txt": "95b13eb7a2c31c25b6d743978bfeaab2779410e881aa5c74fd343d1319f82b0e",
+    "DX11/19-functional-dx11-Mobile_RPAsset-bending.png": "fb8ecd854e92e77eb881f0740a37c27059381775ad13f03cdbbe2dc07cfebad6",
+    "DX11/19-functional-dx11-Mobile_RPAsset-game.png": "0f2d5aa047f2b2c7252a68ef8e21f72632b26c40838c5dca737c81485aa495ed",
+    "DX11/19-functional-dx11-Mobile_RPAsset-trail0-bending.png": "763ae35b046158842e676909134eae864f84b96c9b6bc94afc01b56e175629d5",
+    "DX11/19-functional-dx11-Mobile_RPAsset-trail1-bending.png": "2cce708c8ed159b1534815143c5c45cb14f19584933816d778add82b0555683e",
+    "DX11/19-functional-dx11-Mobile_RPAsset-trail2-bending.png": "89255615b2343194f11df729a375c27a9ac7ef7efdbc7e33a10b5a53889cb4ca",
+    "DX11/19-functional-dx11-Mobile_RPAsset-trail3-bending.png": "943dfdc2eae285a935dd03a2213a8edf0a091bb7003a73fd0db0d656e91f09f0",
+    "DX11/19-functional-dx11-PC_RPAsset-bending.png": "cd2868ba7e3abbcdfd5fccf448366490b6b933254d15d13205a1e54eb577831c",
+    "DX11/19-functional-dx11-PC_RPAsset-game.png": "46284bec57620b7b553cb9a8c5e4f3b5cf12238ef3fef0dcef1585875f2d4127",
+    "DX11/19-functional-dx11-PC_RPAsset-trail0-bending.png": "821b449695797bf6c5d8a7e48e7e1d3a16c542043817a736b3887fae563dfc3b",
+    "DX11/19-functional-dx11-PC_RPAsset-trail1-bending.png": "c8cc2bf4c6bb28dcfbb994c22d59f8769ec948ac3420a9bd56c0007a0efeadd3",
+    "DX11/19-functional-dx11-PC_RPAsset-trail2-bending.png": "9477e21ebfe6e1572624cfb1e77607a28b4bfabe7888274eae62d2aa38390e7d",
+    "DX11/19-functional-dx11-PC_RPAsset-trail3-bending.png": "c6e19285e5c61224eb44aa81451a18b2f1b627c50b1834a969834fdd2bd80f48",
+    "DX11/19-functional-dx11-recovered-bending.png": "c7b1015023a0c91862ba77f3b5a326931e66f9aa84ca98f6a8bd4edda9bc3eb3",
+    "DX11/19-functional-dx11.txt": "e1ebe0862d65029a8e38ac43b0a6f3e901aa6fcb464a968add5bedd223a21dd1",
+    "DX11/20-profile-dx11-markers.txt": "4e79873453f7bc484cb9bf51f426932921c2c493cf2fbde4a5835ec7920060f1",
+    "DX11/20-profile-dx11.csv": "1bbf70736950785b7c615b8bfb7e501d02f791a9446696354db1fb82b64438c9",
+    "DX11/20-profile-dx11.raw": "8387a4c7496a25be32e1f9aaa7f094c830d7fcbc35021f5aeb72bc87c637ec83",
+    "DX11/20-profile-dx11.txt": "a3d728b9b7adfb7acc28903eb506fa9385b144ce8330a2c576c33ec29bf3b093",
+    "DX11/21-stability-dx11-final-bending.png": "0d62bd37574797678d5d4d618deec8853c07d67bd0f9104bbda4546a6dc5e910",
+    "DX11/21-stability-dx11-soak.txt": "29e9b30e7dab35201df43cd7d0de95db0de8c2314cc50e3aecaa7f3ca0fbb870",
+    "DX11/21-stability-dx11.txt": "5d315f0218eafd0c0e1b9fa3de1b0a545c2f64808419bc91affc0f8759e8e5e7",
+    "DX11/Player.log": "99d86e990b6f45a40d1678a084a71ecb01580b64c3cf04d9056c9f769d2e520a",
+    "DX11/process-memory.csv": "38bbbfd7202c610f60dc275db941515ed69e2706b041a9b37d5bb0b503475a19",
+    "DX11/ready.txt": "9ef7e610b8ac2b5f31be8327757145ef34658e23a128c3121f4b2c0d03206bf3",
+    "DX12/03-functional.txt": "0d733b7601bd796d2a1fd589932009ffa87b57ea2373451e27a44e4516aa102e",
+    "DX12/Player.log": "aa641222984271b60c6309407968ddaa01b7e3e1159dd4e8ec88bd84c68571ff",
+    "DX12/process-memory.csv": "c553c40dd24b98afff92941539d1c62b143b4e81fd984099b243a9d56c152a7b",
+    "DX12/ready.txt": "4a08077f2788e3291560970c363e99bf159a56bcae2ce35d9c899a9e609f813f",
+    "DX12Final/06-functional-Mobile_RPAsset-bending.png": "4182509961c058494d3fbd9fe63a42aa5e80404f28903b724cbe33bcb8aeba63",
+    "DX12Final/06-functional-Mobile_RPAsset-game.png": "c7ae34a15010f82beb4b22e0bee34d2c67968f74eab66aeb228b2534b4a65901",
+    "DX12Final/06-functional-Mobile_RPAsset-trail0-bending.png": "15fa373f0fa7eb79f5788856e1d47f1be7f690a0948cfd7fee2da39cc967877d",
+    "DX12Final/06-functional-Mobile_RPAsset-trail1-bending.png": "a9c660a50322e4487f1203173a248837ac4daaf0340cf9e133f6334c4d2276a8",
+    "DX12Final/06-functional-Mobile_RPAsset-trail2-bending.png": "4cf603092fe1549df1ebd05a65db25ec9b7a9d7c0bee00d52f50703c34757f51",
+    "DX12Final/06-functional-Mobile_RPAsset-trail3-bending.png": "8765c863b99012a90c73dbb94a097068b66b3957b9a6424ec9a9b5e9d4591c1b",
+    "DX12Final/06-functional-PC_RPAsset-bending.png": "c293802df134a5b31058a02dd7d2a95591e7760c46d590e2a92c4fe82f54e6ce",
+    "DX12Final/06-functional-PC_RPAsset-game.png": "231ed94f3ddd35420fb3aef4992848c4f90e7c41500daf34fa8fd0fcf94914ca",
+    "DX12Final/06-functional-PC_RPAsset-trail0-bending.png": "07bf875c71379e40bba05ab0ddea02342fd48cd64c26dab326306fe7fad50d8c",
+    "DX12Final/06-functional-PC_RPAsset-trail1-bending.png": "f405982aff9fb5473deadb92f3035e6926b816ee14990684195c0106e188b709",
+    "DX12Final/06-functional-PC_RPAsset-trail2-bending.png": "3aca683f5a88b15046fc6c7ff7514879f36c496aba847d4e8fae7f598b1292a8",
+    "DX12Final/06-functional-PC_RPAsset-trail3-bending.png": "ce6e8619e0aebfa923d1bf7df7868bdc89356e4bbad773982860d80c44ae93a3",
+    "DX12Final/06-functional-recovered-bending.png": "c7b1015023a0c91862ba77f3b5a326931e66f9aa84ca98f6a8bd4edda9bc3eb3",
+    "DX12Final/06-functional.txt": "5fb7d9b020913bc2106273978ceff1bba5b4ba46ea00bfb140265cd1f09599d3",
+    "DX12Final/07-profile-pc-markers.txt": "388111459c91641b914fbb3b21a94145c1fcf2400945bc4e3bf96b1d3b5da6ee",
+    "DX12Final/07-profile-pc.csv": "a6240d4197c56cbaa9a0653c3ab3c41172fbab73f15459f5fbed3422a25fdd46",
+    "DX12Final/07-profile-pc.raw": "851307209d85485ff742909eda82da4d7ad8b223512d9c1c50b8c215fd72a99c",
+    "DX12Final/07-profile-pc.txt": "6e4d2f308231ca7681f85db615d02489bac4d30cc60e2e8c4958a5f886f9c4dd",
+    "DX12Final/08-profile-mobile-markers.txt": "e6305ee8cf666d55817e8724798345ada3548378073f3a719fe57fc15f4d8e82",
+    "DX12Final/08-profile-mobile.csv": "344ed7a98f6ac7142ea548c0e447972e7249f62add9984a9c2369b7261e8ad06",
+    "DX12Final/08-profile-mobile.raw": "b3742ad3a0be60c593e8e08a0987db8ead96f7074de50113d8798562f715d893",
+    "DX12Final/08-profile-mobile.txt": "3370051a2c42d2284500db380755ed67fd4bb3586db22fab8a67ad3b4f5146b3",
+    "DX12Final/09-profile-high-markers.txt": "e6305ee8cf666d55817e8724798345ada3548378073f3a719fe57fc15f4d8e82",
+    "DX12Final/09-profile-high.csv": "e6e217db1c4ec4f1b2961ad6be8e1ad5236f4264cae0220e55339d4d3c357cd3",
+    "DX12Final/09-profile-high.raw": "d2c0ce52407f0a413f719778bb914ca3607e62ac0126454436f592afb228095c",
+    "DX12Final/09-profile-high.txt": "6237bda17ef3f271a29630a41920b794a2c5679cf1d838cbfb21d7d05b0645d1",
+    "DX12Final/10-stats-hidden.png": "fcd4743e26f52de1a47c80f96c586e771cdc094ca6798c69a5670827693eecd4",
+    "DX12Final/10-ui-before.txt": "56bca8191565ae134195386ebe123ea87c45e55af6e72ddd5baa8d806d53d394",
+    "DX12Final/10-ui-hidden.txt": "cfdbb01ff5a578641b8cd32ae7616b097fe4cc166ca4252921992add37970b4b",
+    "DX12Final/10-ui-operated.png": "e3e5421af149b4acdd99c5108dd95dd58fa76e0977862fc27ceec4915809f580",
+    "DX12Final/10-ui-operated.txt": "27d95168778bf4bf250cf0d7a8292840545f987e1bc8a14929165f209954b1b9",
+    "DX12Final/10-ui-restored.txt": "f3f3413a7a0d20c61a5273069cd6aa08b0e9c96a7fa6482c0bfd88960ae3c76c",
+    "DX12Final/11-stability-final-bending.png": "37ac7e4d49fa39dc85f746770ee6891a599c57a712e3ee85a458ffd0c851d1eb",
+    "DX12Final/11-stability-game.png": "619e21ecaebb39a8386528dfd62fbf8f5a2e2ec836fb1ce7ab63e0289a273e23",
+    "DX12Final/11-stability-soak.txt": "83a9e131d373a14837fb01c2d1b3499c6dee20bb4bd47356c184aaffeca59584",
+    "DX12Final/11-stability.txt": "c2374e21ae9220fad8ffd9838902e3a33a12b7013347951a539af45350b3d7c1",
+    "DX12Final/Player.log": "c87800999f21cfa519b707281e8ea38ad3071f15a8e609fcdb412ef6fdda6844",
+    "DX12Final/process-memory.csv": "2a435c766ffa3c60b4654c2f59bd507e8e26fcbb6053bca432f5252671e68d0e",
+    "DX12Final/ready.txt": "f828ecb0732be43618ef1b2f81eb0ca8c1a30df9eac17463d674b6ec5730dfeb",
+    "editor-build-gate.png": "45c520f4ec1d8425073997a104c259dd0ca7cdf8a76273be98f8775cae318b45",
+    "editor-build.png": "26175579bfea558a642cfda73317f4c943a3b9182a3334e9aaee00643e9d9e6d",
+    "editor-compile-check.png": "24d7f3c4608e18be6b0bf8cae82b63ff0ac3ae2299220d506acae79b1ef32af7",
+    "editor-current.png": "405aa380d474c55537afda4090317834c8a7445e1eae35c3f104e6bc32bd4289",
+    "editor-offline-profiler.png": "56cdaaa25eeb1e94fcd0c26600a0edbae825c15140acbbde62da145b9287a031",
+    "Editor-phase6.log": "5f2e0ee123574c6030b45cd065b5e5ff41ae8b48573555f66bbb40243fa1d6a0",
+    "guid-and-source-summary.json": "5fff7bc1c06e6d3982291006adf3e28dc7ef458ff4b2099da91e7c648259453c",
+    "ordinary-player-starts.json": "c439a7a383879843e6876f9fc1a46e775765f4bd2d7415760eeca3df2b3e6ad9",
+    "os-input.txt": "cae884e5396344d3d2c1fb400987d3431900115fe85dcc159f7b4472ae04ec85",
+    "PlainDevelopment-artifact-manifest.json": "85beef7d3574ca8f265a2d62b7357035f52d3e038790d07e31dbbea652818003",
+    "PlainDevelopment-d3d12/game.png": "517a74ac7f34601f4408dd47b0c4a0b1a6c8d2a07504992160db6cc56f38aed9",
+    "PlainDevelopment-d3d12/Player.log": "431f26ec9a6a8e7688e181950801bd11b98e7df6433caa7245807e7813fe79bb",
+    "premature-launch-not-counted.log": "3d9b9b6abf4d4ef6925b20b9d241a1c1c1c8b225ecde7238958c2e0d2a9a8e30",
+    "profile-summary.json": "eccf2039cc1450d8210c749c7485e7b7781261740d8f6548fd6ffd442548e4c1",
+    "protection.json": "8390a7d1ed485e0ca4f867a100c706b5050846cf8368c7ef528836fe0984e1ba",
+    "Release-artifact-manifest.json": "a1c9e5163aaaa620193b9580a767133071261fd0a81eb279ffdebbf532e2182a",
+    "release-camera-stats-hidden.png": "1c80cf9780d5915c682c3e56bb348db974de61d4c0a0a9c58dae2ed133df81b4",
+    "release-controls.png": "054d28b777b2a3aeb1027501f60c66521fb97ce665bf27901fa2e36cefe3e2e2",
+    "Release-d3d11/game.png": "7da970b2ce7dbfa24f7d349b0081e3ff449eb6b681cc89350f553c96b68ce416",
+    "Release-d3d11/Player.log": "6117d42ead13fbdebfbc5efc9210ddca08cb1a314898d337c02c49f85ba54cb3",
+    "Release-d3d12/game.png": "48993a32f859b6c110150e17c968ee3b0b05257a5a8ef00316205a34c1c4595c",
+    "Release-d3d12/Player.log": "e9f8746c719c85edaf1ffd58b06831d72f2f55f601c451ac12b3b9c624ddf938",
+    "release-dx12-start.png": "5932bdaac4ec367ee588a36a6e2f165c69506be398e8f5fabcd42c85ad72f07a",
+    "release-dx12.log": "7ffe6969a8d922b2261fcbce65a68d79509baaea6623262627d8779fcaee9ba7",
+    "release-final-dx12.log": "093ba512c12942941367e70c8e031ab8164292e002254f5527e056c9be79b79e",
+    "release-final-start.png": "e9da7bf3c0a9fcf337f4c2a536a501cdc94b6e7bb7054a30b6fc4c7e7ef32a4c",
+    "release-pid.txt": "06df85de38983bc809534c03c602797f0f3b1181c736289686b3cc44e42e8b9a",
+    "release-repro.log": "8254b2015ac729e28c14f921d7b58df64006fb7e2d3c5b3a4c5173c66f14b32f",
+    "release-repro.png": "8128901cbc7e85cd4d0f0d516ffcb5221b248795cea87fc6c01dfe4c65843de2"
+  }
+}

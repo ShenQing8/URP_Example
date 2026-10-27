@@ -1,0 +1,318 @@
+=== DX12Final/ready.txt ===
+2026-10-27T12:18:12.8021263+08:00 Unity=6000.6.3f1 platform=WindowsPlayer API=Direct3D12 GPU=NVIDIA GeForce RTX 4060 Laptop GPU driver=Direct3D 12 [level 12.2] CPU=12th Gen Intel(R) Core(TM) i5-12450H RAM=16116 graphicsCapacity=7956 screen=1280x720 quality=PC pipeline=PC_RPAsset development=True compute=True instancing=True
+
+=== DX12Final/06-functional.txt ===
+2026-10-27T12:18:13.3583659+08:00 command=functional API=Direct3D12 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+Font=LegacyRuntime fps=1.798 allocated=126442166 shaders=MobileDrawMeshInstancedIndirect/SingleGrass supported=True
+DefaultVolume active components=19 all valid; orphan serialized subassets left unchanged
+Default Volume DOF=Off IsActive=False; Panini distance=0 IsActive=False; official inactive shader stripping is expected
+GI lightmaps=1 mappedRenderers=18 probes=8 reflection=ReflectionProbe-0
+Pipeline=PC_RPAsset scale=1
+Camera=0
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=True
+Camera=1
+count=1000000 append=77657 args=77657 cells=275 dispatch=18 unique/range=PASS oracle=True
+Camera=2
+count=1000000 append=79035 args=79035 cells=280 dispatch=23 unique/range=PASS oracle=True
+Camera=3
+count=1000000 append=76894 args=76894 cells=269 dispatch=16 unique/range=PASS oracle=True
+Camera=4
+count=1000000 append=207 args=207 cells=26 dispatch=5 unique/range=PASS oracle=True
+Camera=5
+count=1000000 append=77095 args=77095 cells=252 dispatch=17 unique/range=PASS oracle=True
+Camera=6
+count=1000000 append=74329 args=74329 cells=239 dispatch=22 unique/range=PASS oracle=True
+Camera=7
+count=1000000 append=66585 args=66585 cells=249 dispatch=25 unique/range=PASS oracle=True
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=258 unique/range=PASS oracle=False
+count=1000000 append=8935 args=8935 cells=46 dispatch=8 unique/range=PASS oracle=True
+count=1000000 append=168587 args=168587 cells=513 dispatch=35 unique/range=PASS oracle=True
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=True
+Bending format=R8_UNorm size=512x512 nonwhite=2295 min=0 graphCopy=True normalsConsumer=True
+Bending format=R8_UNorm size=512x512 nonwhite=647 min=1 graphCopy=True normalsConsumer=True
+Bending format=R8_UNorm size=512x512 nonwhite=646 min=0 graphCopy=True normalsConsumer=True
+Bending format=R8_UNorm size=512x512 nonwhite=651 min=1 graphCopy=True normalsConsumer=True
+Bending format=R8_UNorm size=512x512 nonwhite=647 min=0 graphCopy=True normalsConsumer=True
+Pipeline=Mobile_RPAsset scale=0.8
+Camera=0
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=True
+Camera=1
+count=1000000 append=77657 args=77657 cells=275 dispatch=18 unique/range=PASS oracle=True
+Camera=2
+count=1000000 append=79035 args=79035 cells=280 dispatch=23 unique/range=PASS oracle=True
+Camera=3
+count=1000000 append=76894 args=76894 cells=269 dispatch=16 unique/range=PASS oracle=True
+Camera=4
+count=1000000 append=207 args=207 cells=26 dispatch=5 unique/range=PASS oracle=True
+Camera=5
+count=1000000 append=77095 args=77095 cells=252 dispatch=17 unique/range=PASS oracle=True
+Camera=6
+count=1000000 append=74329 args=74329 cells=239 dispatch=22 unique/range=PASS oracle=True
+Camera=7
+count=1000000 append=66585 args=66585 cells=249 dispatch=25 unique/range=PASS oracle=True
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=258 unique/range=PASS oracle=False
+count=1000000 append=8935 args=8935 cells=46 dispatch=8 unique/range=PASS oracle=True
+count=1000000 append=168587 args=168587 cells=513 dispatch=35 unique/range=PASS oracle=True
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=True
+Bending format=R8_UNorm size=512x512 nonwhite=2711 min=0 graphCopy=True normalsConsumer=False
+Bending format=R8_UNorm size=512x512 nonwhite=858 min=0 graphCopy=True normalsConsumer=False
+Bending format=R8_UNorm size=512x512 nonwhite=851 min=0 graphCopy=True normalsConsumer=False
+Bending format=R8_UNorm size=512x512 nonwhite=858 min=0 graphCopy=True normalsConsumer=False
+Bending format=R8_UNorm size=512x512 nonwhite=854 min=0 graphCopy=True normalsConsumer=False
+Bending format=R8_UNorm size=512x512 nonwhite=0 min=255 graphCopy=True normalsConsumer=True
+Recovery actualSeconds=5.351
+count=3000000 append=79840 args=79840 cells=283 dispatch=25 unique/range=PASS oracle=False
+Memory capacity 3000000 realtime=15.542 allocated=177898874 reserved=621215744 graphicsEstimate=429295272 managed=42065920 meshes=1 RTs=23
+count=10000000 append=86209 args=86209 cells=294 dispatch=25 unique/range=PASS oracle=False
+Memory capacity 10000000 realtime=20.313 allocated=177913489 reserved=621215744 graphicsEstimate=776000784 managed=285175808 meshes=1 RTs=23
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory capacity 1000000 realtime=20.779 allocated=177918391 reserved=635895808 graphicsEstimate=647323888 managed=17911808 meshes=1 RTs=23
+count=1 append=1 args=1 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=63 append=63 args=63 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=64 append=64 args=64 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=65 append=65 args=65 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=127 append=127 args=127 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=128 append=128 args=128 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=129 append=129 args=129 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=5003 append=5003 args=5003 cells=1 dispatch=1 unique/range=PASS oracle=True
+Player rendering, font, GI resources, 4 animations, 8 views, PC/Mobile, counts/distances/batch and GPU boundaries PASS
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== DX12Final/10-ui-before.txt ===
+2026-10-27T12:22:19.7754024+08:00 command=inspect API=Direct3D12 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+StatsVisible=True font=LegacyRuntime fps=59.900 samples=465 view=0 mainLight=True pointLight=False rotationSpeed=45 count=1000000 distance=125 batch=True
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory inspect realtime=249.294 allocated=216786742 reserved=904396800 graphicsEstimate=392008528 managed=32808960 meshes=1 RTs=25
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== DX12Final/10-ui-hidden.txt ===
+2026-10-27T12:22:21.4097528+08:00 command=inspect API=Direct3D12 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+StatsVisible=False font=LegacyRuntime fps=59.990 samples=468 view=0 mainLight=True pointLight=False rotationSpeed=45 count=1000000 distance=125 batch=True
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory inspect realtime=250.927 allocated=216789418 reserved=904396800 graphicsEstimate=392020288 managed=19644416 meshes=1 RTs=25
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== DX12Final/10-ui-operated.txt ===
+2026-10-27T12:22:41.8724172+08:00 command=inspect API=Direct3D12 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+StatsVisible=True font=LegacyRuntime fps=9.317 samples=507 view=1 mainLight=False pointLight=True rotationSpeed=0 count=3000000 distance=200 batch=False
+count=3000000 append=170730 args=170730 cells=555 dispatch=555 unique/range=PASS oracle=False
+Memory inspect realtime=271.404 allocated=216961230 reserved=904396800 graphicsEstimate=468383812 managed=44638208 meshes=1 RTs=24
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== DX12Final/10-ui-restored.txt ===
+2026-10-27T12:22:54.0964326+08:00 command=inspect API=Direct3D12 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+StatsVisible=True font=LegacyRuntime fps=59.998 samples=530 view=0 mainLight=True pointLight=False rotationSpeed=44 count=1000000 distance=125 batch=True
+count=1000000 append=70315 args=70315 cells=250 dispatch=15 unique/range=PASS oracle=False
+Memory inspect realtime=283.613 allocated=217315568 reserved=904396800 graphicsEstimate=393601876 managed=18067456 meshes=1 RTs=25
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== DX11/ready.txt ===
+2026-10-27T12:34:27.7050986+08:00 Unity=6000.6.3f1 platform=WindowsPlayer API=Direct3D11 GPU=NVIDIA GeForce RTX 4060 Laptop GPU driver=Direct3D 11.0 [level 11.1] CPU=12th Gen Intel(R) Core(TM) i5-12450H RAM=16116 graphicsCapacity=7956 screen=1280x720 quality=PC pipeline=PC_RPAsset development=True compute=True instancing=True
+
+=== DX11/19-functional-dx11.txt ===
+2026-10-27T12:34:28.2995690+08:00 command=functional API=Direct3D11 scene=Assets/URPMobileGrassInstancedIndirectDemo/InstancedIndirectGrass/TestScene/scene.unity
+Font=LegacyRuntime fps=1.727 allocated=125676982 shaders=MobileDrawMeshInstancedIndirect/SingleGrass supported=True
+DefaultVolume active components=19 all valid; orphan serialized subassets left unchanged
+Default Volume DOF=Off IsActive=False; Panini distance=0 IsActive=False; official inactive shader stripping is expected
+GI lightmaps=1 mappedRenderers=18 probes=8 reflection=ReflectionProbe-0
+Pipeline=PC_RPAsset scale=1
+Camera=0
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=True
+Camera=1
+count=1000000 append=77657 args=77657 cells=275 dispatch=18 unique/range=PASS oracle=True
+Camera=2
+count=1000000 append=79035 args=79035 cells=280 dispatch=23 unique/range=PASS oracle=True
+Camera=3
+count=1000000 append=76894 args=76894 cells=269 dispatch=16 unique/range=PASS oracle=True
+Camera=4
+count=1000000 append=207 args=207 cells=26 dispatch=5 unique/range=PASS oracle=True
+Camera=5
+count=1000000 append=77095 args=77095 cells=252 dispatch=17 unique/range=PASS oracle=True
+Camera=6
+count=1000000 append=74329 args=74329 cells=239 dispatch=22 unique/range=PASS oracle=True
+Camera=7
+count=1000000 append=66585 args=66585 cells=249 dispatch=25 unique/range=PASS oracle=True
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=258 unique/range=PASS oracle=False
+count=1000000 append=8935 args=8935 cells=46 dispatch=8 unique/range=PASS oracle=True
+count=1000000 append=168587 args=168587 cells=513 dispatch=35 unique/range=PASS oracle=True
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=True
+Bending format=R8_UNorm size=512x512 nonwhite=2314 min=0 graphCopy=True normalsConsumer=True
+Bending format=R8_UNorm size=512x512 nonwhite=651 min=0 graphCopy=True normalsConsumer=True
+Bending format=R8_UNorm size=512x512 nonwhite=654 min=1 graphCopy=True normalsConsumer=True
+Bending format=R8_UNorm size=512x512 nonwhite=658 min=0 graphCopy=True normalsConsumer=True
+Bending format=R8_UNorm size=512x512 nonwhite=648 min=1 graphCopy=True normalsConsumer=True
+Pipeline=Mobile_RPAsset scale=0.8
+Camera=0
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=True
+Camera=1
+count=1000000 append=77657 args=77657 cells=275 dispatch=18 unique/range=PASS oracle=True
+Camera=2
+count=1000000 append=79035 args=79035 cells=280 dispatch=23 unique/range=PASS oracle=True
+Camera=3
+count=1000000 append=76894 args=76894 cells=269 dispatch=16 unique/range=PASS oracle=True
+Camera=4
+count=1000000 append=207 args=207 cells=26 dispatch=5 unique/range=PASS oracle=True
+Camera=5
+count=1000000 append=77095 args=77095 cells=252 dispatch=17 unique/range=PASS oracle=True
+Camera=6
+count=1000000 append=74329 args=74329 cells=239 dispatch=22 unique/range=PASS oracle=True
+Camera=7
+count=1000000 append=66585 args=66585 cells=249 dispatch=25 unique/range=PASS oracle=True
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+count=1000000 append=76842 args=76842 cells=258 dispatch=258 unique/range=PASS oracle=False
+count=1000000 append=8935 args=8935 cells=46 dispatch=8 unique/range=PASS oracle=True
+count=1000000 append=168587 args=168587 cells=513 dispatch=35 unique/range=PASS oracle=True
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=True
+Bending format=R8_UNorm size=512x512 nonwhite=2709 min=0 graphCopy=True normalsConsumer=False
+Bending format=R8_UNorm size=512x512 nonwhite=855 min=0 graphCopy=True normalsConsumer=False
+Bending format=R8_UNorm size=512x512 nonwhite=857 min=0 graphCopy=True normalsConsumer=False
+Bending format=R8_UNorm size=512x512 nonwhite=861 min=0 graphCopy=True normalsConsumer=False
+Bending format=R8_UNorm size=512x512 nonwhite=853 min=0 graphCopy=True normalsConsumer=False
+Bending format=R8_UNorm size=512x512 nonwhite=0 min=255 graphCopy=True normalsConsumer=True
+Recovery actualSeconds=5.337
+count=3000000 append=0 args=0 cells=283 dispatch=25 unique/range=PASS oracle=False
+Memory capacity 3000000 realtime=16.102 allocated=172725280 reserved=621150208 graphicsEstimate=135012754 managed=87789568 meshes=1 RTs=23
+count=10000000 append=86209 args=86209 cells=294 dispatch=25 unique/range=PASS oracle=False
+Memory capacity 10000000 realtime=20.942 allocated=172857947 reserved=621150208 graphicsEstimate=247050834 managed=285188096 meshes=1 RTs=23
+count=1000000 append=76842 args=76842 cells=258 dispatch=24 unique/range=PASS oracle=False
+Memory capacity 1000000 realtime=21.425 allocated=172859451 reserved=635830272 graphicsEstimate=103110938 managed=152813568 meshes=1 RTs=23
+count=1 append=1 args=1 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=63 append=63 args=63 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=64 append=64 args=64 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=65 append=65 args=65 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=127 append=127 args=127 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=128 append=128 args=128 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=129 append=129 args=129 cells=1 dispatch=1 unique/range=PASS oracle=True
+count=5003 append=5003 args=5003 cells=1 dispatch=1 unique/range=PASS oracle=True
+Player rendering, font, GI resources, 4 animations, 8 views, PC/Mobile, counts/distances/batch and GPU boundaries PASS
+UnityErrorsDuringCommand=0
+COMMAND PASS
+
+=== ordinary-player-starts.json ===
+[
+  {
+    "build": "Release",
+    "api": "d3d12",
+    "pid": 68768,
+    "seconds": 10.844,
+    "sceneLoadedLog": true,
+    "expectedAPI": true,
+    "captureExit": 0,
+    "exitCode": 0,
+    "diagnosticReadyUnexpected": false,
+    "errors": [],
+    "exeSha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "nativeImmediateMemory": [],
+    "pass": true
+  },
+  {
+    "build": "Release",
+    "api": "d3d11",
+    "pid": 71504,
+    "seconds": 10.203,
+    "sceneLoadedLog": true,
+    "expectedAPI": true,
+    "captureExit": 0,
+    "exitCode": 0,
+    "diagnosticReadyUnexpected": false,
+    "errors": [],
+    "exeSha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "nativeImmediateMemory": [],
+    "pass": true
+  },
+  {
+    "build": "PlainDevelopment",
+    "api": "d3d12",
+    "pid": 25192,
+    "seconds": 24.656,
+    "sceneLoadedLog": true,
+    "expectedAPI": true,
+    "captureExit": 0,
+    "exitCode": 0,
+    "diagnosticReadyUnexpected": false,
+    "errors": [],
+    "exeSha256": "4c93a4bb060a12b9044ab2103835dd1565aec9aa8381372fa84fbbc14a19b989",
+    "nativeImmediateMemory": [
+      {
+        "type": "MemoryLeaks",
+        "version": 2,
+        "phase": "Immediate",
+        "time": 1793075868025,
+        "processId": 25192,
+        "allocatedMemory": 571048,
+        "memoryLabels": [
+          {
+            "Default": 5368
+          },
+          {
+            "Thread": 9408
+          },
+          {
+            "Manager": 534039
+          },
+          {
+            "GfxDevice": 2448
+          },
+          {
+            "GfxThread": 5376
+          },
+          {
+            "Animation": 800
+          },
+          {
+            "Audio": 752
+          },
+          {
+            "Serialization": 408
+          },
+          {
+            "Input": 2440
+          },
+          {
+            "String": 481
+          },
+          {
+            "PoolAlloc": 288
+          },
+          {
+            "ScriptManager": 5696
+          },
+          {
+            "CodeReload": 440
+          },
+          {
+            "CloudService": 144
+          },
+          {
+            "VR": 1928
+          },
+          {
+            "Video": 144
+          },
+          {
+            "NativeArray": 3544
+          },
+          {
+            "Subsystems": 96
+          },
+          {
+            "CoreBusinessMetrics": 128
+          }
+        ]
+      }
+    ],
+    "pass": true
+  }
+]
+
+=== 23-editor-final-state.txt ===
+2026-10-27T12:38:17.2952418+08:00 Unity=6000.6.3f1 capture=state
+Play=False scene=Assets/Scenes/SampleScene.unity dirty=False quality=PC pipeline=PC_RPAsset compilationFailed=False

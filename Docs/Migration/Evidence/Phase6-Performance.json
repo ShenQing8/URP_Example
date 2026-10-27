@@ -1,0 +1,210 @@
+{
+  "DX11/20-profile-dx11.csv": {
+    "rows": 2700,
+    "steadyRows": 1800,
+    "deduplicatedFrameTimings": 1800,
+    "steadyMs": {
+      "cpuFrameMs": {
+        "n": 1800,
+        "mean": 16.671202944444445,
+        "median": 16.667050000000003,
+        "p95": 16.6775,
+        "max": 18.5517,
+        "min": 16.5432
+      },
+      "cpuMainMs": {
+        "n": 1800,
+        "mean": 2.1123139444444443,
+        "median": 2.04555,
+        "p95": 2.677,
+        "max": 3.9562,
+        "min": 1.5009
+      },
+      "cpuRenderMs": {
+        "n": 1800,
+        "mean": 0.578923,
+        "median": 0.56215,
+        "p95": 0.7393,
+        "max": 1.2075,
+        "min": 0.4278
+      },
+      "gpuMs": {
+        "n": 1800,
+        "mean": 0.6450251377777778,
+        "median": 0.638976,
+        "p95": 0.669696,
+        "max": 1.025024,
+        "min": 0.567296
+      }
+    },
+    "steadyMainThreadRecorderMs": {
+      "n": 1800,
+      "mean": 16.665551666666666,
+      "median": 16.6615,
+      "p95": 16.6698,
+      "max": 18.5433,
+      "min": 16.5353
+    },
+    "sampledMemoryPeak": {
+      "allocated": 208437370,
+      "reserved": 635830272,
+      "graphicsEstimate": 84167506
+    }
+  },
+  "DX12Final/07-profile-pc.csv": {
+    "rows": 3599,
+    "steadyRows": 2699,
+    "deduplicatedFrameTimings": 2699,
+    "steadyMs": {
+      "cpuFrameMs": {
+        "n": 2699,
+        "mean": 16.670253797702852,
+        "median": 16.667,
+        "p95": 16.6747,
+        "max": 17.5395,
+        "min": 16.5826
+      },
+      "cpuMainMs": {
+        "n": 2699,
+        "mean": 1.9995058540200075,
+        "median": 1.952,
+        "p95": 2.4088,
+        "max": 4.514,
+        "min": 1.478
+      },
+      "cpuRenderMs": {
+        "n": 2699,
+        "mean": 0.7312017043349389,
+        "median": 0.6894,
+        "p95": 0.96,
+        "max": 1.3616,
+        "min": 0.5653
+      },
+      "gpuMs": {
+        "n": 2699,
+        "mean": 0.747878722489811,
+        "median": 0.749568,
+        "p95": 0.786432,
+        "max": 0.889856,
+        "min": 0.662528
+      }
+    },
+    "steadyMainThreadRecorderMs": {
+      "n": 2699,
+      "mean": 16.664833345683586,
+      "median": 16.6617,
+      "p95": 16.6683,
+      "max": 17.5335,
+      "min": 16.578
+    },
+    "sampledMemoryPeak": {
+      "allocated": 213094099,
+      "reserved": 635895808,
+      "graphicsEstimate": 392720368
+    }
+  },
+  "DX12Final/08-profile-mobile.csv": {
+    "rows": 3600,
+    "steadyRows": 2700,
+    "deduplicatedFrameTimings": 2700,
+    "steadyMs": {
+      "cpuFrameMs": {
+        "n": 2700,
+        "mean": 16.670219333333332,
+        "median": 16.667,
+        "p95": 16.6769,
+        "max": 17.2436,
+        "min": 16.5525
+      },
+      "cpuMainMs": {
+        "n": 2700,
+        "mean": 1.7995073333333333,
+        "median": 1.7406,
+        "p95": 2.2564,
+        "max": 3.3139,
+        "min": 1.3063
+      },
+      "cpuRenderMs": {
+        "n": 2700,
+        "mean": 0.5512312962962963,
+        "median": 0.53725,
+        "p95": 0.6934,
+        "max": 1.0354,
+        "min": 0.4162
+      },
+      "gpuMs": {
+        "n": 2700,
+        "mean": 0.26802773333333335,
+        "median": 0.257024,
+        "p95": 0.293888,
+        "max": 0.30208,
+        "min": 0.239616
+      }
+    },
+    "steadyMainThreadRecorderMs": {
+      "n": 2700,
+      "mean": 16.664689703703704,
+      "median": 16.6616,
+      "p95": 16.6705,
+      "max": 17.2374,
+      "min": 16.5468
+    },
+    "sampledMemoryPeak": {
+      "allocated": 209474789,
+      "reserved": 635895808,
+      "graphicsEstimate": 361527808
+    }
+  },
+  "DX12Final/09-profile-high.csv": {
+    "rows": 2700,
+    "steadyRows": 1800,
+    "deduplicatedFrameTimings": 1800,
+    "steadyMs": {
+      "cpuFrameMs": {
+        "n": 1800,
+        "mean": 16.67069861111111,
+        "median": 16.6669,
+        "p95": 16.677,
+        "max": 17.3983,
+        "min": 16.5468
+      },
+      "cpuMainMs": {
+        "n": 1800,
+        "mean": 2.9570774444444443,
+        "median": 2.9164,
+        "p95": 3.3735,
+        "max": 4.0396,
+        "min": 2.432
+      },
+      "cpuRenderMs": {
+        "n": 1800,
+        "mean": 0.7321082777777778,
+        "median": 0.6842,
+        "p95": 0.9622,
+        "max": 1.4311,
+        "min": 0.5645
+      },
+      "gpuMs": {
+        "n": 1800,
+        "mean": 0.7553813333333333,
+        "median": 0.75776,
+        "p95": 0.787456,
+        "max": 0.896,
+        "min": 0.669696
+      }
+    },
+    "steadyMainThreadRecorderMs": {
+      "n": 1800,
+      "mean": 16.665178555555556,
+      "median": 16.6616,
+      "p95": 16.6692,
+      "max": 17.3918,
+      "min": 16.5413
+    },
+    "sampledMemoryPeak": {
+      "allocated": 216864758,
+      "reserved": 904396800,
+      "graphicsEstimate": 536336768
+    }
+  }
+}
