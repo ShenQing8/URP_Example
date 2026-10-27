@@ -5,7 +5,7 @@
 ## 当前摘要
 
 - **当前阶段**：阶段 6 完成，结论限本机 Windows x64／Mono Player 的 DX12／DX11；阶段 2～5 的历史验收保持。报告、真实数据与限制见 [Phase6.md](Phase6.md)，未把未测设备标为完成。
-- **当前授权**：用户已批准阶段 6 集成、构建、运行、Profiler／启停／资源验证、必要修复与本地提交；Summary 用中文，不推送。本轮范围内工作已完成。
+- **当前授权**：阶段 6 实施授权与提交已完成；本轮用户要求复核阶段 6 交接和相关文档，并按 AGENTS 记录复核结论。本轮不启动新增平台／耐久测试，不新增提交或推送。
 - **接手 Git**：实际根 `E:\GithubRepositories\URP_Example`；main 跟踪 origin/main；接手 HEAD／阶段 5 提交为 `707212f087763d0c55704166fbe1c870605b1f58`。开始时唯一未提交改动为下方阶段 5 复核记录，全文保留并随本轮 Status 交接。origin 为 `https://github.com/ShenQing8/URP_Example.git`，查询远程默认 main／HEAD 为 `8b79517a4128c21ade3b42f4fb5af4cf3ed267c3`；不切旧分支、不推送。
 - **版本与会话**：重新核对 Unity `6000.6.3f1 (45d8eee7de74)`、URP／Core／Shader Graph `17.6.0`、Input System `1.20.0`；全程复用目标 Editor PID 32380，无源编辑器或第二项目会话。最终全部 Player 已正常退出；Editor 为 Edit／SampleScene／dirty=False／PC，C# compilationFailed=False。
 - **构建与普通运行**：最终 Release、显式诊断 Development、普通 Development 均由 Unity 成功构建，0 error／0 warning。最终 Release 分别以 DX12／DX11 真实启动，普通 Development 以 DX12 启动，首场景、画面、字体及正常退出通过；普通产物没有诊断类型／复制钩子，即使传入诊断参数也不启动辅助。
@@ -15,8 +15,18 @@
 - **持续运行／释放**：DX12 20 次禁用／重启、5 次场景往返及实际 600.038 秒持续运行；DX11 5 次禁用、5 次场景往返、20.040 秒短期运行。旧 positions／visible／args 失效、旧 Mesh 销毁和重载恢复通过；后段程序 Mesh=1、RT=14，未见持续增长；新增 Unity Error／Exception／Assert=0。RT 图池保留和退出 Immediate 内存摘要均记录，不宣称全天／引擎零残留。
 - **保护**：源 88 文件摘要仍为 `5fc3140fbb1d2d37f9beab286f80d0ea6b78eb0ee367271394ccdbb399626075`，源 master／HEAD／四项既有改动不变；33 原 meta 保留。包、全部现代设置、两个 Lit、旧 GI／烘焙和场景字节保持；本轮唯一既有 Assets 内容变化是把既有观察钩子限定扩展到显式诊断构建。70 Assets GUID 无重复、无包冲突、无缺 meta。
 - **保留差异／未验证**：FPS／字体仍为等价替代；两个 Lit 官方升级和局部 BlendProbes／旧 GI 未重烘焙的边界保持。Mobile 0.8 空 Overlay 差异保留原记录，未新做 Player 像素等价验证。Android／Vulkan／Metal／XR／其他设备、RGBA8 fallback、小时／全天耐久及全部驱动瞬态峰值未验证。退出 Immediate 分配摘要未完全归因，见报告，不隐藏为零。
-- **证据／提交**：小证据为 Evidence/Phase6-*；完整日志、截图、CSV／Profiler 捕获在 `Logs/MigrationPhase6-20261027`，三个构建在 `Builds/Phase6`，大产物不入 Git。本地阶段提交含本 Status 和保留的复核记录，可用 `git log -1 -- Docs/Migration/Phase6.md` 定位；实际 SHA／提交后状态在交接答复给出。
-- **下一步**：可做阶段 6 交接复核；新增平台／设备与更长耐久另定范围，不自动推送。启动提示见下方。
+- **证据／提交**：小证据为 Evidence/Phase6-*；完整日志、截图、CSV／Profiler 捕获在 `Logs/MigrationPhase6-20261027`，三个构建在 `Builds/Phase6`，大产物不入 Git。阶段 6 提交为 `f4ce488f14a7c449f93ff0212735f35f0b0c33c0`，包含阶段 5 历史复核记录；本轮仅更新本 Status，保留未提交。
+- **下一步**：阶段 6 交接复核通过，本机 Windows 范围的计划验收已完成，无需自动进入额外阶段。新增平台／设备与更长耐久另定范围，不自动推送。启动提示见下方。
+
+### 阶段 6 交接复核（2026-10-27）
+
+- 已核验阶段 6 提交 `f4ce488f14a7c449f93ff0212735f35f0b0c33c0`，父提交为阶段 5 的 `707212f087763d0c55704166fbe1c870605b1f58`。当前 main 跟踪 origin/main，本地跟踪状态领先 2 个提交，复核开始时工作区干净；本轮没有重新查询远程引用。
+- 阅读 AGENTS／Status／Plan／Audit／Phase6／README、全部证据类型和 18 文件的阶段差异，检查构建辅助、场景注入、运行诊断、Profiler 分析及 RenderGraph 观察钩子的条件编译。诊断仅进入显式 GRASS_PLAYER_VALIDATION Development 构建；普通 Release／Development 不含诊断类型和图复制钩子。未发现阻挡已执行 Windows 范围验收的问题。
+- 独立重算 Phase6-Checks 中 118 份本地原始证据的 SHA-256，全部匹配；4 份已提交文本汇总包含的 29 份原始报告正文逐一匹配。三套构建逐文件重算完整清单、文件数／体积及 EXE／程序集摘要，均与交接清单一致：Release 188 文件／106,458,857 字节，显式诊断 Development 307 文件／173,541,658 字节，普通 Development 307 文件／173,499,659 字节。
+- 从四份原始性能 CSV 独立重算去重、剔除初始 15 秒后的统计和采样内存峰值，与 Phase6-Performance.json 完全一致；有效稳定帧分别为 DX12 PC 2699、Mobile 2700、10M 1800 和 DX11 PC 1800。Profiler 无效列未解释为零耗时，限帧周期未解释为 CPU 实际工作量。
+- 源 88 文件摘要仍为 `5fc3140fbb1d2d37f9beab286f80d0ea6b78eb0ee367271394ccdbb399626075`，33 个原 meta 哈希保持。相对阶段 5，Packages／ProjectSettings／现代 Assets/Settings 无变化；64 处协作／迁移文档及 README 的本地链接可解析。
+- 复核接受的完成范围为本机 Windows x64／Mono、DX12／DX11 Player；保留退出 Immediate 分配摘要未完全归因的限制，不宣称零泄漏。其他设备／图形 API、RGBA8 fallback、小时／全天耐久和 Player 空 Overlay 像素等价仍未验证，不能据本轮结论扩大验收范围。
+- 本轮为现有代码、构建和真实执行证据的独立复核，没有重新启动 Unity、构建或运行 Player。仅更新本 Status，保留未提交；没有修改功能代码、资源或设置，没有提交或推送。后续无需必须实施的新阶段，新增测试须先明确设备和范围。
 
 ### 阶段 5 交接复核（2026-10-27）
 
@@ -126,16 +136,16 @@
 
 完整本地证据：`E:\GithubRepositories\URP_Example\Logs\MigrationPhase1-20261027`；原 Editor.log 切片起点为字节 2363677。可提交的简要导入输出、引用摘要及哈希清单见 [Phase1.md](Phase1.md) 的证据链接。Logs、Library 和大体积日志不提交。
 
-## 下一对话入口（Windows 阶段 6 已完成）
+## 下一对话入口（Windows 验收及交接复核已完成）
 
 ```text
-复核 Unity 草地迁移阶段 6 交接。
+继续 Unity 草地项目，具体新任务由本次用户说明；现有 Windows 验收及交接复核已完成。
 目标为当前仓库根（本机 E:\GithubRepositories\URP_Example）；源 E:\GithubRepositories\URP_MeshInstancedIndirectExample\Res 保持只读。
 先读 AGENTS.md、Status.md、Plan.md、Phase6.md，并核对实际根、origin、main／origin/main、HEAD 和工作区。
-阶段 6 提交用 git log -1 -- Docs/Migration/Phase6.md 定位，补记实际 SHA；保留阶段 5 的历史复核记录。
+阶段 6 提交为 f4ce488f14a7c449f93ff0212735f35f0b0c33c0；保留阶段 5／6 的历史复核记录，识别本 Status 尚未提交的复核更新。
 当前完成范围为本机 Windows x64 Mono Player／DX12／DX11，含真实 GPU、Profiler、资源释放和 DX12 600 秒持续运行。
 保留 Mobile 0.8 Overlay、局部 BlendProbes、材质／字体替代和 Immediate 内存摘要的边界；不宣称其他设备或全天耐久通过。
-本次先做交接复核；新增平台／设备测试需明确实际设备和授权范围，不自动推送。
+不自动开始新阶段；新增平台／设备测试需明确实际设备和授权范围，提交／推送按用户明确授权执行。
 ```
 
 ## 活动记录
